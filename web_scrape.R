@@ -1,6 +1,7 @@
 library(tidyverse)
 library(rvest)
 library(lubridate)
+library(RSelenium)
 
 page <- read_html("https://www.transfermarkt.com/spieler-statistik/wertvollstespieler/marktwertetop?land_id=0&ausrichtung=alle&spielerposition_id=alle&altersklasse=alle&jahrgang=0&plus=1")
 
