@@ -46,10 +46,10 @@ We can see that the most common position among the top 50 players is Centre-Forw
 ```{r age, echo=FALSE}
 players_combined <- players_combined %>%
   mutate(age_range = case_when(
-    age>30  ~ "above 30",
-    26<=age & age<=30     ~ "26-30",
-    21<=age & age<=25     ~ "21-25",
-    age<=20  ~ "under 20"
+    age > 30 ~ "above 30",
+    26 <= age & age <= 30 ~ "26-30",
+    21 <= age & age <= 25 ~ "21-25",
+    age <= 20 ~ "under 20"
   ))
 players_combined %>%
   count(age_range)
@@ -59,8 +59,10 @@ We have tried to classify the players by age. Most players age between 26 and 30
 
 ```{r matches, echo=FALSE}
 players_combined %>%
-  summarise(mean_matches = mean(matches), sd_matches = sd(matches), mean_goals = mean(goals), 
-            sd_goals = sd(goals), mean_assists = mean(assists), sd_assists = sd(assists))
+  summarise(
+    mean_matches = mean(matches), sd_matches = sd(matches), mean_goals = mean(goals),
+    sd_goals = sd(goals), mean_assists = mean(assists), sd_assists = sd(assists)
+  )
 ```
 
 The average matches played during season 2018-2019 by these top 50 players is 17.34 and the standard deviation is 3.51.
@@ -76,7 +78,7 @@ We can see that until now, 38 among the 50 players have got yellow cards during 
 
 ```{r red_card, echo=FALSE}
 players_combined %>%
-  filter(red_cards!=0) %>%
+  filter(red_cards != 0) %>%
   select(name, red_cards)
 ```
 
@@ -86,7 +88,7 @@ In season 2018-2019, there are 3 players who have already got red card in a matc
 players_combined %>%
   summarise(max_value = max(market_value), min_value = min(market_value))
 players_combined %>%
-  filter(market_value>=100) %>%
+  filter(market_value >= 100) %>%
   summarise(value_above_100m = n())
 ```
 
@@ -100,8 +102,10 @@ players_combined %>%
   ggplot(mapping = aes(x = position, y = goals)) +
   geom_col() +
   coord_flip() +
-  labs(title = "Position and goals scored", 
-       x = "Player Position", y = "Goals Scored")
+  labs(
+    title = "Position and goals scored",
+    x = "Player Position", y = "Goals Scored"
+  )
 ```
 
 As can be seen from this plot, the centre forward players scored the most goals and the goalkeeper and centre back players scored 0 goals. This makes sense because it would be very unlikely for a defense player or goalkeeper to get close enough to score a goal. 
@@ -115,8 +119,10 @@ players_combined %>%
   ggplot(mapping = aes(x = position, y = mean_value)) +
   geom_col() +
   coord_flip() +
-  labs(title = "Position and market value", 
-       x = "Player Position", y = "Player Market Value")
+  labs(
+    title = "Position and market value",
+    x = "Player Position", y = "Player Market Value"
+  )
 ```
 
 Based on this plot, the right winger on average has the highest market value and the left back players on average has the lowest market value. 
@@ -134,7 +140,7 @@ Glimpse of dataframe and its dimension:
 glimpse(players_combined)
 
 
-# Dimension of data: 
+# Dimension of data:
 dim(players_combined)
 ```
 
