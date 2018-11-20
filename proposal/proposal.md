@@ -5,6 +5,29 @@ team-devils
 
 ## Section 1. Introduction
 
+We wish to explore how performance, physical attributes, and general
+characteristics of soccer players impact their market value during a
+season. Through visualizations and modeling, we hope to explore which
+characteristics are more and less determinant of strong performance and
+market value for a player, and whether patterns exist within
+nationalities, teams, age ranges, positions, and more. We plan to first
+minimally use visualizations to discover patterns, and then modeling to
+develop our central questions of which characteristics of players impact
+performance and value.
+
+Our data is a collection of the top 50 players in the 2018-2019 European
+club season. The data comes from a German website titled
+“Transfermarkt”, which is a website dedicated to tracking soccer
+statistics. Each observation is a player, and includes the variables
+name, position, number of matches, number of goals scored, number of own
+goals, number of assists, number of yellow cards, number of red cards,
+number of substitutions on, number of substitutions off, and market
+value. The data was obtained from transfermarkt.com through web scraping
+tools learned from the course, and the web\_scrape.R file can be found
+in this R project. We currently have 12 columns and 50 rows scraped, but
+may later during our analysis decide to obtain a few more columns and
+several more rows, depending on where our analysis leads us.
+
 ## Section 2. Data analysis plan
 
     ## Observations: 50
