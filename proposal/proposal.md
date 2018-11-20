@@ -1,4 +1,4 @@
-Football Exploration
+Building the Perfect Football Player
 ================
 team-devils
 9/19/2018
@@ -30,20 +30,24 @@ several more rows, depending on where our analysis leads us.
 
 ## Section 2. Data analysis plan
 
-    ## Observations: 50
-    ## Variables: 12
-    ## $ name            <fct> Kylian Mbappé, Neymar, Lionel Messi, Mohamed S...
-    ## $ position        <fct> Right Winger, Left Winger, Right Winger, Right...
-    ## $ age             <int> 19, 26, 31, 26, 25, 27, 27, 26, 27, 25, 22, 25...
-    ## $ matches         <int> 18, 21, 13, 17, 21, 22, 5, 20, 20, 18, 13, 19,...
-    ## $ goals           <int> 15, 16, 14, 8, 11, 8, 0, 6, 10, 6, 2, 9, 9, 10...
-    ## $ own_goals       <int> 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0...
-    ## $ assists         <int> 8, 13, 6, 4, 4, 4, 1, 4, 5, 3, 1, 2, 6, 2, 7, ...
-    ## $ yellow_cards    <int> 4, 5, 1, 0, 4, 1, 1, 1, 1, 2, 0, 2, 0, 0, 2, 4...
-    ## $ red_cards       <int> 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0...
-    ## $ substituted_on  <int> 3, 1, 1, 1, 1, 0, 3, 4, 5, 3, 3, 3, 0, 2, 7, 3...
-    ## $ substituted_off <int> 2, 5, 1, 6, 4, 8, 2, 10, 6, 6, 3, 2, 0, 3, 5, ...
-    ## $ market_value    <int> 180, 180, 180, 150, 150, 150, 150, 150, 150, 1...
+### Variables
+
+The responsible is the market value of a player, and the explanatory
+variables are position, age, matches, goals, own goals, assists, yellow
+cards, and red cards.
+
+We will first test to see if each variable makes a significant
+difference in the market value of a player using hypotheses testing. For
+the variables that show significant correlation, we will also calculate
+a confidence interval using bootstrapping. Then, we will make a model
+for `market_value`, using all of the explanatory variables and the
+possible interactions between them (e.g. the interaction between
+`position` and `goals` because common knowledge tells us that there will
+be a correlation between the two). After we make the model, we will
+perform a backwards selection to remove the unnecessary variables. We
+will test the final model on partitions of our data to evaluate it, and
+in the end attempt to come up with a generalization about the conditions
+that will produce the highest market value.
 
 ### Summary Statistics
 
@@ -180,7 +184,7 @@ dataset with a market value higher than 100 million euro.
 
 ``` r
 players_combined %>%
-  mutate(position = fct_reorder(position, goals)) %>%
+  mutate(position = fct_reorder(position, goals)) %>% # The plot still does not reorder correctly
   ggplot(mapping = aes(x = position, y = goals)) +
   geom_col() +
   coord_flip() +
@@ -194,7 +198,7 @@ players_combined %>%
 players_combined %>%
   group_by(position) %>%
   summarise(mean_value = mean(market_value)) %>%
-  mutate(position = fct_reorder(position, mean_value)) %>%
+  mutate(position = fct_reorder(position, mean_value)) %>% # However, the same code here produces a correct reordering
   ggplot(mapping = aes(x = position, y = mean_value)) +
   geom_col() +
   coord_flip() +
@@ -205,3 +209,23 @@ players_combined %>%
 ![](proposal_files/figure-gfm/position_value-1.png)<!-- -->
 
 ## Section 3. Data
+
+``` r
+glimpse(players_combined)
+```
+
+    ## Observations: 50
+    ## Variables: 13
+    ## $ name            <fct> Kylian Mbappé, Neymar, Lionel Messi, Mohamed S...
+    ## $ position        <fct> Right Winger, Left Winger, Right Winger, Right...
+    ## $ age             <int> 19, 26, 31, 26, 25, 27, 27, 26, 27, 25, 22, 25...
+    ## $ matches         <int> 18, 21, 13, 17, 21, 22, 5, 20, 20, 18, 13, 19,...
+    ## $ goals           <int> 15, 16, 14, 8, 11, 8, 0, 6, 10, 6, 2, 9, 9, 10...
+    ## $ own_goals       <int> 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0...
+    ## $ assists         <int> 8, 13, 6, 4, 4, 4, 1, 4, 5, 3, 1, 2, 6, 2, 7, ...
+    ## $ yellow_cards    <int> 4, 5, 1, 0, 4, 1, 1, 1, 1, 2, 0, 2, 0, 0, 2, 4...
+    ## $ red_cards       <int> 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0...
+    ## $ substituted_on  <int> 3, 1, 1, 1, 1, 0, 3, 4, 5, 3, 3, 3, 0, 2, 7, 3...
+    ## $ substituted_off <int> 2, 5, 1, 6, 4, 8, 2, 10, 6, 6, 3, 2, 0, 3, 5, ...
+    ## $ market_value    <int> 180, 180, 180, 150, 150, 150, 150, 150, 150, 1...
+    ## $ age_range       <chr> "under 20", "26-30", "above 30", "26-30", "21-...

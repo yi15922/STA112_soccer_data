@@ -1,5 +1,5 @@
 ---
-title: "Football Exploration"
+title: "Building the Perfect Football Player"
 author: "team-devils"
 date: "9/19/2018"
 output: github_document
@@ -21,9 +21,14 @@ Our data is a collection of the top 50 players in the 2018-2019 European club se
 
 ## Section 2. Data analysis plan
 
+### Variables
+
+The responsible is the market value of a player, and the explanatory variables are position, age, matches, goals, own goals, assists, yellow cards, and red cards. 
+
+We will first test to see if each variable makes a significant difference in the market value of a player using hypotheses testing. For the variables that show significant correlation, we will also calculate a confidence interval using bootstrapping. Then, we will make a model for `market_value`, using all of the explanatory variables and the possible interactions between them (e.g. the interaction between `position` and `goals` because common knowledge tells us that there will be a correlation between the two). After we make the model, we will perform a backwards selection to remove the unnecessary variables. We will test the final model on partitions of our data to evaluate it, and in the end attempt to come up with a generalization about the conditions that will produce the highest market value. 
+
 ```{r load-data, echo=FALSE}
 players_combined <- read.csv("players_combined.csv")
-glimpse(players_combined)
 ```
 
 ### Summary Statistics
@@ -106,7 +111,7 @@ In the dataset, the maximum player value is 180 million euro and the minimum pla
 
 ```{r position_goals, fig.width = 10}
 players_combined %>%
-  mutate(position = fct_reorder(position, goals)) %>%
+  mutate(position = fct_reorder(position, goals)) %>% # The plot still does not reorder correctly
   ggplot(mapping = aes(x = position, y = goals)) +
   geom_col() +
   coord_flip() +
@@ -117,12 +122,10 @@ players_combined %>%
 
 
 ```{r position_value, fig.width = 7}
-
-
 players_combined %>%
   group_by(position) %>%
   summarise(mean_value = mean(market_value)) %>%
-  mutate(position = fct_reorder(position, mean_value)) %>%
+  mutate(position = fct_reorder(position, mean_value)) %>% # However, the same code here produces a correct reordering
   ggplot(mapping = aes(x = position, y = mean_value)) +
   geom_col() +
   coord_flip() +
@@ -132,3 +135,9 @@ players_combined %>%
 
 
 ## Section 3. Data
+
+```{r glimpse_data}
+glimpse(players_combined)
+
+```
+
