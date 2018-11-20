@@ -9,26 +9,53 @@ We wish to explore how performance, physical attributes, and general
 characteristics of soccer players impact their market value during a
 season. Through visualizations and modeling, we hope to explore which
 characteristics are more and less determinant of strong performance and
-market value for a player, and whether patterns exist within
-nationalities, teams, age ranges, positions, and more. We plan to first
-minimally use visualizations to discover patterns, and then modeling to
-develop our central questions of which characteristics of players impact
-performance and value.
+market value for a player, and whether patterns exist within goals,
+assists, age ranges, positions, and more. We plan to first minimally use
+visualizations to discover patterns, and then modeling to develop our
+central questions of which characteristics of players impact performance
+and value.
 
-Our data is a collection of the top 50 players in the 2018-2019 European
-club season. The data comes from a German website titled
-“Transfermarkt”, which is a website dedicated to tracking soccer
-statistics. Each observation is a player, and includes the variables
-name, position, number of matches, number of goals scored, number of own
-goals, number of assists, number of yellow cards, number of red cards,
-number of substitutions on, number of substitutions off, and market
-value. The data was obtained from transfermarkt.com through web scraping
-tools learned from the course, and the web\_scrape.R file can be found
-in this R project. We currently have 12 columns and 50 rows scraped, but
-may later during our analysis decide to obtain a few more columns and
-several more rows, depending on where our analysis leads us.
+Our data is a collection of the top 50 valuable players in the 2018-2019
+European club season. The data comes from a professional German soccer
+statistics website titled “Transfermarkt”, which is a website dedicated
+to tracking player’s market values and performances. Each observation is
+a player, and includes the variables name, position, number of matches,
+number of goals scored, number of own goals, number of assists, number
+of yellow cards, number of red cards, number of substitutions on, number
+of substitutions off, and market value. The data was obtained from
+transfermarkt.com through web scraping tools learned from the course,
+and the web\_scrape.R file can be found in this R project. We currently
+have 12 columns and 50 rows scraped, but may later during our analysis
+decide to obtain a few more columns and several more rows, depending on
+where our analysis leads us.
+
+Source of data: Transfermarkt.com is a leading media in reporting soccer
+transfer news and they have connections with all the major leagues and
+clubs across Europe, South America, and Asia. The player statistics are
+generated after each match and analyzed by professional scouts and
+soccer analysts.
 
 ## Section 2. Data analysis plan
+
+## Variables
+
+Currently, there are 12 variables in our dataframe: name (name of
+players) position (player’s position on field) age matches (total
+appearances in season 2018-2019) goals (goals scored in season
+2018-2019) own\_goals (own goals scored in season 2018-2019) assists
+(total assists made in season 2018-2019) yellow\_cards (yellow cards got
+in season 2018-2019) red\_cards (red cards got in season 2018-2019)
+substituted\_on (times of being substituted onto the field in season
+2018-2019) substituted\_off (times of being substituted off the field in
+season 2018-2019) market\_value (up-to-dated value of the player in
+transfer market)
+
+Here we use 10 variables as predictors (position, age, matches, goals,
+own\_goals, assists, yellow\_cards, red\_cards, substituted\_on,
+substituted\_off). These variables are used to predict the final outcome
+variable —- market\_value.
+
+## Preliminary Summary data and Visualization
 
     ## Observations: 50
     ## Variables: 12
