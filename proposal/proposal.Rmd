@@ -21,6 +21,8 @@ players_combined <- read.csv("players_combined.csv")
 glimpse(players_combined)
 ```
 
+### Summary Statistics
+
 ```{r summary-statistics, echo=FALSE}
 players_combined %>%
   count(position)
@@ -94,5 +96,34 @@ players_combined %>%
 ```
 
 In the dataset, the maximum player value is 180 million euro and the minimum player value is 65 million euro. There are 13 players in the dataset with a market value higher than 100 million euro.
+
+### Visualizations
+
+```{r position_goals, fig.width = 10}
+players_combined %>%
+  mutate(position = fct_reorder(position, goals)) %>%
+  ggplot(mapping = aes(x = position, y = goals)) +
+  geom_col() +
+  coord_flip() +
+  labs(title = "Position and goals scored", 
+       x = "Player Position", y = "Goals Scored")
+```
+
+
+
+```{r position_value, fig.width = 7}
+
+
+players_combined %>%
+  group_by(position) %>%
+  summarise(mean_value = mean(market_value)) %>%
+  mutate(position = fct_reorder(position, mean_value)) %>%
+  ggplot(mapping = aes(x = position, y = mean_value)) +
+  geom_col() +
+  coord_flip() +
+  labs(title = "Position and market value", 
+       x = "Player Position", y = "Player Market Value")
+```
+
 
 ## Section 3. Data

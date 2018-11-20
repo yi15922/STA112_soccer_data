@@ -22,6 +22,8 @@ team-devils
     ## $ substituted_off <int> 2, 5, 1, 6, 4, 8, 2, 10, 6, 6, 3, 2, 0, 3, 5, ...
     ## $ market_value    <int> 180, 180, 180, 150, 150, 150, 150, 150, 150, 1...
 
+### Summary Statistics
+
     ## # A tibble: 10 x 2
     ##    position               n
     ##    <fct>              <int>
@@ -150,5 +152,33 @@ players_combined %>%
 In the dataset, the maximum player value is 180 million euro and the
 minimum player value is 65 million euro. There are 13 players in the
 dataset with a market value higher than 100 million euro.
+
+### Visualizations
+
+``` r
+players_combined %>%
+  mutate(position = fct_reorder(position, goals)) %>%
+  ggplot(mapping = aes(x = position, y = goals)) +
+  geom_col() +
+  coord_flip() +
+  labs(title = "Position and goals scored", 
+       x = "Player Position", y = "Goals Scored")
+```
+
+![](proposal_files/figure-gfm/position_goals-1.png)<!-- -->
+
+``` r
+players_combined %>%
+  group_by(position) %>%
+  summarise(mean_value = mean(market_value)) %>%
+  mutate(position = fct_reorder(position, mean_value)) %>%
+  ggplot(mapping = aes(x = position, y = mean_value)) +
+  geom_col() +
+  coord_flip() +
+  labs(title = "Position and market value", 
+       x = "Player Position", y = "Player Market Value")
+```
+
+![](proposal_files/figure-gfm/position_value-1.png)<!-- -->
 
 ## Section 3. Data
