@@ -9,91 +9,12 @@ output: github_document
 knitr::opts_chunk$set(echo = TRUE)
 ```
 
-```{r}
+```{r load_packages, include = FALSE}
 library(tidyverse)
 library(broom)
 library(rvest)
 ```
 
-
-```{r load-data, echo=FALSE}
-players_combined <- read.csv("data/players_combined.csv")
-glimpse(players_combined)
-```
-
-```{r summary-statistics, echo=FALSE}
-players_combined %>%
-  count(position)
-```
-
-We can see that the most common position among the top 50 players is Centre-Forward. Most players are attackers or midfielders instead of defenders.
-
-```{r age}
-players_combined <- players_combined %>%
-  mutate(age_range = case_when(
-    age>30  ~ "above 30",
-    26<=age & age<=30     ~ "26-30",
-    21<=age & age<=25     ~ "21-25",
-    age<=20  ~ "under 20"
-  ))
-players_combined %>%
-  count(age_range)
-```
-
-We have tried to classify the players by age. Most players age between 26 and 30. There are 3 players above 30 years old and there's also one player who is younger than 20.
-
-```{r matches, echo=FALSE}
-players_combined %>%
-  summarise(mean_matches = mean(matches))
-players_combined %>%
-  summarise(sd_matches = sd(matches))
-```
-
-The average matches played during season 2018-2019 by these top 50 players is 17.34 and the standard deviation is 3.51.
-
-```{r goals, echo=FALSE}
-players_combined %>%
-  summarise(mean_goals = mean(goals))
-players_combined %>%
-  summarise(sd_goals = sd(goals))
-```
-
-The average goals scored during season 2018-2019 by these top 50 players is 5.22 and the standard deviation is 4.51.
-
-```{r assists, echo=FALSE}
-players_combined %>%
-  summarise(mean_assists = mean(assists))
-players_combined %>%
-  summarise(sd_assists = sd(assists))
-```
-
-The average assists made during season 2018-2019 by these top 50 players is 3.04 and the standard deviation is 2.73.
-
-```{r yellow_cards, echo=FALSE}
-players_combined %>%
-  count(yellow_cards)
-```
-
-We can see that until now, 38 among the 50 players have got yellow cards during season 2018-2019, and the maximum yellow card number is 5.
-
-```{r red_card, echo=FALSE}
-players_combined %>%
-  filter(red_cards!=0)
-```
-
-In season 2018-2019, there are 3 players who have already got red card in a match and being expelled: Kylian Mbappé, Cristiano Ronaldo, and Marcus Rashford.
-
-```{r market_value}
-players_combined %>%
-  summarise(max_value = max(market_value))
-players_combined %>%
-  summarise(min_value = min(market_value))
-players_combined %>%
-  filter(market_value>=100) %>%
-  summarise(value_above_100m = n())
-```
-
-In the dataset, the maximum player value is 180 million euro and the minimum player value is 65 million euro. There are 13 players in the dataset with a market value higher than 100 million euro.
 
 
 Your project goes here! Before you submit, make sure your chunks are turned off with `echo = FALSE`. 
