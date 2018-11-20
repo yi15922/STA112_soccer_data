@@ -56,9 +56,11 @@ possible interactions between them (e.g. the interaction between
 `position` and `goals` because common knowledge tells us that there will
 be a correlation between the two). After we make the model, we will
 perform a backwards selection to remove the unnecessary variables. We
-will test the final model on partitions of our data to evaluate it, and
-in the end attempt to come up with a generalization about the conditions
-that will produce the highest market value.
+can also compare our model of player’s market value with historical data
+so that we can obtain the trend of transfer market. We will test the
+final model on partitions of our data to evaluate it, and in the end
+attempt to come up with a generalization about the conditions that will
+produce the highest market value.
 
 ### Summary Statistics
 
@@ -139,16 +141,25 @@ dataset with a market value higher than 100 million euro.
 
 ![](proposal_files/figure-gfm/position_goals-1.png)<!-- -->
 
+As can be seen from this plot, the centre forward players scored the
+most goals and the goalkeeper and centre back players scored 0 goals.
+This makes sense because it would be very unlikely for a defense player
+or goalkeeper to get close enough to score a goal.
+
 ![](proposal_files/figure-gfm/position_value-1.png)<!-- -->
+
+Based on this plot, the right winger on average has the highest market
+value and the left back players on average has the lowest market value.
 
 ## Expected Results
 
-1.  We can also use existing player’s profile to test the validity of
-    our model.
-2.  We can compare the our model of player’s market value with
-    historical data so that we can obtain the trend of transfer market.
+We expect the variables `goals`, `position`, `matches` and `assists` to
+have the most impact on the player’s market value based on our prior
+knowledge about football, and based on the visualizations above.
 
 ## Section 3. Data
+
+Glimpse of dataframe and its dimension:
 
     ## Observations: 50
     ## Variables: 13

@@ -28,7 +28,7 @@ Here we use 11 variables as predictors (position, age, matches, goals, own_goals
 
 ## Statistical Methods
 
-We will first test to see if each variable makes a significant difference in the market value of a player using hypotheses testing. For the variables that show significant correlation, we will also calculate a confidence interval using bootstrapping. Then, we will make a model for `market_value`, using all of the explanatory variables and the possible interactions between them (e.g. the interaction between `position` and `goals` because common knowledge tells us that there will be a correlation between the two). After we make the model, we will perform a backwards selection to remove the unnecessary variables. We will test the final model on partitions of our data to evaluate it, and in the end attempt to come up with a generalization about the conditions that will produce the highest market value.
+We will first test to see if each variable makes a significant difference in the market value of a player using hypotheses testing. For the variables that show significant correlation, we will also calculate a confidence interval using bootstrapping. Then, we will make a model for `market_value`, using all of the explanatory variables and the possible interactions between them (e.g. the interaction between `position` and `goals` because common knowledge tells us that there will be a correlation between the two). After we make the model, we will perform a backwards selection to remove the unnecessary variables. We can also compare our model of player's market value with historical data so that we can obtain the trend of transfer market. We will test the final model on partitions of our data to evaluate it, and in the end attempt to come up with a generalization about the conditions that will produce the highest market value. 
 
 ```{r load-data, echo=FALSE}
 players_combined <- read.csv("players_combined.csv")
@@ -104,6 +104,7 @@ players_combined %>%
        x = "Player Position", y = "Goals Scored")
 ```
 
+As can be seen from this plot, the centre forward players scored the most goals and the goalkeeper and centre back players scored 0 goals. This makes sense because it would be very unlikely for a defense player or goalkeeper to get close enough to score a goal. 
 
 
 ```{r position_value, fig.width = 7, echo=FALSE}
@@ -118,15 +119,22 @@ players_combined %>%
        x = "Player Position", y = "Player Market Value")
 ```
 
+Based on this plot, the right winger on average has the highest market value and the left back players on average has the lowest market value. 
+
+
 ## Expected Results
 
-1. We can also use existing player's profile to test the validity of our model.
-2. We can compare the our model of player's market value with historical data so that we can obtain the trend of transfer market.
+We expect the variables `goals`, `position`, `matches` and `assists` to have the most impact on the player's market value based on our prior knowledge about football, and based on the visualizations above. 
 
 ## Section 3. Data
 
+Glimpse of dataframe and its dimension: 
+
 ```{r glimpse_data, echo=FALSE}
 glimpse(players_combined)
+
+
+# Dimension of data: 
 dim(players_combined)
 ```
 
