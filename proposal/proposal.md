@@ -1,7 +1,7 @@
 Building the Perfect Football Player
 ================
 Team Devils
-9/19/2018
+11/28/2018
 
 ## Section 1. Introduction
 
@@ -17,23 +17,24 @@ which characteristics of players impact performance and value. In order
 to answer our question, we plan to construct a model which predicts the
 relative market value of any player in the European club league.
 
-Our data is a collection of the top 50 valuable players in the 2018-2019
-European club season. The data comes from a professional German soccer
-statistics website titled “Transfermarkt”, which is a website dedicated
-to tracking player’s market values and performances. Transfermarkt.com
-is a leading media in reporting soccer transfer news and they have
-connections with all of the major leagues and clubs across Europe, South
-America, and Asia. The player statistics are generated after each match
-and analyzed by professional scouts and soccer analysts. Each
-observation is a player, and includes the variables name, position,
-number of matches, number of goals scored, number of own goals, number
-of assists, number of yellow cards, number of red cards, number of
-substitutions on, number of substitutions off, and market value. The
-data was obtained from transfermarkt.com through web scraping tools
-learned from the course, and the web\_scrape.R file can be found in this
-R project. We currently have 12 columns and 50 rows scraped, but may
-later during our analysis decide to obtain a few more columns and
-several more rows, depending on where our analysis leads us.
+Our data is a collection of the top 500 valuable players in the
+2018-2019 European club season (data collected on 11/27/2018). The data
+comes from a professional German soccer statistics website titled
+“Transfermarkt”, which is a website dedicated to tracking player’s
+market values and performances. Transfermarkt.com is a leading media in
+reporting soccer transfer news and they have connections with all of the
+major leagues and clubs across Europe, South America, and Asia. The
+player statistics are generated after each match and analyzed by
+professional scouts and soccer analysts. Each observation is a player,
+and includes the variables name, position, number of matches, number of
+goals scored, number of own goals, number of assists, number of yellow
+cards, number of red cards, number of substitutions on, number of
+substitutions off, and market value. The data was obtained from
+transfermarkt.com through web scraping tools learned from the course,
+and the web\_scrape.R file can be found in this R project. We currently
+have 12 columns and 50 rows scraped, but may later during our analysis
+decide to obtain a few more columns and several more rows, depending on
+where our analysis leads us.
 
 ## Section 2. Data analysis plan
 
@@ -65,83 +66,107 @@ market value.
 
 ### Summary Statistics
 
-    ## # A tibble: 11 x 2
+We can see that the most common position among the top 500 players is
+Central Midfield. The least common positions are Left Midfield and Right
+Midfield.
+
+    ## # A tibble: 13 x 2
     ##    position               n
     ##    <fct>              <int>
-    ##  1 Attacking Midfield     8
-    ##  2 Central Midfield      13
-    ##  3 Centre-Back           12
-    ##  4 Centre-Forward        18
-    ##  5 Defensive Midfield     4
-    ##  6 Goalkeeper             7
-    ##  7 Left Winger           16
-    ##  8 Left-Back              4
-    ##  9 Right Winger          11
-    ## 10 Right-Back             4
-    ## 11 Second Striker         3
+    ##  1 Attacking Midfield    40
+    ##  2 Central Midfield      83
+    ##  3 Centre-Back           82
+    ##  4 Centre-Forward        71
+    ##  5 Defensive Midfield    38
+    ##  6 Goalkeeper            22
+    ##  7 Left Midfield          2
+    ##  8 Left Winger           49
+    ##  9 Left-Back             30
+    ## 10 Right Midfield         2
+    ## 11 Right Winger          47
+    ## 12 Right-Back            26
+    ## 13 Second Striker         8
 
-We can see that the most common position among the top 50 players is
-Centre-Forward. Most players are attackers or midfielders instead of
-defenders.
+We have tried to classify the players by age. Most players age between
+21 and 25. There are 33 players above 30 years old and there are also 26
+players who are younger than 20.
 
     ## # A tibble: 4 x 2
     ##   age_range     n
     ##   <chr>     <int>
-    ## 1 21-25        41
-    ## 2 26-30        51
-    ## 3 above 30      4
-    ## 4 under 20      4
-
-We have tried to classify the players by age. Most players age between
-26 and 30. There are 3 players above 30 years old and there’s also one
-player who is younger than
-    20.
-
-    ##   mean_matches sd_matches mean_goals sd_goals mean_assists sd_assists
-    ## 1        18.09   3.979988       4.33 4.124465         2.74   2.615494
+    ## 1 21-25       248
+    ## 2 26-30       193
+    ## 3 above 30     33
+    ## 4 under 20     26
 
 The average matches played during season 2018-2019 thus far by these top
-50 players is 17.34 and the standard deviation is 3.51. The average
-goals scored during season 2018-2019 thus far by these top 50 players is
-5.22 and the standard deviation is 4.51. The average assists made during
-season 2018-2019 thus far by these top 50 players is 3.04 and the
-standard deviation is 2.73.
+500 players is 15.10 and the standard deviation is 5.78. The average
+goals scored during season 2018-2019 thus far by these top 500 players
+is 2.55 and the standard deviation is 3.24. The average assists made
+during season 2018-2019 thus far by these top 500 players is 1.87 and
+the standard deviation is
+    2.15.
 
-    ## # A tibble: 7 x 2
+    ##   mean_matches sd_matches mean_goals sd_goals mean_assists sd_assists
+    ## 1       15.104   5.777538      2.546 3.241744        1.866   2.149718
+
+Yellow card and red card are good indicators of players’ performance on
+the field. They are given by referee to the players when players foul or
+exhibit behaviors against sport morals. If a player gets two yellow
+cards in a row in a match, he will be given a red card and expelled out
+of the field. We can see that until now, 368 among the 500 players have
+got yellow cards during season 2018-2019, and the maximum yellow card
+number is 9, made by Nicolás Tagliafico.
+
+    ## # A tibble: 9 x 2
     ##   yellow_cards     n
     ##          <int> <int>
-    ## 1            0    19
-    ## 2            1    27
-    ## 3            2    21
-    ## 4            3    13
-    ## 5            4    11
-    ## 6            5     7
-    ## 7            6     2
+    ## 1            0   132
+    ## 2            1   112
+    ## 3            2   105
+    ## 4            3    63
+    ## 5            4    47
+    ## 6            5    24
+    ## 7            6    15
+    ## 8            7     1
+    ## 9            9     1
 
-We can see that until now, 38 among the 50 players have got yellow cards
-during season 2018-2019, and the maximum yellow card number is 5.
+    ##                 name
+    ## 1 Nicolás Tagliafico
 
-    ##                name red_cards
-    ## 1     Kylian Mbappé         1
-    ## 2 Cristiano Ronaldo         1
-    ## 3   Marcus Rashford         1
-    ## 4     Douglas Costa         1
-    ## 5   Gonzalo Higuain         1
-    ## 6       Richarlison         1
-
-In season 2018-2019 thus far, there are 3 players who have already
+In season 2018-2019 thus far, there are 18 players who have already
 gotten a red card in a match, meaning they are to be expelled for the
-game: Kylian Mbappé, Cristiano Ronaldo, and Marcus Rashford.
+game.
 
-    ##   max_value min_value
-    ## 1       180        45
-
-    ##   value_above_100m
-    ## 1               13
+    ##                   name red_cards
+    ## 1        Kylian Mbappé         1
+    ## 2    Cristiano Ronaldo         1
+    ## 3      Marcus Rashford         1
+    ## 4        Douglas Costa         1
+    ## 5      Gonzalo Higuaín         1
+    ## 6          Richarlison         1
+    ## 7      Clément Lenglet         1
+    ## 8     Presnel Kimpembe         1
+    ## 9          Hugo Lloris         1
+    ## 10        Abdou Diallo         1
+    ## 11      Danilo Pereira         1
+    ## 12     Matija Nastasic         1
+    ## 13         Jamie Vardy         1
+    ## 14         Dani Parejo         1
+    ## 15     Samu Castillejo         1
+    ## 16 Grzegorz Krychowiak         1
+    ## 17        Jordan Amavi         1
+    ## 18      Theo Hernández         1
 
 In the dataset, the maximum player value is 180 million euros and the
-minimum player value is 65 million euros. There are 13 players in the
+minimum player value is 15 million euros. There are 13 players in the
 dataset with a market value higher than 100 million euros.
+
+    ##   max_value min_value
+    ## 1      1750        15
+
+    ##   value_above_100m
+    ## 1               14
 
 ### Visualizations
 
@@ -167,9 +192,9 @@ knowledge about football, and based on the visualizations above.
 
 Here we will glimpse the dataframe and view its dimensions. The
 dimensions of our data frame, with the addition of the age range
-variable, are 50 observations x 13 variables.
+variable, are 500 observations x 13 variables.
 
-    ## Observations: 100
+    ## Observations: 500
     ## Variables: 13
     ## $ name            <fct> Kylian Mbappé, Neymar, Lionel Messi, Mohamed S...
     ## $ position        <fct> Right Winger, Left Winger, Right Winger, Right...
@@ -185,4 +210,4 @@ variable, are 50 observations x 13 variables.
     ## $ market_value    <int> 180, 180, 180, 150, 150, 150, 150, 150, 150, 1...
     ## $ age_range       <chr> "under 20", "26-30", "above 30", "26-30", "21-...
 
-    ## [1] 100  13
+    ## [1] 500  13

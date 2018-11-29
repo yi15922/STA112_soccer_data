@@ -1,7 +1,7 @@
 ---
 title: "Building the Perfect Football Player"
 author: "Team Devils"
-date: "9/19/2018"
+date: "11/28/2018"
 output: github_document
 ---
 
@@ -16,7 +16,7 @@ library(rvest)
 
 What makes the most valuable soccer player? We wish to explore how performance, physical attributes, and general characteristics of soccer players impact their market value during a season. Through visualizations and modeling, we hope to explore which characteristics are more and less determinant of strong performance and market value for a player, and whether patterns exist within goals, assists, age ranges, positions, and more. We plan to first minimally use visualizations to discover patterns, and then modeling to develop our central questions of which characteristics of players impact performance and value. In order to answer our question, we plan to construct a model which predicts the relative market value of any player in the European club league. 
 
-Our data is a collection of the top 50 valuable players in the 2018-2019 European club season. The data comes from a professional German soccer statistics website titled "Transfermarkt", which is a website dedicated to tracking player's market values and performances. Transfermarkt.com is a leading media in reporting soccer transfer news and they have connections with all of the major leagues and clubs across Europe, South America, and Asia. The player statistics are generated after each match and analyzed by professional scouts and soccer analysts. Each observation is a player, and includes the variables name, position, number of matches, number of goals scored, number of own goals, number of assists, number of yellow cards, number of red cards, number of substitutions on, number of substitutions off, and market value. The data was obtained from transfermarkt.com through web scraping tools learned from the course, and the web_scrape.R file can be found in this R project. We currently have 12 columns and 50 rows scraped, but may later during our analysis decide to obtain a few more columns and several more rows, depending on where our analysis leads us.
+Our data is a collection of the top 500 valuable players in the 2018-2019 European club season (data collected on 11/27/2018). The data comes from a professional German soccer statistics website titled "Transfermarkt", which is a website dedicated to tracking player's market values and performances. Transfermarkt.com is a leading media in reporting soccer transfer news and they have connections with all of the major leagues and clubs across Europe, South America, and Asia. The player statistics are generated after each match and analyzed by professional scouts and soccer analysts. Each observation is a player, and includes the variables name, position, number of matches, number of goals scored, number of own goals, number of assists, number of yellow cards, number of red cards, number of substitutions on, number of substitutions off, and market value. The data was obtained from transfermarkt.com through web scraping tools learned from the course, and the web_scrape.R file can be found in this R project. We currently have 12 columns and 50 rows scraped, but may later during our analysis decide to obtain a few more columns and several more rows, depending on where our analysis leads us.
 
 
 ## Section 2. Data analysis plan
@@ -30,17 +30,19 @@ Here we use 11 variables as predictors (position, age, matches, goals, own_goals
 We will first test to see if each variable makes a significant difference in the market value of a player using hypotheses testing. For the variables that show significant correlation, we will also calculate a confidence interval using bootstrapping. Then, we will make a model for `market_value`, using all of the explanatory variables and the possible interactions between them (e.g. the interaction between `position` and `goals` because common knowledge tells us that there will be a correlation between the two). After we make the model, we will perform a backwards selection to remove the unnecessary variables. If we can obtain the proper data for comparison, we also plan to compare our model of player's market value with historical data so that we can obtain the trend of transfer markets. We will test the final model on partitions of our data to evaluate it, and in the end attempt to come up with a generalization about the conditions that will produce the highest market value. 
 
 ```{r load-data, echo=FALSE}
-players_combined <- read.csv("players_combined.csv")
+players_combined <- read.csv("players1.csv")
 ```
 
 ### Summary Statistics
+
+We can see that the most common position among the top 500 players is Central Midfield. The least common positions are Left Midfield and Right Midfield.
 
 ```{r summary-statistics, echo=FALSE}
 players_combined %>%
   count(position)
 ```
 
-We can see that the most common position among the top 50 players is Centre-Forward. Most players are attackers or midfielders instead of defenders.
+We have tried to classify the players by age. Most players age between 21 and 25. There are 33 players above 30 years old and there are also 26 players who are younger than 20.
 
 ```{r age, echo=FALSE}
 players_combined <- players_combined %>%
@@ -54,7 +56,9 @@ players_combined %>%
   count(age_range)
 ```
 
-We have tried to classify the players by age. Most players age between 26 and 30. There are 3 players above 30 years old and there's also one player who is younger than 20.
+The average matches played during season 2018-2019 thus far by these top 500 players is 15.10 and the standard deviation is 5.78.
+The average goals scored during season 2018-2019 thus far by these top 500 players is 2.55 and the standard deviation is 3.24.
+The average assists made during season 2018-2019 thus far by these top 500 players is 1.87 and the standard deviation is 2.15.
 
 ```{r matches, echo=FALSE}
 players_combined %>%
@@ -64,16 +68,17 @@ players_combined %>%
   )
 ```
 
-The average matches played during season 2018-2019 thus far by these top 50 players is 17.34 and the standard deviation is 3.51.
-The average goals scored during season 2018-2019 thus far by these top 50 players is 5.22 and the standard deviation is 4.51.
-The average assists made during season 2018-2019 thus far by these top 50 players is 3.04 and the standard deviation is 2.73.
+Yellow card and red card are good indicators of players' performance on the field. They are given by referee to the players when players foul or exhibit behaviors against sport morals. If a player gets two yellow cards in a row in a match, he will be given a red card and expelled out of the field. We can see that until now, 368 among the 500 players have got yellow cards during season 2018-2019, and the maximum yellow card number is 9, made by Nicolás Tagliafico.
 
 ```{r yellow_cards, echo=FALSE}
 players_combined %>%
   count(yellow_cards)
+players_combined %>%
+  filter(yellow_cards == 9) %>%
+  select(name)
 ```
 
-We can see that until now, 38 among the 50 players have got yellow cards during season 2018-2019, and the maximum yellow card number is 5.
+In season 2018-2019 thus far, there are 18 players who have already gotten a red card in a match, meaning they are to be expelled for the game.
 
 ```{r red_card, echo=FALSE}
 players_combined %>%
@@ -81,7 +86,7 @@ players_combined %>%
   select(name, red_cards)
 ```
 
-In season 2018-2019 thus far, there are 3 players who have already gotten a red card in a match, meaning they are to be expelled for the game: Kylian Mbappé, Cristiano Ronaldo, and Marcus Rashford.
+In the dataset, the maximum player value is 180 million euros and the minimum player value is 15 million euros. There are 13 players in the dataset with a market value higher than 100 million euros.
 
 ```{r market_value, echo=FALSE}
 players_combined %>%
@@ -90,8 +95,6 @@ players_combined %>%
   filter(market_value >= 100) %>%
   summarise(value_above_100m = n())
 ```
-
-In the dataset, the maximum player value is 180 million euros and the minimum player value is 65 million euros. There are 13 players in the dataset with a market value higher than 100 million euros.
 
 ### Visualizations
 
@@ -133,9 +136,10 @@ We expect the variables `goals`, `position`, `matches` and `assists` to have the
 
 ## Section 3. Data
 
-Here we will glimpse the dataframe and view its dimensions. The dimensions of our data frame, with the addition of the age range variable, are 50 observations x 13 variables.  
+Here we will glimpse the dataframe and view its dimensions. The dimensions of our data frame, with the addition of the age range variable, are 500 observations x 13 variables.  
 
 ```{r glimpse_data, echo=FALSE}
+write.csv(players_combined,"players1.csv")
 glimpse(players_combined)
 
 
