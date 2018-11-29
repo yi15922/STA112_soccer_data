@@ -56,9 +56,9 @@ players_combined %>%
   count(age_range)
 ```
 
-The average matches played during season 2018-2019 thus far by these top 500 players is 15.10 and the standard deviation is 5.78.
-The average goals scored during season 2018-2019 thus far by these top 500 players is 2.55 and the standard deviation is 3.24.
-The average assists made during season 2018-2019 thus far by these top 500 players is 1.87 and the standard deviation is 2.15.
+The average matches played during season 2018-2019 so far by these top 500 players is 15.10 and the standard deviation is 5.78.
+The average goals scored during season 2018-2019 so far by these top 500 players is 2.55 and the standard deviation is 3.24.
+The average assists made during season 2018-2019 so far by these top 500 players is 1.87 and the standard deviation is 2.15.
 
 ```{r matches, echo=FALSE}
 players_combined %>%

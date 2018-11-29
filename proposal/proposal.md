@@ -99,12 +99,12 @@ players who are younger than 20.
     ## 3 above 30     33
     ## 4 under 20     26
 
-The average matches played during season 2018-2019 thus far by these top
+The average matches played during season 2018-2019 so far by these top
 500 players is 15.10 and the standard deviation is 5.78. The average
-goals scored during season 2018-2019 thus far by these top 500 players
-is 2.55 and the standard deviation is 3.24. The average assists made
-during season 2018-2019 thus far by these top 500 players is 1.87 and
-the standard deviation is
+goals scored during season 2018-2019 so far by these top 500 players is
+2.55 and the standard deviation is 3.24. The average assists made during
+season 2018-2019 so far by these top 500 players is 1.87 and the
+standard deviation is
     2.15.
 
     ##   mean_matches sd_matches mean_goals sd_goals mean_assists sd_assists
@@ -195,7 +195,8 @@ dimensions of our data frame, with the addition of the age range
 variable, are 500 observations x 13 variables.
 
     ## Observations: 500
-    ## Variables: 13
+    ## Variables: 14
+    ## $ X               <int> 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14,...
     ## $ name            <fct> Kylian Mbappé, Neymar, Lionel Messi, Mohamed S...
     ## $ position        <fct> Right Winger, Left Winger, Right Winger, Right...
     ## $ age             <int> 19, 26, 31, 26, 25, 27, 27, 26, 27, 25, 22, 25...
@@ -210,4 +211,4 @@ variable, are 500 observations x 13 variables.
     ## $ market_value    <int> 180, 180, 180, 150, 150, 150, 150, 150, 150, 1...
     ## $ age_range       <chr> "under 20", "26-30", "above 30", "26-30", "21-...
 
-    ## [1] 500  13
+    ## [1] 500  14
