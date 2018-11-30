@@ -7,11 +7,11 @@ Team Devils
 
 What makes the most valuable soccer player? We wish to explore how
 performance, physical attributes, and general characteristics of soccer
-players impact their market value during a season. Through
-visualizations and modeling, we hope to explore which characteristics
-are more and less determinant of strong performance and market value for
-a player, and whether patterns exist within goals, assists, age ranges,
-positions, and more. We plan to first minimally use visualizations to
+players affect their market value during a season. Through
+visualizations and modeling, we hope to explore each characteristic is
+correlated to performance and market value for a player, and whether
+patterns exist within goals, assists, age ranges, positions, and more,
+among the top footballers. We plan to first use visualizations to
 discover patterns, and then modeling to develop our central questions of
 which characteristics of players impact performance and value. In order
 to answer our question, we plan to construct a model which predicts the
@@ -31,10 +31,10 @@ goals scored, number of own goals, number of assists, number of yellow
 cards, number of red cards, number of substitutions on, number of
 substitutions off, and market value. The data was obtained from
 transfermarkt.com through web scraping tools learned from the course,
-and the web\_scrape.R file can be found in this R project. We currently
-have 12 columns and 50 rows scraped, but may later during our analysis
-decide to obtain a few more columns and several more rows, depending on
-where our analysis leads us.
+and the script used to scrape the data `(web_scrape.R)` can be found in
+this repository. We currently have 12 columns and 50 rows scraped, but
+may later during our analysis decide to obtain a few more columns and
+several more rows, depending on where our analysis leads us.
 
 ## Section 2. Data analysis plan
 
@@ -77,7 +77,8 @@ market value.
     ##   red_cards = col_integer(),
     ##   substituted_on = col_integer(),
     ##   substituted_off = col_integer(),
-    ##   market_value = col_double()
+    ##   market_value = col_double(),
+    ##   age_range = col_character()
     ## )
 
 ### Summary Statistics
@@ -108,12 +109,12 @@ We have tried to classify the players by age. Most players age between
 players who are younger than 20.
 
     ## # A tibble: 4 x 2
-    ##   age_range     n
-    ##   <chr>     <int>
-    ## 1 21-25       248
-    ## 2 26-30       193
-    ## 3 above 30     33
-    ## 4 under 20     26
+    ##   age_range        n
+    ##   <chr>        <int>
+    ## 1 20 and under    26
+    ## 2 21-25          248
+    ## 3 26-30          193
+    ## 4 30 and above    33
 
 The average matches played during season 2018-2019 so far by these top
 500 players is 15.10 and the standard deviation is 5.78. The average
@@ -233,6 +234,6 @@ variable, are 500 observations x 13 variables.
     ## $ substituted_on  <int> 3, 1, 1, 1, 1, 0, 3, 4, 5, 4, 3, 4, 0, 3, 8, 3...
     ## $ substituted_off <int> 4, 6, 1, 7, 4, 9, 2, 11, 6, 7, 4, 2, 0, 4, 6, ...
     ## $ market_value    <dbl> 180, 180, 180, 150, 150, 150, 150, 150, 150, 1...
-    ## $ age_range       <chr> "under 20", "26-30", "above 30", "26-30", "21-...
+    ## $ age_range       <chr> "20 and under", "26-30", "30 and above", "26-3...
 
     ## [1] 500  13
