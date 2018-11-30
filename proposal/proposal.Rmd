@@ -105,36 +105,50 @@ players_combined %>%
 
 ### Visualizations
 
+As can be seen in the plot below, the centre forward players on average scored the most goals and the goalkeeper scored 0 goals. This makes sense because it would be very unlikely for a goalkeeper to score a goal. 
+
+
 ```{r position_goals, fig.width = 10}
 players_combined %>%
-  mutate(position = fct_reorder(position, goals)) %>% # The plot still does not reorder correctly
-  ggplot(mapping = aes(x = position, y = goals)) +
+  group_by(position) %>%
+  summarise(mean_goals = mean(goals)) %>%
+  mutate(position = fct_reorder(position, mean_goals)) %>% 
+  ggplot(mapping = aes(x = position, y = mean_goals)) +
   geom_col() +
   coord_flip() +
   labs(
-    title = "Position and goals scored",
-    x = "Player Position", y = "Goals Scored"
+    title = "Position and average goals scored",
+    x = "Player Position", y = "Average Goals Scored"
   )
 ```
 
-As can be seen from this plot, the centre forward players scored the most goals and the goalkeeper and centre back players scored 0 goals. This makes sense because it would be very unlikely for a defense player or goalkeeper to get close enough to score a goal. 
-
+In the plot below, the right winger on average has the highest market value and the left midfield players on average has the lowest market value. 
 
 ```{r position_value, fig.width = 7}
 players_combined %>%
   group_by(position) %>%
   summarise(mean_value = mean(market_value)) %>%
-  mutate(position = fct_reorder(position, mean_value)) %>% # However, the same code here produces a correct reordering
+  mutate(position = fct_reorder(position, mean_value)) %>% 
   ggplot(mapping = aes(x = position, y = mean_value)) +
   geom_col() +
   coord_flip() +
   labs(
-    title = "Position and market value",
-    x = "Player Position", y = "Player Market Value"
+    title = "Position and average market value in 2018-2019 season",
+    x = "Player Position", y = "Average Market Value in 2018-2019 season"
   )
 ```
 
-Based on this plot, the right winger on average has the highest market value and the left back players on average has the lowest market value. 
+In the histogram below, we can see that the distribution of the players' market values in the 2018-2019 season is right skewed. 
+
+```{r histogram}
+players_combined %>%
+  ggplot(mapping = aes(market_value)) +
+  geom_histogram(binwidth = 5) +
+  labs(
+    title = "Distribution of Player Market Values in 2018-2019 Season",
+    x = "Player Market Values in 2018-2019 season"
+  )
+```
 
 
 ## Expected Results

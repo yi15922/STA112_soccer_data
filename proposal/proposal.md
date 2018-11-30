@@ -196,17 +196,23 @@ dataset with a market value higher than 100 million euros.
 
 ### Visualizations
 
+As can be seen in the plot below, the centre forward players on average
+scored the most goals and the goalkeeper scored 0 goals. This makes
+sense because it would be very unlikely for a goalkeeper to score a
+goal.
+
 ![](proposal_files/figure-gfm/position_goals-1.png)<!-- -->
 
-As can be seen from this plot, the centre forward players scored the
-most goals and the goalkeeper and centre back players scored 0 goals.
-This makes sense because it would be very unlikely for a defense player
-or goalkeeper to get close enough to score a goal.
+In the plot below, the right winger on average has the highest market
+value and the left midfield players on average has the lowest market
+value.
 
 ![](proposal_files/figure-gfm/position_value-1.png)<!-- -->
 
-Based on this plot, the right winger on average has the highest market
-value and the left back players on average has the lowest market value.
+In the histogram below, we can see that the distribution of the players’
+market values in the 2018-2019 season is right skewed.
+
+![](proposal_files/figure-gfm/histogram-1.png)<!-- -->
 
 ## Expected Results
 
