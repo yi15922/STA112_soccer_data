@@ -21,7 +21,7 @@ Our data is a collection of the top 500 valuable players in the
 2018-2019 European club season (data collected on 11/27/2018). The data
 comes from a professional German soccer statistics website titled
 “Transfermarkt”, which is a website dedicated to tracking player’s
-market values and performances. Transfermarkt.com is a leading media in
+market values and performances. Transfermarkt.com is a leading medium in
 reporting soccer transfer news and they have connections with all of the
 major leagues and clubs across Europe, South America, and Asia. The
 player statistics are generated after each match and analyzed by
@@ -48,21 +48,37 @@ in the codebook in README.
 
 ## Statistical Methods
 
-We will first test to see if each variable makes a significant
-difference in the market value of a player using hypotheses testing. For
-the variables that show significant correlation, we will also calculate
-a confidence interval using bootstrapping. Then, we will make a model
-for `market_value`, using all of the explanatory variables and the
-possible interactions between them (e.g. the interaction between
-`position` and `goals` because common knowledge tells us that there will
-be a correlation between the two). After we make the model, we will
-perform a backwards selection to remove the unnecessary variables. If we
-can obtain the proper data for comparison, we also plan to compare our
-model of player’s market value with historical data so that we can
+Since this is not a random sample, we will not do hypotheses testing.
+Instead, we would like to come to a prediction rule on players’ market
+value based on given variables. First since the variables that show
+significant correlation, we will calculate a preliminary confidence
+interval of the players’ general performances based on statistics using
+bootstrapping. Then, we will make a model for `market_value`, using all
+of the explanatory variables and the possible interactions between them
+(e.g. the interaction between `position` and `goals` because common
+knowledge tells us that there will be a correlation between the two). If
+we can obtain the proper data for comparison, we also plan to compare
+our model of player’s market value with historical data so that we can
 obtain the trend of transfer markets. We will test the final model on
 partitions of our data to evaluate it, and in the end attempt to come up
 with a generalization about the conditions that will produce the highest
 market value.
+
+    ## Parsed with column specification:
+    ## cols(
+    ##   name = col_character(),
+    ##   position = col_character(),
+    ##   age = col_integer(),
+    ##   matches = col_integer(),
+    ##   goals = col_integer(),
+    ##   own_goals = col_integer(),
+    ##   assists = col_integer(),
+    ##   yellow_cards = col_integer(),
+    ##   red_cards = col_integer(),
+    ##   substituted_on = col_integer(),
+    ##   substituted_off = col_integer(),
+    ##   market_value = col_double()
+    ## )
 
 ### Summary Statistics
 
@@ -72,7 +88,7 @@ Midfield.
 
     ## # A tibble: 13 x 2
     ##    position               n
-    ##    <fct>              <int>
+    ##    <chr>              <int>
     ##  1 Attacking Midfield    40
     ##  2 Central Midfield      83
     ##  3 Centre-Back           82
@@ -104,11 +120,12 @@ The average matches played during season 2018-2019 so far by these top
 goals scored during season 2018-2019 so far by these top 500 players is
 2.55 and the standard deviation is 3.24. The average assists made during
 season 2018-2019 so far by these top 500 players is 1.87 and the
-standard deviation is
-    2.15.
+standard deviation is 2.15.
 
+    ## # A tibble: 1 x 6
     ##   mean_matches sd_matches mean_goals sd_goals mean_assists sd_assists
-    ## 1       15.104   5.777538      2.546 3.241744        1.866   2.149718
+    ##          <dbl>      <dbl>      <dbl>    <dbl>        <dbl>      <dbl>
+    ## 1         15.6       5.97       2.61     3.33         1.92       2.21
 
 Yellow card and red card are good indicators of players’ performance on
 the field. They are given by referee to the players when players foul or
@@ -121,52 +138,60 @@ number is 9, made by Nicolás Tagliafico.
     ## # A tibble: 9 x 2
     ##   yellow_cards     n
     ##          <int> <int>
-    ## 1            0   132
-    ## 2            1   112
-    ## 3            2   105
-    ## 4            3    63
-    ## 5            4    47
-    ## 6            5    24
+    ## 1            0   129
+    ## 2            1   110
+    ## 3            2   101
+    ## 4            3    64
+    ## 5            4    50
+    ## 6            5    27
     ## 7            6    15
-    ## 8            7     1
+    ## 8            7     3
     ## 9            9     1
 
-    ##                 name
+    ## # A tibble: 1 x 1
+    ##   name              
+    ##   <chr>             
     ## 1 Nicolás Tagliafico
 
 In season 2018-2019 thus far, there are 18 players who have already
 gotten a red card in a match, meaning they are to be expelled for the
 game.
 
-    ##                   name red_cards
-    ## 1        Kylian Mbappé         1
-    ## 2    Cristiano Ronaldo         1
-    ## 3      Marcus Rashford         1
-    ## 4        Douglas Costa         1
-    ## 5      Gonzalo Higuaín         1
-    ## 6          Richarlison         1
-    ## 7      Clément Lenglet         1
-    ## 8     Presnel Kimpembe         1
-    ## 9          Hugo Lloris         1
-    ## 10        Abdou Diallo         1
-    ## 11      Danilo Pereira         1
-    ## 12     Matija Nastasic         1
-    ## 13         Jamie Vardy         1
-    ## 14         Dani Parejo         1
-    ## 15     Samu Castillejo         1
+    ## # A tibble: 18 x 2
+    ##    name                red_cards
+    ##    <chr>                   <int>
+    ##  1 Kylian Mbappé               1
+    ##  2 Cristiano Ronaldo           1
+    ##  3 Marcus Rashford             1
+    ##  4 Douglas Costa               1
+    ##  5 Gonzalo Higuaín             1
+    ##  6 Richarlison                 1
+    ##  7 Clément Lenglet             1
+    ##  8 Presnel Kimpembe            1
+    ##  9 Hugo Lloris                 1
+    ## 10 Abdou Diallo                1
+    ## 11 Danilo Pereira              1
+    ## 12 Matija Nastasic             1
+    ## 13 Jamie Vardy                 1
+    ## 14 Dani Parejo                 1
+    ## 15 Samu Castillejo             1
     ## 16 Grzegorz Krychowiak         1
-    ## 17        Jordan Amavi         1
-    ## 18      Theo Hernández         1
+    ## 17 Jordan Amavi                1
+    ## 18 Theo Hernández              1
 
 In the dataset, the maximum player value is 180 million euros and the
 minimum player value is 15 million euros. There are 13 players in the
 dataset with a market value higher than 100 million euros.
 
+    ## # A tibble: 1 x 2
     ##   max_value min_value
-    ## 1      1750        15
+    ##       <dbl>     <dbl>
+    ## 1       180        15
 
+    ## # A tibble: 1 x 1
     ##   value_above_100m
-    ## 1               14
+    ##              <int>
+    ## 1               13
 
 ### Visualizations
 
@@ -195,20 +220,19 @@ dimensions of our data frame, with the addition of the age range
 variable, are 500 observations x 13 variables.
 
     ## Observations: 500
-    ## Variables: 14
-    ## $ X               <int> 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14,...
-    ## $ name            <fct> Kylian Mbappé, Neymar, Lionel Messi, Mohamed S...
-    ## $ position        <fct> Right Winger, Left Winger, Right Winger, Right...
+    ## Variables: 13
+    ## $ name            <chr> "Kylian Mbappé", "Neymar", "Lionel Messi", "Mo...
+    ## $ position        <chr> "Right Winger", "Left Winger", "Right Winger",...
     ## $ age             <int> 19, 26, 31, 26, 25, 27, 27, 26, 27, 25, 22, 25...
-    ## $ matches         <int> 19, 22, 14, 18, 22, 24, 5, 20, 21, 19, 14, 20,...
-    ## $ goals           <int> 15, 16, 14, 9, 12, 8, 0, 6, 10, 7, 3, 9, 10, 1...
+    ## $ matches         <int> 20, 23, 15, 19, 23, 25, 5, 21, 21, 20, 15, 21,...
+    ## $ goals           <int> 15, 17, 15, 9, 12, 9, 0, 6, 10, 7, 3, 9, 10, 1...
     ## $ own_goals       <int> 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0...
-    ## $ assists         <int> 8, 13, 7, 4, 4, 5, 1, 4, 5, 3, 2, 2, 6, 2, 7, ...
-    ## $ yellow_cards    <int> 4, 5, 1, 0, 4, 3, 1, 1, 2, 2, 0, 2, 0, 0, 2, 5...
+    ## $ assists         <int> 8, 13, 8, 4, 4, 6, 1, 4, 5, 3, 3, 3, 7, 2, 7, ...
+    ## $ yellow_cards    <int> 4, 6, 1, 0, 4, 4, 1, 1, 2, 2, 0, 2, 0, 0, 2, 5...
     ## $ red_cards       <int> 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0...
-    ## $ substituted_on  <int> 3, 1, 1, 1, 1, 0, 3, 4, 5, 4, 3, 3, 0, 3, 7, 3...
-    ## $ substituted_off <int> 3, 6, 1, 7, 4, 9, 2, 10, 6, 6, 4, 2, 0, 4, 6, ...
-    ## $ market_value    <int> 180, 180, 180, 150, 150, 150, 150, 150, 150, 1...
+    ## $ substituted_on  <int> 3, 1, 1, 1, 1, 0, 3, 4, 5, 4, 3, 4, 0, 3, 8, 3...
+    ## $ substituted_off <int> 4, 6, 1, 7, 4, 9, 2, 11, 6, 7, 4, 2, 0, 4, 6, ...
+    ## $ market_value    <dbl> 180, 180, 180, 150, 150, 150, 150, 150, 150, 1...
     ## $ age_range       <chr> "under 20", "26-30", "above 30", "26-30", "21-...
 
-    ## [1] 500  14
+    ## [1] 500  13

@@ -1,0 +1,3 @@
+]0;/cloud/project]0;rstudio-user@bbbce67d23cd: /cloud/project[01;32mrstudio-user@bbbce67d23cd[00m:[01;34m/cloud/project[00m$ [K]0;rstudio-user@bbbce67d23cd: /cloud/project[01;32mrstudio-user@bbbce67d23cd[00m:[01;34m/cloud/project[00m$ gic[Kt config --global user.email "yuncong.zuo@duke.edu"
+]0;/cloud/project]0;rstudio-user@bbbce67d23cd: /cloud/project[01;32mrstudio-user@bbbce67d23cd[00m:[01;34m/cloud/project[00m$ git config --global user.name "Joe Zuo"
+]0;/cloud/project]0;rstudio-user@bbbce67d23cd: /cloud/project[01;32mrstudio-user@bbbce67d23cd[00m:[01;34m/cloud/project[00m$ 
