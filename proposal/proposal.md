@@ -1,4 +1,4 @@
-Building the Perfect Football Player
+Building the Perfect Soccer Player
 ================
 Team Devils
 11/28/2018
@@ -6,35 +6,47 @@ Team Devils
 ## Section 1. Introduction
 
 What makes the most valuable soccer player? We wish to explore how
-performance, physical attributes, and general characteristics of soccer
-players affect their market value during a season. Through
-visualizations and modeling, we hope to explore each characteristic is
-correlated to performance and market value for a player, and whether
-patterns exist within goals, assists, age ranges, positions, and more,
-among the top footballers. We plan to first use visualizations to
-discover patterns, and then modeling to develop our central questions of
-which characteristics of players impact performance and value. In order
-to answer our question, we plan to construct a model which predicts the
-relative market value of any player in the European club league.
+performance during a season, physical attributes, and general
+characteristics of soccer players such as age and position affect their
+market value during a season. Through exploratory visualizations and
+modeling, we hope to explore whether or not and how each characteristic
+is correlated to performance and market value for a player, and whether
+patterns exist between markers of success (such as number of assists,
+number of goals, etc.) and failure (number of substitions off the
+playing field, number of own goals, etc.) and value during a season. We
+plan to first use visualizations to discover patterns, and then modeling
+to develop our central question of which characteristics of players
+impact value as viewed by the soccer market. In order to answer our
+question, we plan to construct a model which predicts the relative
+market value of any player in the European club league during the
+2018-2019 season. We plan to delve deep into the construction of this
+model, and find a creative way to communicate and display it
+effectively. The shiny package may be a tool we use down the line if our
+project evolves.
 
-Our data is a collection of the top 500 valuable players in the
-2018-2019 European club season (data collected on 11/27/2018). The data
-comes from a professional German soccer statistics website titled
-“Transfermarkt”, which is a website dedicated to tracking player’s
-market values and performances. Transfermarkt.com is a leading medium in
-reporting soccer transfer news and they have connections with all of the
-major leagues and clubs across Europe, South America, and Asia. The
-player statistics are generated after each match and analyzed by
-professional scouts and soccer analysts. Each observation is a player,
-and includes the variables name, position, number of matches, number of
-goals scored, number of own goals, number of assists, number of yellow
-cards, number of red cards, number of substitutions on, number of
-substitutions off, and market value. The data was obtained from
-transfermarkt.com through web scraping tools learned from the course,
-and the script used to scrape the data `(web_scrape.R)` can be found in
-this repository. We currently have 12 columns and 50 rows scraped, but
-may later during our analysis decide to obtain a few more columns and
-several more rows, depending on where our analysis leads us.
+Our data is a collection of the top 500 most valuable players in the
+2018-2019 European club season (data collected on 11/27/2018). We
+recognize that by using the top 500 players by market value (which is in
+and of itself a biased measure), we have a sample which is biased and
+may be right skewed in terms of market value. We will not be conducting
+hypthosis testing due to the former and we will explore possibly
+analyzing our data after using a transformation to account for the
+latter. The data comes from a professional German soccer statistics
+website titled “Transfermarkt”, which is a website dedicated to tracking
+players’ market values and performances. Transfermarkt.com is a leading
+medium in reporting soccer transfer news and they have connections with
+all of the major leagues and clubs across Europe, South America, and
+Asia. The player statistics are generated after each match and analyzed
+by professional scouts, soccer analysts and data scientists. Each
+observation is a player, and includes the variables name, position,
+number of matches, number of goals scored, number of own goals, number
+of assists, number of yellow cards, number of red cards, number of
+substitutions on, number of substitutions off, and market value. The
+data was obtained from transfermarkt.com through web scraping tools
+learned from the course, and the script used to scrape the data
+`(web_scrape.R)` can be found in this repository. This file also has the
+url used to scrape. A citation in order to account for the url’s dynamic
+state is also included in the READme markdown of the data folder.
 
 ## Section 2. Data analysis plan
 
