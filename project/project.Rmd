@@ -6,13 +6,45 @@ output: github_document
 ---
 
 ```{r setup, include=FALSE}
-knitr::opts_chunk$set(echo = TRUE)
+knitr::opts_chunk$set(echo = FALSE)
 ```
 
 ```{r load_packages, include = FALSE}
 library(tidyverse)
 library(broom)
 library(rvest)
+library(infer)
+library(modelr)
+```
+
+```{r load-data}
+players1 <- read_csv("../data/players1.csv")
+```
+
+```{r predict}
+linear_prediction  <- lm(market_value ~ position + age + matches + goals + own_goals +
+                  assists + yellow_cards + red_cards + substituted_on +
+                  substituted_off + age_range + position * goals + position * assists, data =   players1)
+tidy(linear_prediction)
+```
+
+```{r AIC-selection}
+selected_model <- step(linear_prediction, direction = "backward")
+tidy(selected_model)
+
+glance(linear_prediction)$AIC
+glance(selected_model)$AIC
+```
+
+```{r r-squared}
+glance(selected_model)$r.squared
+```
+
+```{r cross_validation}
+test_cv <- crossv_kfold(players1, 10)
+models <- map(test_cv$train, ~ selected_model)
+rmses <- map2_dbl(models, test_cv$test, rmse)
+rmses
 ```
 
 
