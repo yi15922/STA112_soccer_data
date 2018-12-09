@@ -5,6 +5,44 @@ Dec 14, 2018
 
 ## Introduction
 
+## Data Analysis
+
+To get a general sense of the market values of all players in the
+2018-2019 season, let’s first create a histogram to visualize their
+distribution.
+
+``` r
+players1 %>%
+  ggplot(mapping = aes(market_value, fill = ..count..)) +
+  geom_histogram(binwidth = 5) +
+  labs(
+    title = "Distribution of Player Market Values in 2018-2019 Season",
+    x = "Player Market Values in 2018-2019 season", 
+    y = "Count"
+  ) +
+  theme_minimal() +
+  scale_fill_gradient(low="blue", high="red")
+```
+
+![](project_files/figure-gfm/histogram-1.png)<!-- -->
+
+In the histogram above, we can see that the distribution of the players’
+market values in the 2018-2019 season is right skewed, and that the most
+commonly occuring market values are slightly less than $25 million. In
+the summary statistics below, we can see that the mean of the market
+values is higher than the most commonly occuring market values due to
+the right skewedness of the data.
+
+``` r
+players1 %>%
+  summarise(mean = mean(market_value), median = median(market_value), sd = sd(market_value), min = min(market_value), max = max(market_value))
+```
+
+    ## # A tibble: 1 x 5
+    ##    mean median    sd   min   max
+    ##   <dbl>  <dbl> <dbl> <dbl> <dbl>
+    ## 1  35.3     25  25.2    15   180
+
 ``` r
 linear_prediction  <- lm(market_value ~ position + age + matches + goals + own_goals +
                   assists + yellow_cards + red_cards + substituted_on +
@@ -26,129 +64,6 @@ tidy(linear_prediction)
     ##  9 positionLeft-Back            -18.2       8.93    -2.03  0.0427 
     ## 10 positionRight Midfield        11.8      22.3      0.528 0.598  
     ## # ... with 36 more rows
-
-``` r
-selected_model <- step(linear_prediction, direction = "backward")
-```
-
-    ## Start:  AIC=3113.9
-    ## market_value ~ position + age + matches + goals + own_goals + 
-    ##     assists + yellow_cards + red_cards + substituted_on + substituted_off + 
-    ##     age_range + position * goals + position * assists
-    ## 
-    ##                    Df Sum of Sq    RSS    AIC
-    ## - position:assists 10    4537.8 215282 3104.6
-    ## - age               1      71.9 210816 3112.1
-    ## - own_goals         1      74.4 210818 3112.1
-    ## - yellow_cards      1      82.1 210826 3112.1
-    ## - substituted_off   1     152.0 210896 3112.3
-    ## - substituted_on    1     436.2 211180 3112.9
-    ## - red_cards         1     511.9 211256 3113.1
-    ## <none>                          210744 3113.9
-    ## - age_range         3    3695.4 214439 3116.6
-    ## - matches           1    5241.5 215985 3124.2
-    ## - position:goals    9   13767.7 224511 3127.5
-    ## 
-    ## Step:  AIC=3104.55
-    ## market_value ~ position + age + matches + goals + own_goals + 
-    ##     assists + yellow_cards + red_cards + substituted_on + substituted_off + 
-    ##     age_range + position:goals
-    ## 
-    ##                   Df Sum of Sq    RSS    AIC
-    ## - age              1      29.4 215311 3102.6
-    ## - own_goals        1      93.9 215376 3102.8
-    ## - yellow_cards     1     130.9 215413 3102.8
-    ## - substituted_off  1     290.5 215572 3103.2
-    ## - red_cards        1     292.8 215574 3103.2
-    ## - substituted_on   1     429.4 215711 3103.5
-    ## <none>                         215282 3104.6
-    ## - assists          1     980.5 216262 3104.8
-    ## - age_range        3    3776.3 219058 3107.2
-    ## - matches          1    5634.8 220916 3115.5
-    ## - position:goals  11   19415.8 234697 3125.7
-    ## 
-    ## Step:  AIC=3102.62
-    ## market_value ~ position + matches + goals + own_goals + assists + 
-    ##     yellow_cards + red_cards + substituted_on + substituted_off + 
-    ##     age_range + position:goals
-    ## 
-    ##                   Df Sum of Sq    RSS    AIC
-    ## - own_goals        1      93.6 215405 3100.8
-    ## - yellow_cards     1     130.0 215441 3100.9
-    ## - substituted_off  1     291.5 215603 3101.3
-    ## - red_cards        1     293.9 215605 3101.3
-    ## - substituted_on   1     454.5 215766 3101.7
-    ## <none>                         215311 3102.6
-    ## - assists          1     991.9 216303 3102.9
-    ## - age_range        3    5263.2 220574 3108.7
-    ## - matches          1    5608.1 220919 3113.5
-    ## - position:goals  11   19390.3 234701 3123.7
-    ## 
-    ## Step:  AIC=3100.83
-    ## market_value ~ position + matches + goals + assists + yellow_cards + 
-    ##     red_cards + substituted_on + substituted_off + age_range + 
-    ##     position:goals
-    ## 
-    ##                   Df Sum of Sq    RSS    AIC
-    ## - yellow_cards     1     137.4 215542 3099.2
-    ## - substituted_off  1     275.6 215680 3099.5
-    ## - red_cards        1     310.6 215715 3099.6
-    ## - substituted_on   1     431.9 215837 3099.8
-    ## <none>                         215405 3100.8
-    ## - assists          1     988.3 216393 3101.1
-    ## - age_range        3    5492.9 220898 3107.4
-    ## - matches          1    5533.0 220938 3111.5
-    ## - position:goals  11   19374.4 234779 3121.9
-    ## 
-    ## Step:  AIC=3099.15
-    ## market_value ~ position + matches + goals + assists + red_cards + 
-    ##     substituted_on + substituted_off + age_range + position:goals
-    ## 
-    ##                   Df Sum of Sq    RSS    AIC
-    ## - substituted_off  1     255.6 215798 3097.7
-    ## - red_cards        1     302.0 215844 3097.8
-    ## - substituted_on   1     348.0 215890 3098.0
-    ## <none>                         215542 3099.2
-    ## - assists          1    1046.1 216588 3099.6
-    ## - age_range        3    5402.1 220944 3105.5
-    ## - matches          1    5707.7 221250 3110.2
-    ## - position:goals  11   19365.7 234908 3120.2
-    ## 
-    ## Step:  AIC=3097.74
-    ## market_value ~ position + matches + goals + assists + red_cards + 
-    ##     substituted_on + age_range + position:goals
-    ## 
-    ##                  Df Sum of Sq    RSS    AIC
-    ## - substituted_on  1     361.4 216159 3096.6
-    ## - red_cards       1     372.3 216170 3096.6
-    ## <none>                        215798 3097.7
-    ## - assists         1    1040.3 216838 3098.2
-    ## - age_range       3    5249.7 221047 3103.8
-    ## - matches         1    5567.2 221365 3108.5
-    ## - position:goals 11   19840.3 235638 3119.7
-    ## 
-    ## Step:  AIC=3096.58
-    ## market_value ~ position + matches + goals + assists + red_cards + 
-    ##     age_range + position:goals
-    ## 
-    ##                  Df Sum of Sq    RSS    AIC
-    ## - red_cards       1     373.9 216533 3095.4
-    ## <none>                        216159 3096.6
-    ## - assists         1    1065.0 217224 3097.0
-    ## - age_range       3    5904.0 222063 3104.1
-    ## - matches         1    5208.4 221367 3106.5
-    ## - position:goals 11   20107.9 236267 3119.1
-    ## 
-    ## Step:  AIC=3095.44
-    ## market_value ~ position + matches + goals + assists + age_range + 
-    ##     position:goals
-    ## 
-    ##                  Df Sum of Sq    RSS    AIC
-    ## <none>                        216533 3095.4
-    ## - assists         1    1044.1 217577 3095.8
-    ## - age_range       3    5761.0 222294 3102.6
-    ## - matches         1    5228.0 221761 3105.4
-    ## - position:goals 11   20559.9 237093 3118.8
 
 ``` r
 tidy(selected_model)
@@ -228,9 +143,9 @@ rmses
 ```
 
     ##        1        2        3        4        5        6        7        8 
-    ## 17.51219 24.19700 22.88392 20.06605 18.04317 15.73064 18.89073 23.50308 
+    ## 26.18651 23.34984 24.25948 19.48686 22.86035 18.58501 20.11429 20.31887 
     ##        9       10 
-    ## 23.98548 21.32132
+    ## 15.63595 14.19599
 
 ## Conclusion
 

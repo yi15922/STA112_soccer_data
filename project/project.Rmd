@@ -22,9 +22,40 @@ library(modelr)
 
 
 
+
+
+## Data Analysis
+
 ```{r load-data, include = FALSE}
 players1 <- read_csv("../data/players1.csv")
 ```
+
+To get a general sense of the market values of all players in the 2018-2019 season, let's first create a histogram to visualize their distribution. 
+
+```{r histogram, fig.width = 10}
+players1 %>%
+  ggplot(mapping = aes(market_value, fill = ..count..)) +
+  geom_histogram(binwidth = 5) +
+  labs(
+    title = "Distribution of Player Market Values in 2018-2019 Season",
+    x = "Player Market Values in 2018-2019 season", 
+    y = "Count"
+  ) +
+  theme_minimal() +
+  scale_fill_gradient(low="blue", high="red")
+```
+
+In the histogram above, we can see that the distribution of the players' market values in the 2018-2019 season is right skewed, and that the most commonly occuring market values are slightly less than $25 million. In the summary statistics below, we can see that the mean of the market values is higher than the most commonly occuring market values due to the right skewedness of the data. 
+
+```{r summary-stats}
+players1 %>%
+  summarise(mean = mean(market_value), median = median(market_value), sd = sd(market_value), min = min(market_value), max = max(market_value))
+
+```
+
+
+
+
 
 ```{r predict}
 linear_prediction  <- lm(market_value ~ position + age + matches + goals + own_goals +
@@ -33,9 +64,13 @@ linear_prediction  <- lm(market_value ~ position + age + matches + goals + own_g
 tidy(linear_prediction)
 ```
 
-```{r AIC-selection}
+```{r AIC-selection, include = FALSE}
 selected_model <- step(linear_prediction, direction = "backward")
+```
+
+```{r glance-AIC}
 tidy(selected_model)
+
 
 glance(linear_prediction)$AIC
 glance(selected_model)$AIC
@@ -51,8 +86,6 @@ models <- map(test_cv$train, ~ selected_model)
 rmses <- map2_dbl(models, test_cv$test, rmse)
 rmses
 ```
-
-
 
 
 ## Conclusion
