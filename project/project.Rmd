@@ -1,12 +1,12 @@
 ---
-title: "PROJECT TITLE"
-author: "TEAM NAME"
-date: "TODAY'S DATE"
+title: "Building the Perfect Soccer Player"
+author: "team-devils"
+date: "Dec 14, 2018"
 output: github_document
 ---
 
 ```{r setup, include=FALSE}
-knitr::opts_chunk$set(echo = FALSE)
+knitr::opts_chunk$set(echo = TRUE)
 ```
 
 ```{r load_packages, include = FALSE}
@@ -17,7 +17,12 @@ library(infer)
 library(modelr)
 ```
 
-```{r load-data}
+## Introduction
+
+
+
+
+```{r load-data, include = FALSE}
 players1 <- read_csv("../data/players1.csv")
 ```
 
@@ -48,6 +53,9 @@ rmses
 ```
 
 
+
+
+## Conclusion
 
 Your project goes here! Before you submit, make sure your chunks are turned off with `echo = FALSE`. 
 

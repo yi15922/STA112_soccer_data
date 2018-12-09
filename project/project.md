@@ -1,24 +1,16 @@
-PROJECT TITLE
+Building the Perfect Soccer Player
 ================
-TEAM NAME
-TODAY’S DATE
+team-devils
+Dec 14, 2018
 
-    ## Parsed with column specification:
-    ## cols(
-    ##   name = col_character(),
-    ##   position = col_character(),
-    ##   age = col_integer(),
-    ##   matches = col_integer(),
-    ##   goals = col_integer(),
-    ##   own_goals = col_integer(),
-    ##   assists = col_integer(),
-    ##   yellow_cards = col_integer(),
-    ##   red_cards = col_integer(),
-    ##   substituted_on = col_integer(),
-    ##   substituted_off = col_integer(),
-    ##   market_value = col_double(),
-    ##   age_range = col_character()
-    ## )
+## Introduction
+
+``` r
+linear_prediction  <- lm(market_value ~ position + age + matches + goals + own_goals +
+                  assists + yellow_cards + red_cards + substituted_on +
+                  substituted_off + age_range + position * goals + position * assists, data =   players1)
+tidy(linear_prediction)
+```
 
     ## # A tibble: 46 x 5
     ##    term                       estimate std.error statistic p.value
@@ -34,6 +26,10 @@ TODAY’S DATE
     ##  9 positionLeft-Back            -18.2       8.93    -2.03  0.0427 
     ## 10 positionRight Midfield        11.8      22.3      0.528 0.598  
     ## # ... with 36 more rows
+
+``` r
+selected_model <- step(linear_prediction, direction = "backward")
+```
 
     ## Start:  AIC=3113.9
     ## market_value ~ position + age + matches + goals + own_goals + 
@@ -154,6 +150,10 @@ TODAY’S DATE
     ## - matches         1    5228.0 221761 3105.4
     ## - position:goals 11   20559.9 237093 3118.8
 
+``` r
+tidy(selected_model)
+```
+
     ## # A tibble: 30 x 5
     ##    term                       estimate std.error statistic  p.value
     ##    <chr>                         <dbl>     <dbl>     <dbl>    <dbl>
@@ -169,12 +169,30 @@ TODAY’S DATE
     ## 10 positionRight Midfield        12.2      22.1      0.554 0.580   
     ## # ... with 20 more rows
 
+``` r
+glance(linear_prediction)$AIC
+```
+
     ## [1] 4534.834
+
+``` r
+glance(selected_model)$AIC
+```
 
     ## [1] 4516.383
 
+``` r
+glance(selected_model)$r.squared
+```
+
     ## [1] 0.3189235
 
+``` r
+test_cv <- crossv_kfold(players1, 10)
+models <- map(test_cv$train, ~ selected_model)
+rmses <- map2_dbl(models, test_cv$test, rmse)
+```
+
     ## Warning in predict.lm(model, data): prediction from a rank-deficient fit
     ## may be misleading
     
@@ -205,10 +223,16 @@ TODAY’S DATE
     ## Warning in predict.lm(model, data): prediction from a rank-deficient fit
     ## may be misleading
 
+``` r
+rmses
+```
+
     ##        1        2        3        4        5        6        7        8 
-    ## 15.13661 19.90749 18.98349 21.83738 25.32770 20.14266 22.63185 19.46094 
+    ## 17.51219 24.19700 22.88392 20.06605 18.04317 15.73064 18.89073 23.50308 
     ##        9       10 
-    ## 19.70388 23.27225
+    ## 23.98548 21.32132
+
+## Conclusion
 
 Your project goes here\! Before you submit, make sure your chunks are
 turned off with `echo = FALSE`.
