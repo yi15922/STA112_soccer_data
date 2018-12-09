@@ -90,7 +90,7 @@ market value.
     ##   substituted_on = col_integer(),
     ##   substituted_off = col_integer(),
     ##   market_value = col_double(),
-    ##   age_range = col_character()
+    ##   position_new = col_character()
     ## )
 
 ### Summary Statistics
@@ -103,7 +103,7 @@ Midfield.
     ##    position               n
     ##    <chr>              <int>
     ##  1 Attacking Midfield    40
-    ##  2 Central Midfield      83
+    ##  2 Central Midfield      82
     ##  3 Centre-Back           82
     ##  4 Centre-Forward        71
     ##  5 Defensive Midfield    38
@@ -114,7 +114,7 @@ Midfield.
     ## 10 Right Midfield         2
     ## 11 Right Winger          47
     ## 12 Right-Back            26
-    ## 13 Second Striker         8
+    ## 13 Second Striker         9
 
 We have tried to classify the players by age. Most players age between
 21 and 25. There are 33 players above 30 years old and there are also 26
@@ -138,7 +138,7 @@ standard deviation is 2.15.
     ## # A tibble: 1 x 6
     ##   mean_matches sd_matches mean_goals sd_goals mean_assists sd_assists
     ##          <dbl>      <dbl>      <dbl>    <dbl>        <dbl>      <dbl>
-    ## 1         15.6       5.97       2.61     3.33         1.92       2.21
+    ## 1         17.3       6.42       2.90     3.64         2.13       2.36
 
 Yellow card and red card are good indicators of players’ performance on
 the field. They are given by referee to the players when players foul or
@@ -148,23 +148,26 @@ of the field. We can see that until now, 368 among the 500 players have
 got yellow cards during season 2018-2019, and the maximum yellow card
 number is 9, made by Nicolás Tagliafico.
 
-    ## # A tibble: 9 x 2
-    ##   yellow_cards     n
-    ##          <int> <int>
-    ## 1            0   129
-    ## 2            1   110
-    ## 3            2   101
-    ## 4            3    64
-    ## 5            4    50
-    ## 6            5    27
-    ## 7            6    15
-    ## 8            7     3
-    ## 9            9     1
+    ## # A tibble: 11 x 2
+    ##    yellow_cards     n
+    ##           <int> <int>
+    ##  1            0   109
+    ##  2            1   105
+    ##  3            2   106
+    ##  4            3    65
+    ##  5            4    49
+    ##  6            5    38
+    ##  7            6    13
+    ##  8            7     9
+    ##  9            8     3
+    ## 10            9     2
+    ## 11           10     1
 
-    ## # A tibble: 1 x 1
-    ##   name              
-    ##   <chr>             
-    ## 1 Nicolás Tagliafico
+    ## # A tibble: 2 x 1
+    ##   name             
+    ##   <chr>            
+    ## 1 Rodrigo Bentancur
+    ## 2 Leandro Paredes
 
 In season 2018-2019 thus far, there are 18 players who have already
 gotten a red card in a match, meaning they are to be expelled for the
@@ -239,19 +242,20 @@ dimensions of our data frame, with the addition of the age range
 variable, are 500 observations x 13 variables.
 
     ## Observations: 500
-    ## Variables: 13
+    ## Variables: 14
     ## $ name            <chr> "Kylian Mbappé", "Neymar", "Lionel Messi", "Mo...
     ## $ position        <chr> "Right Winger", "Left Winger", "Right Winger",...
     ## $ age             <int> 19, 26, 31, 26, 25, 27, 27, 26, 27, 25, 22, 25...
-    ## $ matches         <int> 20, 23, 15, 19, 23, 25, 5, 21, 21, 20, 15, 21,...
-    ## $ goals           <int> 15, 17, 15, 9, 12, 9, 0, 6, 10, 7, 3, 9, 10, 1...
+    ## $ matches         <int> 22, 24, 17, 22, 26, 27, 5, 23, 24, 22, 18, 24,...
+    ## $ goals           <int> 16, 18, 17, 12, 14, 10, 0, 6, 10, 7, 4, 11, 11...
     ## $ own_goals       <int> 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0...
-    ## $ assists         <int> 8, 13, 8, 4, 4, 6, 1, 4, 5, 3, 3, 3, 7, 2, 7, ...
-    ## $ yellow_cards    <int> 4, 6, 1, 0, 4, 4, 1, 1, 2, 2, 0, 2, 0, 0, 2, 5...
+    ## $ assists         <int> 9, 13, 10, 5, 5, 6, 1, 4, 9, 4, 3, 3, 7, 2, 8,...
+    ## $ yellow_cards    <int> 4, 6, 1, 0, 4, 5, 1, 1, 2, 2, 1, 2, 1, 0, 2, 5...
     ## $ red_cards       <int> 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0...
-    ## $ substituted_on  <int> 3, 1, 1, 1, 1, 0, 3, 4, 5, 4, 3, 4, 0, 3, 8, 3...
-    ## $ substituted_off <int> 4, 6, 1, 7, 4, 9, 2, 11, 6, 7, 4, 2, 0, 4, 6, ...
+    ## $ substituted_on  <int> 4, 1, 1, 2, 2, 0, 3, 5, 5, 4, 4, 5, 0, 3, 10, ...
+    ## $ substituted_off <int> 4, 7, 1, 8, 4, 9, 2, 12, 7, 8, 5, 3, 1, 4, 6, ...
     ## $ market_value    <dbl> 180, 180, 180, 150, 150, 150, 150, 150, 150, 1...
+    ## $ position_new    <chr> "Forward", "Forward", "Forward", "Forward", "F...
     ## $ age_range       <chr> "20 and under", "26-30", "30 and above", "26-3...
 
-    ## [1] 500  13
+    ## [1] 500  14

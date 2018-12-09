@@ -170,4 +170,16 @@ players1 <- players1 %>%
   filter(market_value>=1000) %>%
   mutate(market_value = market_value/100)
 
+players1 <- players1 %>%
+  mutate(position_new = case_when(
+    position == "Centre-Forward" | position == "Left Winger" | 
+    position == "Right Winger" |  position == "Second Striker"  ~ "Forward",
+    position == "Attacking Midfield" | position == "Central Midfield" |
+    position == "Defensive Midfield" | position == "Left Midfield" |
+    position == "Right Midfield"  ~ "Midfielder",
+    position == "Centre-Back"  | position == "Left-Back"  |
+    position == "Right-Back"   ~ "Defender",
+    position == "Goalkeeper"  ~  "Goalkeeper"
+  ))
+
 write_csv(players1, path = "data/players1.csv")
