@@ -43,6 +43,44 @@ players1 %>%
     ##   <dbl>  <dbl> <dbl> <dbl> <dbl>
     ## 1  35.3     25  25.2    15   180
 
+The median, however, seems to be affected to a lesser extent by the high
+valued outliers, and we can see this in the boxplot below.
+
+``` r
+players1 %>%
+  ggplot(mapping = aes(y = market_value)) +
+  geom_boxplot() +
+  coord_flip() +
+  labs(
+    title = "Boxplot of Player Market Values in 2018-2019 Season",
+    y = "Player Market Values in 2018-2019 season"
+  ) +
+  theme_minimal() 
+```
+
+![](project_files/figure-gfm/boxplot-1.png)<!-- -->
+
+``` r
+players1 %>%
+  select(name, market_value) %>%
+  filter(market_value > 80)
+```
+
+    ## # A tibble: 22 x 2
+    ##    name              market_value
+    ##    <chr>                    <dbl>
+    ##  1 Kylian Mbappé              180
+    ##  2 Neymar                     180
+    ##  3 Lionel Messi               180
+    ##  4 Mohamed Salah              150
+    ##  5 Harry Kane                 150
+    ##  6 Antoine Griezmann          150
+    ##  7 Kevin De Bruyne            150
+    ##  8 Philippe Coutinho          150
+    ##  9 Eden Hazard                150
+    ## 10 Paulo Dybala               110
+    ## # ... with 12 more rows
+
 ``` r
 linear_prediction  <- lm(market_value ~ position + age + matches + goals + own_goals +
                   assists + yellow_cards + red_cards + substituted_on +
@@ -143,9 +181,9 @@ rmses
 ```
 
     ##        1        2        3        4        5        6        7        8 
-    ## 26.18651 23.34984 24.25948 19.48686 22.86035 18.58501 20.11429 20.31887 
+    ## 17.04630 19.35617 16.45690 22.03679 19.75572 17.74945 18.72094 20.54302 
     ##        9       10 
-    ## 15.63595 14.19599
+    ## 27.21714 26.27502
 
 ## Conclusion
 

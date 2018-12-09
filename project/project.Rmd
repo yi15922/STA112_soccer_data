@@ -53,6 +53,25 @@ players1 %>%
 
 ```
 
+The median, however, seems to be affected to a lesser extent by the high valued outliers, and we can see this in the boxplot below. 
+
+```{r boxplot, fig.height = 5, fig.width = 10}
+players1 %>%
+  ggplot(mapping = aes(y = market_value)) +
+  geom_boxplot() +
+  coord_flip() +
+  labs(
+    title = "Boxplot of Player Market Values in 2018-2019 Season",
+    y = "Player Market Values in 2018-2019 season"
+  ) +
+  theme_minimal() 
+  
+
+players1 %>%
+  select(name, market_value) %>%
+  filter(market_value > 80)
+
+```
 
 
 
