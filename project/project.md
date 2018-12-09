@@ -35,6 +35,15 @@ TODAY’S DATE
     ## 10 positionRight Midfield        11.8      22.3      0.528 0.598  
     ## # ... with 36 more rows
 
+To begin with, we try to make a multiple linear regression based on all
+the statistical variables we have in the players dataset. In soccer,
+player’s position is highly correlated with his performances, especially
+goals and assists (e.g. Centre-Forwards get most goals and Midfielders
+make most assists in general while Goalkeepers can seldom score a goal
+or make an assist). Therefore, we managed to introduce two interactions
+between position/goals and position/assists into our multiple linear
+model.
+
     ## Start:  AIC=3113.9
     ## market_value ~ position + age + matches + goals + own_goals + 
     ##     assists + yellow_cards + red_cards + substituted_on + substituted_off + 
@@ -206,9 +215,9 @@ TODAY’S DATE
     ## may be misleading
 
     ##        1        2        3        4        5        6        7        8 
-    ## 15.13661 19.90749 18.98349 21.83738 25.32770 20.14266 22.63185 19.46094 
+    ## 17.10856 22.54012 16.10386 23.20919 24.56782 25.97028 20.62301 16.41933 
     ##        9       10 
-    ## 19.70388 23.27225
+    ## 21.94910 16.64924
 
 Your project goes here\! Before you submit, make sure your chunks are
 turned off with `echo = FALSE`.

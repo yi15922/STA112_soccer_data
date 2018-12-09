@@ -28,6 +28,8 @@ linear_prediction  <- lm(market_value ~ position + age + matches + goals + own_g
 tidy(linear_prediction)
 ```
 
+To begin with, we try to make a multiple linear regression based on all the statistical variables we have in the players dataset. In soccer, player's position is highly correlated with his performances, especially goals and assists (e.g. Centre-Forwards get most goals and Midfielders make most assists in general while Goalkeepers can seldom score a goal or make an assist). Therefore, we managed to introduce two interactions between position/goals and position/assists into our multiple linear model.
+
 ```{r AIC-selection}
 selected_model <- step(linear_prediction, direction = "backward")
 tidy(selected_model)
