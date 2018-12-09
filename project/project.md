@@ -1,24 +1,92 @@
-PROJECT TITLE
+Building the Perfect Soccer Player
 ================
-TEAM NAME
-TODAY’S DATE
+team-devils
+Dec 14, 2018
 
-    ## Parsed with column specification:
-    ## cols(
-    ##   name = col_character(),
-    ##   position = col_character(),
-    ##   age = col_integer(),
-    ##   matches = col_integer(),
-    ##   goals = col_integer(),
-    ##   own_goals = col_integer(),
-    ##   assists = col_integer(),
-    ##   yellow_cards = col_integer(),
-    ##   red_cards = col_integer(),
-    ##   substituted_on = col_integer(),
-    ##   substituted_off = col_integer(),
-    ##   market_value = col_double(),
-    ##   age_range = col_character()
-    ## )
+## Introduction
+
+## Data Analysis
+
+To get a general sense of the market values of all players in the
+2018-2019 season, let’s first create a histogram to visualize their
+distribution.
+
+``` r
+players1 %>%
+  ggplot(mapping = aes(market_value, fill = ..count..)) +
+  geom_histogram(binwidth = 5) +
+  labs(
+    title = "Distribution of Player Market Values in 2018-2019 Season",
+    x = "Player Market Values in 2018-2019 season", 
+    y = "Count"
+  ) +
+  theme_minimal() +
+  scale_fill_gradient(low="blue", high="red")
+```
+
+![](project_files/figure-gfm/histogram-1.png)<!-- -->
+
+In the histogram above, we can see that the distribution of the players’
+market values in the 2018-2019 season is right skewed, and that the most
+commonly occuring market values are slightly less than $25 million. In
+the summary statistics below, we can see that the mean of the market
+values is higher than the most commonly occuring market values due to
+the right skewedness of the data.
+
+``` r
+players1 %>%
+  summarise(mean = mean(market_value), median = median(market_value), sd = sd(market_value), min = min(market_value), max = max(market_value))
+```
+
+    ## # A tibble: 1 x 5
+    ##    mean median    sd   min   max
+    ##   <dbl>  <dbl> <dbl> <dbl> <dbl>
+    ## 1  35.3     25  25.2    15   180
+
+The median, however, seems to be affected to a lesser extent by the high
+valued outliers, and we can see this in the boxplot below.
+
+``` r
+players1 %>%
+  ggplot(mapping = aes(y = market_value)) +
+  geom_boxplot() +
+  coord_flip() +
+  labs(
+    title = "Boxplot of Player Market Values in 2018-2019 Season",
+    y = "Player Market Values in 2018-2019 season"
+  ) +
+  theme_minimal() 
+```
+
+![](project_files/figure-gfm/boxplot-1.png)<!-- -->
+
+``` r
+players1 %>%
+  select(name, market_value) %>%
+  filter(market_value > 80)
+```
+
+    ## # A tibble: 22 x 2
+    ##    name              market_value
+    ##    <chr>                    <dbl>
+    ##  1 Kylian Mbappé              180
+    ##  2 Neymar                     180
+    ##  3 Lionel Messi               180
+    ##  4 Mohamed Salah              150
+    ##  5 Harry Kane                 150
+    ##  6 Antoine Griezmann          150
+    ##  7 Kevin De Bruyne            150
+    ##  8 Philippe Coutinho          150
+    ##  9 Eden Hazard                150
+    ## 10 Paulo Dybala               110
+    ## # ... with 12 more rows
+
+``` r
+linear_prediction  <- lm(market_value ~ position + age + matches + goals + own_goals +
+                  assists + yellow_cards + red_cards + substituted_on +
+                  substituted_off + age_range + position * goals + position * assists, data =   players1)
+tidy(linear_prediction)
+```
 
     ## # A tibble: 46 x 5
     ##    term                       estimate std.error statistic p.value
@@ -35,6 +103,7 @@ TODAY’S DATE
     ## 10 positionRight Midfield        11.8      22.3      0.528 0.598  
     ## # ... with 36 more rows
 
+<<<<<<< HEAD
 To begin with, we try to make a multiple linear regression based on all
 the statistical variables we have in the players dataset. In soccer,
 player’s position is highly correlated with his performances, especially
@@ -162,6 +231,11 @@ model.
     ## - age_range       3    5761.0 222294 3102.6
     ## - matches         1    5228.0 221761 3105.4
     ## - position:goals 11   20559.9 237093 3118.8
+=======
+``` r
+tidy(selected_model)
+```
+>>>>>>> 9749beac2c9968e68ccae29501e36ac8d08cc7d0
 
     ## # A tibble: 30 x 5
     ##    term                       estimate std.error statistic  p.value
@@ -178,12 +252,30 @@ model.
     ## 10 positionRight Midfield        12.2      22.1      0.554 0.580   
     ## # ... with 20 more rows
 
+``` r
+glance(linear_prediction)$AIC
+```
+
     ## [1] 4534.834
+
+``` r
+glance(selected_model)$AIC
+```
 
     ## [1] 4516.383
 
+``` r
+glance(selected_model)$r.squared
+```
+
     ## [1] 0.3189235
 
+``` r
+test_cv <- crossv_kfold(players1, 10)
+models <- map(test_cv$train, ~ selected_model)
+rmses <- map2_dbl(models, test_cv$test, rmse)
+```
+
     ## Warning in predict.lm(model, data): prediction from a rank-deficient fit
     ## may be misleading
     
@@ -214,10 +306,22 @@ model.
     ## Warning in predict.lm(model, data): prediction from a rank-deficient fit
     ## may be misleading
 
+``` r
+rmses
+```
+
     ##        1        2        3        4        5        6        7        8 
+<<<<<<< HEAD
     ## 17.10856 22.54012 16.10386 23.20919 24.56782 25.97028 20.62301 16.41933 
     ##        9       10 
     ## 21.94910 16.64924
+=======
+    ## 17.04630 19.35617 16.45690 22.03679 19.75572 17.74945 18.72094 20.54302 
+    ##        9       10 
+    ## 27.21714 26.27502
+
+## Conclusion
+>>>>>>> 9749beac2c9968e68ccae29501e36ac8d08cc7d0
 
 Your project goes here\! Before you submit, make sure your chunks are
 turned off with `echo = FALSE`.

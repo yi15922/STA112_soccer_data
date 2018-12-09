@@ -1,501 +1,501 @@
-name,position,age,matches,goals,own_goals,assists,yellow_cards,red_cards,substituted_on,substituted_off,market_value,age_range
-Kylian Mbappé,Right Winger,19,20,15,0,8,4,1,3,4,180,20 and under
-Neymar,Left Winger,26,23,17,0,13,6,0,1,6,180,26-30
-Lionel Messi,Right Winger,31,15,15,0,8,1,0,1,1,180,30 and above
-Mohamed Salah,Right Winger,26,19,9,0,4,0,0,1,7,150,26-30
-Harry Kane,Centre-Forward,25,23,12,0,4,4,0,1,4,150,21-25
-Antoine Griezmann,Centre-Forward,27,25,9,0,6,4,0,0,9,150,26-30
-Kevin De Bruyne,Attacking Midfield,27,5,0,0,1,1,0,3,2,150,26-30
-Philippe Coutinho,Attacking Midfield,26,21,6,0,4,1,0,4,11,150,26-30
-Eden Hazard,Left Winger,27,21,10,0,5,2,0,5,6,150,26-30
-Paulo Dybala,Second Striker,25,20,7,0,3,2,0,4,7,110,21-25
-Dele Alli,Attacking Midfield,22,15,3,0,3,0,0,3,4,100,21-25
-Romelu Lukaku,Centre-Forward,25,21,9,0,3,2,0,4,2,100,21-25
-Cristiano Ronaldo,Left Winger,33,17,10,0,7,0,1,0,0,100,30 and above
-Mauro Icardi,Centre-Forward,25,19,11,0,2,0,0,3,4,95,21-25
-Marco Asensio,Left Winger,22,24,3,0,7,2,0,8,6,90,21-25
-Sergej Milinkovic-Savic,Central Midfield,23,19,1,0,1,5,0,3,9,90,21-25
-Leroy Sané,Left Winger,22,21,7,0,6,1,0,8,6,90,21-25
-Saúl Níguez,Central Midfield,24,23,4,0,2,3,0,1,5,90,21-25
-Raheem Sterling,Right Winger,23,20,10,0,8,3,0,1,8,90,21-25
-Paul Pogba,Central Midfield,25,21,5,0,4,1,0,1,6,90,21-25
-Isco,Attacking Midfield,26,17,3,0,2,1,0,5,6,90,26-30
-Gareth Bale,Right Winger,29,21,8,0,6,4,0,2,12,90,26-30
-Gabriel Jesus,Centre-Forward,21,19,6,0,1,0,0,10,5,80,21-25
-Ousmane Dembélé,Left Winger,21,22,7,0,3,1,0,9,11,80,21-25
-N'Golo Kanté,Defensive Midfield,27,22,1,0,1,4,0,2,1,80,26-30
-Raphaël Varane,Centre-Back,25,19,0,0,0,1,0,1,2,80,21-25
-Roberto Firmino,Second Striker,27,23,6,0,2,0,0,4,10,80,26-30
-Jan Oblak,Goalkeeper,25,19,0,0,0,0,0,0,0,80,21-25
-James Rodríguez,Attacking Midfield,27,13,4,0,4,2,0,4,8,80,26-30
-Marc-André ter Stegen,Goalkeeper,26,20,0,0,0,1,0,0,0,80,26-30
-Christian Eriksen,Attacking Midfield,26,18,4,0,6,0,0,4,2,80,26-30
-Sergio Busquets,Defensive Midfield,30,23,0,0,0,6,0,2,5,80,26-30
-Robert Lewandowski,Centre-Forward,30,22,17,0,6,0,0,0,4,80,26-30
-Toni Kroos,Central Midfield,28,22,2,0,4,3,0,0,2,80,26-30
-Sergio Agüero,Centre-Forward,30,17,12,0,3,4,0,1,12,80,26-30
-Pierre-Emerick Aubameyang,Centre-Forward,29,17,10,0,1,0,0,4,10,75,26-30
-Thomas Lemar,Left Winger,23,19,1,0,2,2,0,5,10,70,21-25
-Sadio Mané,Left Winger,26,18,7,0,3,1,0,0,5,70,26-30
-Samuel Umtiti,Centre-Back,25,10,0,0,1,3,0,1,1,70,21-25
-Marco Verratti,Central Midfield,26,18,0,0,1,5,0,1,10,70,26-30
-Koke,Central Midfield,26,17,4,0,1,4,0,2,1,70,26-30
-Jordi Alba,Left-Back,29,20,2,0,8,2,0,1,0,70,26-30
-David de Gea,Goalkeeper,28,23,0,0,0,0,0,0,1,70,26-30
-Marcelo,Left-Back,30,12,3,0,1,3,0,0,2,70,26-30
-Luis Suárez,Centre-Forward,31,21,11,0,7,5,0,1,3,70,30 and above
-Miralem Pjanic,Central Midfield,28,22,3,0,3,3,0,0,13,70,26-30
-Ivan Rakitic,Central Midfield,30,21,3,0,3,3,0,2,3,70,26-30
-Casemiro,Defensive Midfield,26,21,1,0,0,1,0,2,7,70,26-30
-Naby Keïta,Central Midfield,23,12,0,0,0,2,0,6,4,65,21-25
-Marcus Rashford,Centre-Forward,21,21,5,0,2,1,1,7,8,65,21-25
-Nabil Fekir,Attacking Midfield,25,14,4,0,4,3,0,3,8,65,21-25
-Lorenzo Insigne,Left Winger,27,21,10,0,3,3,0,1,8,65,26-30
-Thibaut Courtois,Goalkeeper,26,18,0,0,0,0,0,0,0,65,26-30
-Alexandre Lacazette,Centre-Forward,27,15,6,0,4,1,0,6,1,65,26-30
-Bernardo Silva,Right Winger,24,21,6,0,4,2,0,3,4,60,21-25
-Ederson,Goalkeeper,25,20,0,0,1,0,0,0,0,60,21-25
-Anthony Martial,Left Winger,22,16,7,0,0,2,0,3,3,60,21-25
-Riyad Mahrez,Right Winger,27,20,6,0,5,0,0,9,6,60,26-30
-Timo Werner,Centre-Forward,22,22,9,0,2,1,0,2,10,60,21-25
-Virgil van Dijk,Centre-Back,27,23,2,0,1,3,0,0,1,60,26-30
-Daniel Carvajal,Right-Back,26,12,1,0,2,4,0,1,2,60,26-30
-Álvaro Morata,Centre-Forward,26,21,6,0,0,6,0,5,9,60,26-30
-Alisson,Goalkeeper,26,21,0,0,0,0,0,0,0,60,26-30
-Jorginho,Defensive Midfield,26,21,2,0,0,4,0,0,4,60,26-30
-Kalidou Koulibaly,Centre-Back,27,18,0,0,1,5,0,0,0,60,26-30
-Thiago,Central Midfield,27,17,2,0,2,2,0,2,2,60,26-30
-Edinson Cavani,Centre-Forward,31,18,11,0,5,1,0,1,5,60,30 and above
-Diego Costa,Centre-Forward,30,14,4,0,2,6,0,0,6,60,26-30
-Kai Havertz,Attacking Midfield,19,20,6,0,7,1,0,2,4,55,20 and under
-John Stones,Centre-Back,24,21,0,0,0,2,0,3,3,55,21-25
-Marquinhos,Centre-Back,24,23,2,0,1,1,0,1,1,55,21-25
-Joshua Kimmich,Right-Back,23,26,0,0,7,3,0,1,0,55,21-25
-Sergi Roberto,Right-Back,26,16,0,0,4,0,0,2,2,55,26-30
-Douglas Costa,Right Winger,28,16,0,0,3,3,1,10,7,55,26-30
-Alexis Sánchez,Left Winger,29,15,3,0,3,2,0,5,6,55,26-30
-Mats Hummels,Centre-Back,29,17,1,0,1,3,0,1,3,55,26-30
-Gonzalo Higuaín,Centre-Forward,30,14,7,0,2,4,1,0,1,55,26-30
-Arthur,Central Midfield,22,21,0,0,1,2,0,6,12,50,21-25
-Federico Chiesa,Right Winger,21,19,2,0,6,5,0,1,5,50,21-25
-Matthijs de Ligt,Centre-Back,19,29,2,0,1,1,0,1,1,50,20 and under
-Lucas Hernández,Left-Back,22,17,0,0,1,4,0,1,2,50,21-25
-José Giménez,Centre-Back,23,11,2,0,0,2,0,1,4,50,21-25
-Kingsley Coman,Left Winger,22,3,1,0,1,0,0,2,1,50,21-25
-Milan Skriniar,Centre-Back,23,21,0,1,0,5,0,0,0,50,21-25
-Kepa,Goalkeeper,24,19,0,0,0,0,0,1,1,50,21-25
-Fred,Central Midfield,25,13,1,0,0,2,0,3,8,50,21-25
-Florian Thauvin,Right Winger,25,17,11,0,4,3,0,3,9,50,21-25
-Adrien Rabiot,Central Midfield,23,18,2,1,2,3,0,3,2,50,21-25
-Aymeric Laporte,Centre-Back,24,19,3,0,0,1,0,0,1,50,21-25
-Niklas Süle,Centre-Back,23,20,2,0,0,1,0,2,0,50,21-25
-Rodrigo,Centre-Forward,27,23,3,0,4,2,0,4,4,50,26-30
-Ciro Immobile,Centre-Forward,28,20,9,0,5,3,0,3,4,50,26-30
-Kyle Walker,Right-Back,28,21,1,0,1,1,0,2,1,50,26-30
-Heung-min Son,Left Winger,26,25,4,0,10,3,0,7,12,50,26-30
-David Alaba,Left-Back,26,22,1,0,3,1,0,2,4,50,26-30
-Thomas Müller,Second Striker,29,25,5,0,4,1,0,8,9,50,26-30
-Willian,Right Winger,30,23,3,0,6,1,0,6,13,50,26-30
-Jadon Sancho,Left Winger,18,24,5,0,9,1,0,13,6,45,20 and under
-Leon Bailey,Left Winger,21,17,1,0,1,2,0,8,5,45,21-25
-Richarlison,Left Winger,21,18,9,0,2,1,1,6,5,45,21-25
-Malcom,Right Winger,21,7,1,0,0,0,0,5,2,45,21-25
-Christian Pulisic,Right Winger,20,16,3,0,4,0,0,5,6,45,20 and under
-Fabinho,Defensive Midfield,25,12,0,0,1,2,0,5,2,45,21-25
-Federico Bernardeschi,Right Winger,24,15,3,0,1,2,0,7,5,45,21-25
-Corentin Tolisso,Central Midfield,24,4,1,0,0,0,0,3,1,45,21-25
-Julian Brandt,Left Winger,22,22,4,0,6,0,0,7,7,45,21-25
-Harry Maguire,Centre-Back,25,15,2,0,0,4,0,0,1,45,21-25
-Memphis Depay,Centre-Forward,24,25,10,0,10,1,0,4,5,45,21-25
-Benjamin Mendy,Left-Back,24,12,0,0,6,1,0,1,0,45,21-25
-Marcos Alonso,Left-Back,27,17,1,0,5,1,0,0,2,45,26-30
-Alex Sandro,Left-Back,27,21,1,0,2,5,0,2,3,45,26-30
-Aaron Ramsey,Central Midfield,27,23,3,0,4,0,0,9,5,45,26-30
-Ángel Di María,Right Winger,30,20,7,0,6,1,0,2,10,45,26-30
-Ivan Perisic,Left Winger,29,22,3,0,3,4,0,3,7,45,26-30
-Mesut Özil,Attacking Midfield,30,12,4,0,1,1,0,2,5,45,26-30
-Gerard Piqué,Centre-Back,31,19,3,0,1,3,0,0,0,45,30 and above
-Rodri,Defensive Midfield,22,20,1,0,0,1,0,3,5,40,21-25
-Benjamin Pavard,Centre-Back,22,18,0,0,0,2,0,0,0,40,21-25
-Davinson Sánchez,Centre-Back,22,18,0,0,1,2,0,1,1,40,21-25
-Frenkie de Jong,Central Midfield,21,26,2,0,2,1,0,2,7,40,21-25
-Lucas Torreira,Defensive Midfield,22,23,0,0,3,3,0,9,5,40,21-25
-Hirving Lozano,Right Winger,23,24,13,0,7,5,0,2,10,40,21-25
-Gianluigi Donnarumma,Goalkeeper,19,18,0,0,0,1,0,0,0,40,20 and under
-Rúben Neves,Defensive Midfield,21,17,2,0,1,6,0,0,1,40,21-25
-Gonçalo Guedes,Left Winger,22,12,0,0,1,1,0,3,7,40,21-25
-Alessio Romagnoli,Centre-Back,23,16,2,1,0,4,0,1,0,40,21-25
-Andreas Christensen,Centre-Back,22,9,0,0,0,0,0,1,3,40,21-25
-Jonathan Tah,Centre-Back,22,16,1,0,0,1,0,1,0,40,21-25
-Héctor Bellerín,Right-Back,23,13,0,1,4,2,0,0,1,40,21-25
-Clément Lenglet,Centre-Back,23,14,1,0,0,2,1,3,0,40,21-25
-João Cancelo,Right-Back,24,18,0,0,3,3,0,1,1,40,21-25
-Piotr Zielinski,Central Midfield,24,23,3,0,0,1,0,6,11,40,21-25
-Michy Batshuayi,Centre-Forward,25,20,6,0,0,4,0,12,5,40,21-25
-Eric Dier,Defensive Midfield,24,20,1,0,0,3,0,4,4,40,21-25
-Marcelo Brozovic,Central Midfield,26,19,2,0,0,6,0,1,4,40,26-30
-Leon Goretzka,Central Midfield,23,20,2,0,2,1,0,9,4,40,21-25
-Alex Oxlade-Chamberlain,Right Midfield,25,0,0,0,0,0,0,0,0,40,21-25
-Jesse Lingard,Right Winger,25,16,2,0,1,1,0,5,9,40,21-25
-Allan,Central Midfield,27,20,0,0,2,3,0,5,1,40,26-30
-Suso,Right Winger,25,20,5,0,10,2,0,3,4,40,21-25
-Granit Xhaka,Defensive Midfield,26,20,2,0,2,6,0,0,2,40,26-30
-Stefan de Vrij,Centre-Back,26,14,1,0,1,2,0,0,1,40,26-30
-Stefan Savic,Centre-Back,27,11,1,0,1,2,0,0,1,40,26-30
-Konstantinos Manolas,Centre-Back,27,19,3,0,0,2,0,0,4,40,26-30
-Antonio Rüdiger,Centre-Back,25,19,1,0,1,5,0,1,2,40,21-25
-Nemanja Matic,Defensive Midfield,30,19,0,0,0,6,0,1,2,40,26-30
-César Azpilicueta,Right-Back,29,20,0,0,3,0,0,4,1,40,26-30
-Paulinho,Central Midfield,30,1,0,0,0,0,0,0,1,40,26-30
-Ilkay Gündogan,Central Midfield,28,15,2,0,3,0,0,7,7,40,26-30
-Georginio Wijnaldum,Central Midfield,28,23,3,0,1,4,0,1,6,40,26-30
-Javi Martínez,Defensive Midfield,30,14,1,0,0,2,0,1,2,40,26-30
-Toby Alderweireld,Centre-Back,29,22,0,0,0,3,0,0,1,40,26-30
-Radja Nainggolan,Attacking Midfield,30,13,3,0,0,0,0,1,8,40,26-30
-Marco Reus,Attacking Midfield,29,22,11,0,8,2,0,2,4,40,26-30
-Jérôme Boateng,Centre-Back,30,16,0,0,1,0,0,0,1,40,26-30
-Sergio Ramos,Centre-Back,32,24,9,0,1,5,0,0,3,40,30 and above
-Karim Benzema,Centre-Forward,30,20,10,0,4,1,0,1,9,40,26-30
-Tanguy Ndombélé,Central Midfield,21,23,2,0,4,1,0,4,7,35,21-25
-Houssem Aouar,Central Midfield,20,19,5,0,4,1,0,2,1,35,20 and under
-Ryan Sessegnon,Left Midfield,18,17,1,0,4,0,0,3,1,35,20 and under
-Vinícius Júnior,Left Winger,18,13,4,0,6,3,0,6,1,35,20 and under
-Mikel Oyarzabal,Left Winger,21,15,5,0,2,2,0,0,9,35,21-25
-Trent Alexander-Arnold,Right-Back,20,18,2,0,2,3,0,1,5,35,20 and under
-Franck Kessié,Central Midfield,21,15,2,0,2,4,0,1,2,35,21-25
-Wilfred Ndidi,Defensive Midfield,21,14,1,0,0,3,0,1,0,35,21-25
-Andrew Robertson,Left-Back,24,23,0,0,5,2,0,0,1,35,21-25
-Thomas,Defensive Midfield,25,16,2,0,4,3,0,7,3,35,21-25
-José Gayà,Left-Back,23,20,1,0,0,7,0,0,0,35,21-25
-Tiemoué Bakayoko,Defensive Midfield,24,14,0,0,0,3,0,5,1,35,21-25
-Andrea Belotti,Centre-Forward,24,16,6,0,1,1,0,2,2,35,21-25
-Felipe Anderson,Left Winger,25,15,4,0,2,3,0,1,7,35,21-25
-Jordan Pickford,Goalkeeper,24,18,0,0,0,1,0,0,1,35,21-25
-Luis Alberto,Attacking Midfield,26,12,2,0,2,2,0,2,8,35,26-30
-Kieran Trippier,Right-Back,28,17,1,0,4,2,0,2,3,35,26-30
-Pablo Sarabia,Attacking Midfield,26,23,13,0,7,4,0,4,10,35,26-30
-Nacho Fernández,Centre-Back,28,16,0,0,0,4,0,1,2,35,26-30
-Henrikh Mkhitaryan,Attacking Midfield,29,21,3,0,6,2,0,3,3,35,26-30
-Nicolás Otamendi,Centre-Back,30,9,0,0,0,2,0,1,1,35,26-30
-Andrej Kramaric,Centre-Forward,27,19,10,0,2,1,0,3,7,35,26-30
-Leonardo Bonucci,Centre-Back,31,21,1,1,3,2,0,0,0,35,30 and above
-Manuel Akanji,Centre-Back,23,17,1,0,0,3,0,0,1,33,21-25
-Iñigo Martínez,Centre-Back,27,13,0,0,0,4,0,1,1,32,26-30
-Lucas Moura,Right Winger,26,19,5,0,0,2,0,2,9,32,26-30
-Jan Vertonghen,Centre-Back,31,11,1,0,0,1,0,0,1,32,30 and above
-Maximiliano Gómez,Centre-Forward,22,13,7,0,4,1,0,4,3,30,21-25
-Carlos Soler,Right Midfield,21,20,1,0,5,6,0,3,7,30,21-25
-Giovani Lo Celso,Central Midfield,22,21,6,0,2,5,0,7,6,30,21-25
-Dayot Upamecano,Centre-Back,20,17,0,0,0,1,0,1,0,30,20 and under
-Yerry Mina,Centre-Back,24,3,0,0,0,1,0,1,0,30,21-25
-Eric Bailly,Centre-Back,24,7,0,0,0,0,0,2,1,30,21-25
-Presnel Kimpembe,Centre-Back,23,17,0,0,1,0,1,2,0,30,21-25
-Álvaro Odriozola,Right-Back,22,9,1,0,3,0,0,1,2,30,21-25
-Ángel Correa,Right Winger,23,22,2,0,3,6,0,10,11,30,21-25
-Aleksandr Golovin,Attacking Midfield,22,13,0,0,3,4,0,2,3,30,21-25
-Gelson Martins,Right Winger,23,9,1,0,0,0,0,7,1,30,21-25
-Nicolò Barella,Central Midfield,21,18,1,0,0,4,0,0,3,30,21-25
-Iñaki Williams,Right Winger,24,13,4,0,2,1,0,1,6,30,21-25
-Keita Baldé,Left Winger,23,16,2,0,2,0,0,12,3,30,21-25
-Nélson Semedo,Right-Back,25,13,0,0,0,1,0,2,2,30,21-25
-Thilo Kehrer,Centre-Back,22,18,0,0,0,3,0,7,2,30,21-25
-Hakim Ziyech,Attacking Midfield,25,22,9,0,8,4,0,0,6,30,21-25
-André Silva,Centre-Forward,23,22,11,0,1,2,0,4,8,30,21-25
-Ante Rebic,Left Winger,25,17,5,0,2,3,0,6,8,30,21-25
-Jean Michaël Seri,Central Midfield,27,14,1,0,2,0,0,1,6,30,26-30
-Serge Gnabry,Left Winger,23,18,2,0,4,1,0,7,11,30,21-25
-Wissam Ben Yedder,Centre-Forward,28,19,10,0,5,0,0,6,5,30,26-30
-Wilfried Zaha,Right Winger,26,11,3,0,2,3,0,0,1,30,26-30
-Alessandro Florenzi,Right-Back,27,18,2,0,3,2,0,2,6,30,26-30
-Geoffrey Kondogbia,Central Midfield,25,12,0,0,0,3,0,1,6,30,21-25
-Paco Alcácer,Centre-Forward,25,12,13,0,0,1,0,6,4,30,21-25
-Willian José,Centre-Forward,27,11,3,0,0,0,0,3,3,30,26-30
-Emre Can,Defensive Midfield,24,11,0,0,1,1,0,7,3,30,21-25
-Ander Herrera,Central Midfield,29,8,0,0,0,2,0,4,4,30,26-30
-Gylfi Sigurdsson,Attacking Midfield,29,18,7,0,3,1,0,0,8,30,26-30
-Julian Draxler,Attacking Midfield,25,19,3,0,3,2,0,10,3,30,21-25
-Victor Wanyama,Defensive Midfield,27,7,0,0,0,1,0,3,2,30,26-30
-Steven Nzonzi,Defensive Midfield,29,21,1,0,0,3,0,4,3,30,26-30
-Dries Mertens,Centre-Forward,31,24,11,0,6,2,0,8,8,30,30 and above
-Diego Godín,Centre-Back,32,18,2,0,1,2,0,2,0,30,30 and above
-Mateo Kovacic,Central Midfield,24,19,0,0,1,4,0,4,11,30,21-25
-Danny Rose,Left-Back,28,9,0,0,2,3,0,3,3,30,26-30
-Juan Mata,Attacking Midfield,30,15,3,0,1,1,0,7,6,30,26-30
-Marek Hamsik,Central Midfield,31,19,2,0,2,0,0,2,7,30,30 and above
-David Silva,Attacking Midfield,32,17,8,0,4,1,0,0,9,30,30 and above
-Axel Witsel,Defensive Midfield,29,24,3,0,1,1,0,3,2,30,26-30
-Blaise Matuidi,Central Midfield,31,22,2,0,4,3,0,3,7,30,30 and above
-Hugo Lloris,Goalkeeper,31,16,0,0,0,0,1,0,0,30,30 and above
-Manuel Neuer,Goalkeeper,32,25,0,0,0,1,0,0,0,30,30 and above
-James Maddison,Attacking Midfield,22,12,3,0,2,0,0,0,9,28,21-25
-Lorenzo Pellegrini,Central Midfield,22,17,2,0,5,5,0,4,9,28,21-25
-Rúben Dias,Centre-Back,21,26,0,0,1,6,0,0,1,28,21-25
-Joe Gomez,Centre-Back,21,19,0,0,0,2,0,2,0,28,21-25
-Rony Lopes,Right Winger,22,6,1,0,0,0,0,1,2,28,21-25
-Alassane Plea,Centre-Forward,25,14,11,0,3,1,0,3,6,28,21-25
-Rafinha,Central Midfield,25,8,1,0,0,1,0,3,5,28,21-25
-Juan Cuadrado,Right Winger,30,18,1,0,4,4,0,6,8,28,26-30
-Kevin Strootman,Central Midfield,28,17,0,0,2,4,0,0,4,28,26-30
-Jordan Henderson,Central Midfield,28,19,0,0,0,4,0,9,4,28,26-30
-Cengiz Ünder,Right Winger,21,22,3,0,5,0,0,4,10,27,21-25
-Hakan Calhanoglu,Left Winger,24,20,2,0,7,3,0,3,10,27,21-25
-Bruno Fernandes,Attacking Midfield,24,22,9,0,1,5,0,3,2,26,21-25
-Yacine Brahimi,Left Winger,28,17,3,0,3,1,0,1,12,26,26-30
-David Neres,Right Winger,21,23,3,0,7,1,0,5,11,25,21-25
-Paulinho,Left Winger,18,12,0,0,0,0,0,9,2,25,20 and under
-Santiago Ascacíbar,Defensive Midfield,21,15,0,0,0,5,0,2,2,25,21-25
-Nikola Milenkovic,Centre-Back,21,18,2,0,0,2,0,0,0,25,21-25
-Lautaro Martínez,Centre-Forward,21,11,3,0,1,2,0,5,4,25,21-25
-Amine Harit,Attacking Midfield,21,14,1,0,2,0,0,5,6,25,21-25
-Pablo Fornals,Attacking Midfield,22,19,3,0,2,1,0,4,5,25,21-25
-André Zambo Anguissa,Defensive Midfield,23,13,0,0,0,0,0,4,3,25,21-25
-Lucas Tousart,Defensive Midfield,21,19,0,0,1,0,0,3,5,25,21-25
-Fabián Ruiz,Central Midfield,22,13,2,0,1,1,0,3,5,25,21-25
-Nicolas Pépé,Right Winger,23,15,8,0,7,0,0,1,4,25,21-25
-Moussa Marega,Second Striker,27,15,7,0,4,4,0,2,1,25,26-30
-Giovanni Simeone,Centre-Forward,23,18,3,0,3,1,0,5,5,25,21-25
-Jean-Kévin Augustin,Centre-Forward,21,21,8,0,2,2,0,8,7,25,21-25
-Jefferson Lerma,Defensive Midfield,24,12,1,1,1,5,0,0,3,25,21-25
-Alex Telles,Left-Back,25,18,1,0,3,2,0,0,0,25,21-25
-Abdou Diallo,Centre-Back,22,15,1,0,0,2,1,1,2,25,21-25
-Wendell,Left-Back,25,19,1,0,0,5,0,1,3,25,21-25
-Lucas Vázquez,Right Winger,27,17,1,0,1,3,0,10,1,25,26-30
-Elseid Hysaj,Right-Back,24,19,0,0,1,4,0,2,3,25,21-25
-Bryan Cristante,Central Midfield,23,17,1,0,1,2,0,7,4,25,21-25
-Mattia Caldara,Centre-Back,24,2,0,0,0,0,0,0,0,25,21-25
-Julian Weigl,Defensive Midfield,23,7,1,0,0,2,0,2,3,25,21-25
-Alejandro Grimaldo,Left-Back,23,20,2,0,1,4,0,0,2,25,21-25
-Ben Davies,Left-Back,25,20,0,0,2,3,0,2,3,25,21-25
-Stanislav Lobotka,Defensive Midfield,24,14,0,0,1,1,0,0,3,25,21-25
-Victor Lindelöf,Centre-Back,24,19,1,1,0,0,0,1,2,25,21-25
-Jean-Philippe Gbamin,Defensive Midfield,23,12,2,0,0,0,0,0,3,25,21-25
-Nathan Aké,Centre-Back,23,16,1,0,0,1,0,2,0,25,21-25
-Matteo Politano,Right Winger,25,19,3,0,3,1,0,5,11,25,21-25
-Matías Vecino,Central Midfield,27,19,2,0,4,3,0,2,5,25,26-30
-Ross Barkley,Attacking Midfield,24,20,3,0,4,2,0,8,6,25,21-25
-Simone Verdi,Right Winger,26,6,1,0,1,0,0,2,4,25,26-30
-Dennis Praet,Central Midfield,24,12,0,0,0,4,0,2,3,25,21-25
-Faouzi Ghoulam,Left-Back,27,0,0,0,0,0,0,0,0,25,26-30
-Matthias Ginter,Centre-Back,24,19,1,0,0,2,0,0,3,25,21-25
-Emil Forsberg,Left Winger,27,13,3,0,3,0,0,3,5,25,26-30
-Marcel Sabitzer,Right Winger,24,23,3,1,3,5,0,7,7,25,21-25
-Thorgan Hazard,Left Winger,25,20,13,0,7,1,0,3,2,25,21-25
-Thomas Meunier,Right-Back,27,20,3,0,6,2,0,3,4,25,26-30
-Shkodran Mustafi,Centre-Back,26,15,1,0,0,2,0,0,0,25,26-30
-Sime Vrsaljko,Right-Back,26,11,0,0,1,2,0,2,4,25,26-30
-Iago Aspas,Centre-Forward,31,18,9,0,1,3,0,1,8,25,30 and above
-Vitolo,Left Winger,29,8,0,0,2,2,0,7,0,25,26-30
-Pedro,Left Winger,31,17,4,0,1,0,0,6,8,25,30 and above
-Asier Illarramendi,Defensive Midfield,28,12,1,0,0,6,0,2,2,25,26-30
-Aleksandar Mitrovic,Centre-Forward,24,20,13,0,2,5,0,0,3,25,21-25
-David Luiz,Centre-Back,31,16,0,0,0,1,0,2,0,25,30 and above
-Marko Arnautovic,Centre-Forward,29,17,6,0,3,4,0,2,7,25,26-30
-Arturo Vidal,Central Midfield,31,21,4,0,2,2,0,12,5,25,30 and above
-Sami Khedira,Central Midfield,31,8,1,0,0,0,0,2,5,25,30 and above
-Edin Dzeko,Centre-Forward,32,22,10,0,5,5,0,2,2,25,30 and above
-Luka Modric,Central Midfield,33,23,0,0,4,4,0,4,8,25,30 and above
-Cesc Fàbregas,Central Midfield,31,9,1,0,0,0,0,4,1,25,30 and above
-Danilo Pereira,Defensive Midfield,27,16,0,0,1,2,1,3,1,24,26-30
-Oscar,Attacking Midfield,27,0,0,0,0,0,0,0,0,24,26-30
-José Callejón,Right Winger,31,16,0,0,8,1,0,2,4,24,30 and above
-Mario Balotelli,Centre-Forward,28,9,0,0,1,5,0,1,6,24,26-30
-Patrick Cutrone,Centre-Forward,20,19,7,0,1,1,0,9,4,23,20 and under
-Nico Elvedi,Centre-Back,22,14,2,0,1,1,0,0,2,23,21-25
-Jordan Veretout,Central Midfield,25,11,3,0,1,3,0,0,1,23,21-25
-Mark Uth,Centre-Forward,27,18,2,0,2,4,0,4,8,23,26-30
-Giacomo Bonaventura,Central Midfield,29,13,3,0,1,0,0,2,6,23,26-30
-Cenk Tosun,Centre-Forward,27,19,2,0,3,2,0,9,4,23,26-30
-Medhi Benatia,Centre-Back,31,7,0,0,0,2,0,0,1,23,30 and above
-Issa Diop,Centre-Back,21,15,1,1,0,1,0,0,0,22,21-25
-Talisca,Attacking Midfield,24,0,0,0,0,0,0,0,0,22,21-25
-Mariano Díaz,Centre-Forward,25,12,1,0,0,1,0,9,2,22,21-25
-Morgan Sanson,Central Midfield,24,14,2,0,4,3,0,1,6,22,21-25
-Daniele Rugani,Centre-Back,24,4,0,0,0,1,0,1,0,22,21-25
-Matija Nastasic,Centre-Back,25,15,0,0,1,4,1,0,0,22,21-25
-Yannick Carrasco,Left Winger,25,4,0,0,1,0,0,2,2,22,21-25
-Jack Butland,Goalkeeper,25,19,0,0,0,0,0,0,0,22,21-25
-Cédric Bakambu,Centre-Forward,27,0,0,0,0,0,0,0,0,22,26-30
-Salif Sané,Centre-Back,28,18,0,0,0,2,0,0,0,22,26-30
-Michael Keane,Centre-Back,25,13,1,0,2,0,0,0,1,22,21-25
-Marc Bartra,Centre-Back,27,19,2,0,0,3,0,1,2,22,26-30
-Thomas Delaney,Central Midfield,27,18,0,0,3,5,0,3,5,22,26-30
-Eduardo Salvio,Right Winger,28,17,4,0,5,3,0,3,11,22,26-30
-Joel Matip,Centre-Back,27,8,1,0,0,1,0,5,0,22,26-30
-Kevin Volland,Centre-Forward,26,17,6,0,6,3,0,3,5,22,26-30
-Bernd Leno,Goalkeeper,26,11,0,0,0,0,0,1,0,22,26-30
-Pizzi,Central Midfield,29,25,6,0,9,1,0,2,17,22,26-30
-Bas Dost,Centre-Forward,29,9,8,0,1,0,0,2,5,22,26-30
-Christian Benteke,Centre-Forward,27,4,0,0,0,0,0,0,3,22,26-30
-Dimitri Payet,Attacking Midfield,31,19,6,0,6,3,0,3,7,22,30 and above
-Hulk,Right Winger,32,0,0,0,0,0,0,0,0,21,30 and above
-Ademola Lookman,Left Winger,21,8,0,0,1,0,0,7,1,20,21-25
-Éder Militão,Centre-Back,20,15,1,0,1,2,0,0,0,20,20 and under
-Cristian Pavón,Right Winger,22,9,2,0,0,0,0,2,2,20,21-25
-Rodrigo Bentancur,Central Midfield,21,19,1,0,1,7,0,3,3,20,21-25
-Denis Zakaria,Defensive Midfield,22,18,2,0,1,4,0,9,4,20,21-25
-Dani Ceballos,Central Midfield,22,20,2,0,1,3,0,8,4,20,21-25
-Luan,Second Striker,25,0,0,0,0,0,0,0,0,20,21-25
-Demarai Gray,Left Winger,22,15,3,0,1,1,0,4,9,20,21-25
-Steven Bergwijn,Left Winger,21,22,6,0,7,2,0,1,14,20,21-25
-Mario Hermoso,Centre-Back,23,14,2,0,0,4,0,0,0,20,21-25
-Borja Iglesias,Centre-Forward,25,14,8,0,2,2,0,2,4,20,21-25
-Allan Saint-Maximin,Right Winger,21,17,3,0,2,2,0,1,8,20,21-25
-Renato Sanches,Central Midfield,21,18,1,0,4,2,0,11,2,20,21-25
-Luka Jovic,Centre-Forward,20,18,14,0,4,0,0,7,8,20,20 and under
-Santi Mina,Centre-Forward,22,11,6,0,0,2,0,2,7,20,21-25
-Youri Tielemans,Central Midfield,21,24,3,0,2,5,0,0,6,20,21-25
-Lewis Cook,Central Midfield,21,15,0,0,0,1,0,5,4,20,21-25
-Moussa Dembélé,Centre-Forward,22,19,7,0,2,0,0,5,7,20,21-25
-Thomas Strakosha,Goalkeeper,23,18,0,0,0,2,0,0,0,20,21-25
-Ricardo Pereira,Right-Back,25,12,1,0,2,2,0,0,2,20,21-25
-Jack Grealish,Attacking Midfield,23,20,2,0,3,4,0,1,4,20,21-25
-Jamie Vardy,Centre-Forward,31,13,4,0,1,0,1,3,4,20,30 and above
-Florian Grillitsch,Central Midfield,23,17,1,0,0,3,0,1,8,20,21-25
-Lucas Alario,Centre-Forward,26,14,3,0,2,0,0,5,2,20,26-30
-Arkadiusz Milik,Centre-Forward,24,18,5,0,2,2,0,6,5,20,21-25
-Manu Trigueros,Central Midfield,27,16,0,0,1,3,0,2,3,20,26-30
-Quincy Promes,Left Winger,26,29,4,0,4,2,0,11,6,20,26-30
-Emerson,Left-Back,24,7,1,0,1,1,0,1,0,20,21-25
-Gerard Moreno,Centre-Forward,26,18,5,0,0,1,0,4,4,20,26-30
-Davide Zappacosta,Right-Back,26,7,0,0,2,0,0,1,1,20,26-30
-Leandro Paredes,Defensive Midfield,24,26,3,0,4,7,0,2,6,20,21-25
-Niklas Stark,Centre-Back,23,12,0,0,0,1,0,0,2,20,21-25
-Kurt Zouma,Centre-Back,24,13,0,0,1,0,0,3,0,20,21-25
-João Mário,Central Midfield,25,5,1,0,3,1,0,3,1,20,21-25
-Gabriel Paulista,Centre-Back,28,17,0,0,0,2,0,0,0,20,26-30
-Danilo,Right-Back,27,6,0,0,1,1,0,1,1,20,26-30
-Maximilian Philipp,Centre-Forward,24,12,2,0,1,0,0,5,5,20,21-25
-Manuel Lanzini,Attacking Midfield,25,0,0,0,0,0,0,0,0,20,21-25
-Serge Aurier,Right-Back,25,9,0,0,1,0,0,2,1,20,21-25
-Layvin Kurzawa,Left-Back,26,0,0,0,0,0,0,0,0,20,26-30
-Idrissa Gueye,Central Midfield,29,12,0,0,0,3,0,0,1,20,26-30
-Lucas Digne,Left-Back,25,14,0,0,2,3,0,1,1,20,21-25
-Héctor Herrera,Central Midfield,28,19,3,0,1,2,0,3,3,20,26-30
-Phil Jones,Centre-Back,26,3,0,0,0,0,0,0,1,20,26-30
-Erik Lamela,Right Winger,26,17,6,0,3,4,0,8,6,20,26-30
-Philipp Max,Left-Back,25,14,2,0,5,2,0,0,0,20,21-25
-Mário Fernandes,Right-Back,28,24,0,0,5,0,0,0,2,20,26-30
-William Carvalho,Defensive Midfield,26,20,0,0,1,3,0,3,6,20,26-30
-Jannik Vestergaard,Centre-Back,26,8,0,0,0,1,0,0,0,20,26-30
-Stephan El Shaarawy,Left Winger,26,14,5,0,2,0,0,1,4,20,26-30
-Xherdan Shaqiri,Right Winger,27,19,3,0,6,0,0,8,5,20,26-30
-Nathaniel Clyne,Right-Back,27,2,0,0,0,0,0,0,0,20,26-30
-Jack Wilshere,Central Midfield,26,4,0,0,0,2,0,0,1,20,26-30
-Duván Zapata,Centre-Forward,27,19,3,0,4,0,0,8,7,20,26-30
-Danny Drinkwater,Central Midfield,28,1,0,0,0,0,0,1,0,20,26-30
-Andriy Yarmolenko,Right Winger,29,13,3,0,1,2,0,4,6,20,26-30
-Yuri Berchiche,Left-Back,28,12,1,0,0,4,0,0,0,20,26-30
-Anthony Lopes,Goalkeeper,28,17,0,0,0,0,0,0,0,20,26-30
-Victor Moses,Right Winger,27,6,0,0,0,1,0,5,0,20,26-30
-Dani Parejo,Central Midfield,29,15,2,0,1,5,1,0,0,20,26-30
-Morgan Schneiderlin,Defensive Midfield,29,8,0,0,1,2,0,3,3,20,26-30
-Adrien Silva,Central Midfield,29,5,0,0,1,0,0,1,3,20,26-30
-Javier Pastore,Attacking Midfield,29,7,2,0,1,0,0,2,4,20,26-30
-Diego Perotti,Left Winger,30,2,0,0,0,0,0,1,0,20,26-30
-Wojciech Szczesny,Goalkeeper,28,19,0,0,0,1,0,0,0,20,26-30
-Adam Lallana,Attacking Midfield,30,5,0,0,0,2,0,2,3,20,26-30
-Ryan Bertrand,Left-Back,29,12,1,0,0,5,0,0,0,20,26-30
-Dejan Lovren,Centre-Back,29,10,0,0,0,2,0,0,1,20,26-30
-Mario Mandzukic,Centre-Forward,32,14,7,0,2,1,0,2,5,20,30 and above
-Sokratis,Centre-Back,30,17,1,0,0,6,0,0,2,20,26-30
-Theo Walcott,Right Winger,29,15,3,0,2,0,0,2,9,20,26-30
-Amadou Diawara,Defensive Midfield,21,7,0,0,0,3,0,2,3,18,21-25
-Franco Cervi,Left Winger,24,22,3,0,3,3,0,8,7,18,21-25
-Diogo Jota,Left Winger,21,13,0,0,0,4,0,4,6,18,21-25
-Panagiotis Retsos,Centre-Back,20,1,0,0,0,0,0,0,1,18,20 and under
-Caglar Söyüncü,Centre-Back,22,12,0,0,0,2,0,1,2,18,21-25
-Diadie Samassékou,Defensive Midfield,22,23,2,0,0,5,0,0,1,18,21-25
-Karl Toko Ekambi,Centre-Forward,26,17,4,0,3,0,0,6,7,18,26-30
-Donny van de Beek,Central Midfield,21,27,6,0,2,2,0,10,10,18,21-25
-Jemerson,Centre-Back,26,17,0,0,0,3,0,0,0,18,26-30
-Nabil Bentaleb,Defensive Midfield,24,18,5,0,1,3,0,5,2,18,21-25
-Alex Iwobi,Left Winger,22,17,1,0,5,0,0,5,8,18,21-25
-Patrik Schick,Centre-Forward,22,16,4,0,0,1,0,7,6,18,21-25
-Breel Embolo,Centre-Forward,21,16,3,0,1,4,0,5,8,18,21-25
-André Onana,Goalkeeper,22,25,0,1,0,2,0,0,1,18,21-25
-Diego Laxalt,Left Midfield,25,19,0,0,0,1,0,6,5,18,21-25
-Alireza Jahanbakhsh,Right Winger,25,13,0,0,0,2,0,6,3,18,21-25
-Andrija Zivkovic,Attacking Midfield,22,14,0,0,6,1,0,8,1,18,21-25
-Adama Traoré,Right Winger,22,14,1,0,1,1,0,11,1,18,21-25
-Ruben Loftus-Cheek,Central Midfield,22,9,4,0,0,0,0,4,4,18,21-25
-Roberto Gagliardini,Central Midfield,24,11,2,0,1,2,0,4,1,18,21-25
-Samu Castillejo,Right Winger,23,13,1,0,2,0,1,8,3,18,21-25
-Mahmoud Dahoud,Central Midfield,22,13,1,0,1,2,0,4,3,18,21-25
-Luke Shaw,Left-Back,23,17,1,0,2,6,0,0,1,18,21-25
-James Ward-Prowse,Central Midfield,24,6,0,0,0,1,0,3,2,18,21-25
-Domenico Berardi,Right Winger,24,17,4,0,3,4,0,4,4,18,21-25
-Raphaël Guerreiro,Left-Back,24,12,2,0,1,0,0,8,3,18,21-25
-Djibril Sidibé,Right-Back,26,12,0,0,0,3,0,2,1,18,26-30
-Vincent Aboubakar,Centre-Forward,26,9,4,0,2,2,0,1,7,18,26-30
-Jasper Cillessen,Goalkeeper,29,7,0,0,0,0,0,0,0,18,26-30
-Max Meyer,Attacking Midfield,23,13,0,0,1,1,0,6,3,18,21-25
-Bertrand Traoré,Right Winger,23,18,5,0,2,3,0,6,7,18,21-25
-Nathan Redmond,Left Winger,24,16,0,0,2,0,0,1,2,18,21-25
-Tom Cairney,Central Midfield,27,9,0,0,1,0,0,2,3,18,26-30
-Santiago Arias,Right-Back,26,12,0,0,2,1,0,2,1,18,26-30
-Michael Gregoritsch,Second Striker,24,17,3,0,0,0,0,4,8,18,21-25
-Chris Wood,Centre-Forward,26,18,3,0,1,0,0,9,7,18,26-30
-Chris Smalling,Centre-Back,29,16,1,0,0,1,0,0,0,18,26-30
-Sead Kolasinac,Left-Back,25,5,0,0,2,0,0,1,2,18,21-25
-Marcos Rojo,Centre-Back,28,1,0,0,0,0,0,0,1,18,26-30
-Olivier Giroud,Centre-Forward,32,19,4,0,4,1,0,7,7,18,30 and above
-Keylor Navas,Goalkeeper,31,9,0,0,0,0,0,0,0,18,30 and above
-Mario Götze,Attacking Midfield,26,9,1,0,1,0,0,3,4,18,26-30
-Mario Gaspar,Right-Back,28,13,1,0,0,6,0,0,2,18,26-30
-Alex Teixeira,Attacking Midfield,28,0,0,0,0,0,0,0,0,18,26-30
-Kevin Kampl,Central Midfield,28,21,2,0,5,2,0,3,7,18,26-30
-Joe Allen,Central Midfield,28,24,3,0,3,4,0,0,3,18,26-30
-Lars Stindl,Second Striker,30,7,2,0,1,0,0,1,4,18,26-30
-Moussa Sissoko,Central Midfield,29,14,0,0,1,0,0,5,3,18,26-30
-Grzegorz Krychowiak,Defensive Midfield,28,25,1,0,4,5,1,0,1,18,26-30
-Kévin Gameiro,Centre-Forward,31,19,2,0,1,0,0,12,4,18,30 and above
-Papu Gómez,Second Striker,30,18,6,0,3,4,0,1,5,18,26-30
-Mousa Dembélé,Central Midfield,31,15,0,0,1,2,0,5,7,18,30 and above
-Daley Blind,Centre-Back,28,31,0,0,3,1,0,2,4,18,26-30
-Diego Llorente,Centre-Back,25,7,0,0,0,1,0,0,1,17.5,21-25
-Nadiem Amiri,Attacking Midfield,22,0,0,0,0,0,0,0,0,17,21-25
-Maximilian Eggestein,Central Midfield,21,17,5,0,3,1,0,1,3,17,21-25
-Davy Klaassen,Attacking Midfield,25,14,3,0,3,2,0,0,1,17,21-25
-Leander Dendoncker,Defensive Midfield,23,2,0,0,0,0,0,0,0,17,21-25
-Simone Zaza,Centre-Forward,27,12,1,0,2,1,0,9,0,17,26-30
-Marvin Plattenhardt,Left-Back,26,10,1,0,1,2,0,0,1,17,26-30
-Kevin Vogt,Centre-Back,27,17,0,0,0,4,0,0,2,17,26-30
-Jordan Amavi,Left-Back,24,13,0,0,1,4,1,0,2,16,21-25
-Alex Meret,Goalkeeper,21,0,0,0,0,0,0,0,0,16,21-25
-Benjamin Henrichs,Right-Back,21,17,1,0,1,2,0,2,3,16,21-25
-Bernard,Left Winger,26,11,0,0,2,2,0,4,6,16,26-30
-Islam Slimani,Centre-Forward,30,14,3,0,0,4,0,1,3,16,26-30
-Nicolás Tagliafico,Left-Back,26,24,2,0,5,9,0,0,3,16,26-30
-Mattia Perin,Goalkeeper,26,2,0,0,0,0,0,0,0,16,26-30
-Anthony Modeste,Centre-Forward,30,0,0,0,0,0,0,0,0,16,26-30
-Rui Patrício,Goalkeeper,30,17,0,0,0,0,0,0,0,16,26-30
-Lucas Paquetá,Attacking Midfield,21,2,0,0,0,0,0,2,0,15,21-25
-Yves Bissouma,Central Midfield,22,12,0,0,0,3,0,7,3,15,21-25
-Phil Foden,Central Midfield,18,16,2,0,3,0,0,9,4,15,20 and under
-Amadou Haidara,Central Midfield,20,21,3,0,6,4,0,4,5,15,20 and under
-Júnior Firpo,Left-Back,22,15,2,0,2,3,0,0,1,15,21-25
-Declan Rice,Centre-Back,19,13,0,0,1,1,0,1,1,15,20 and under
-Diogo Dalot,Right-Back,19,4,0,0,1,0,0,0,1,15,20 and under
-Loren Morón,Centre-Forward,24,15,3,0,0,1,0,4,3,15,21-25
-Mouctar Diakhaby,Centre-Back,21,10,0,0,0,5,0,1,0,15,21-25
-Malang Sarr,Centre-Back,19,15,0,1,1,0,0,1,2,15,20 and under
-Theo Hernández,Left-Back,21,9,1,0,1,2,1,0,0,15,21-25
-Unai Núñez,Centre-Back,21,6,0,0,0,2,0,1,0,15,21-25
-Gedson Fernandes,Central Midfield,19,20,3,0,4,2,0,4,3,15,20 and under
-Justin Kluivert,Left Winger,19,13,1,0,1,0,0,7,4,15,20 and under
-Krzysztof Piatek,Centre-Forward,23,16,15,0,0,3,0,1,3,15,21-25
-Jakub Jankto,Central Midfield,22,12,2,0,1,0,0,6,4,15,21-25
-Ben Chilwell,Left-Back,21,18,0,0,3,1,0,1,1,15,21-25
-Tom Davies,Central Midfield,20,10,0,0,1,3,0,2,2,15,20 and under
-Rolando Mandragora,Central Midfield,21,19,0,0,2,2,0,1,3,15,21-25
-Dominic Calvert-Lewin,Centre-Forward,21,14,6,0,0,1,0,9,2,15,21-25
-Arne Maier,Defensive Midfield,19,15,0,0,0,1,0,1,0,15,20 and under
-Kelechi Iheanacho,Centre-Forward,22,16,2,0,4,1,0,7,7,15,21-25
-Jacob Bruun Larsen,Left Winger,20,12,3,0,2,0,0,3,8,15,20 and under
-Jonathan Bamba,Left Winger,22,17,8,0,1,0,0,1,2,15,21-25
-Alfie Mawson,Centre-Back,24,7,0,0,0,2,0,1,2,15,21-25
-Gonzalo Martínez,Left Winger,25,9,3,0,0,0,0,2,6,15,21-25
-Gastón Pereiro,Attacking Midfield,23,25,10,0,5,2,0,1,17,15,21-25
-Yeray Álvarez,Centre-Back,23,9,0,0,0,4,0,0,1,15,21-25
-Wesley Hoedt,Centre-Back,24,13,0,2,0,2,0,0,0,15,21-25
-Pione Sisto,Left Winger,23,15,1,0,2,0,0,6,7,15,21-25
+name,position,age,matches,goals,own_goals,assists,yellow_cards,red_cards,substituted_on,substituted_off,market_value,position_new
+Kylian Mbappé,Right Winger,19,22,16,0,9,4,1,4,4,180,Forward
+Neymar,Left Winger,26,24,18,0,13,6,0,1,7,180,Forward
+Lionel Messi,Right Winger,31,17,17,0,10,1,0,1,1,180,Forward
+Mohamed Salah,Right Winger,26,22,12,0,5,0,0,2,8,150,Forward
+Harry Kane,Centre-Forward,25,26,14,0,5,4,0,2,4,150,Forward
+Antoine Griezmann,Centre-Forward,27,27,10,0,6,5,0,0,9,150,Forward
+Kevin De Bruyne,Attacking Midfield,27,5,0,0,1,1,0,3,2,150,Midfielder
+Philippe Coutinho,Attacking Midfield,26,23,6,0,4,1,0,5,12,150,Midfielder
+Eden Hazard,Left Winger,27,24,10,0,9,2,0,5,7,150,Forward
+Paulo Dybala,Second Striker,25,22,7,0,4,2,0,4,8,110,Forward
+Dele Alli,Attacking Midfield,22,18,4,0,3,1,0,4,5,100,Midfielder
+Romelu Lukaku,Centre-Forward,25,24,11,0,3,2,0,5,3,100,Forward
+Cristiano Ronaldo,Left Winger,33,19,11,0,7,1,1,0,1,100,Forward
+Mauro Icardi,Centre-Forward,25,21,12,0,2,0,0,3,4,95,Forward
+Marco Asensio,Left Winger,22,27,5,0,8,2,0,10,6,90,Forward
+Sergej Milinkovic-Savic,Central Midfield,23,21,1,0,1,5,0,3,9,90,Midfielder
+Leroy Sané,Left Winger,22,24,8,0,7,1,0,8,7,90,Forward
+Saúl Níguez,Central Midfield,24,26,4,0,4,4,0,1,5,90,Midfielder
+Raheem Sterling,Right Winger,24,22,11,0,8,3,0,1,8,90,Forward
+Paul Pogba,Central Midfield,25,23,5,0,4,2,0,2,6,90,Midfielder
+Isco,Attacking Midfield,26,20,5,0,3,1,0,7,6,90,Midfielder
+Gareth Bale,Right Winger,29,23,9,0,6,4,0,2,14,90,Forward
+Gabriel Jesus,Centre-Forward,21,22,6,0,2,0,0,11,7,80,Forward
+Ousmane Dembélé,Left Winger,21,24,8,0,5,1,0,9,12,80,Forward
+N'Golo Kanté,Defensive Midfield,27,25,2,0,2,4,0,2,2,80,Midfielder
+Raphaël Varane,Centre-Back,25,21,0,0,0,1,0,1,2,80,Defender
+Roberto Firmino,Second Striker,27,26,7,0,3,0,0,5,12,80,Forward
+Jan Oblak,Goalkeeper,25,21,0,0,0,1,0,0,0,80,Goalkeeper
+James Rodríguez,Attacking Midfield,27,13,4,0,4,2,0,4,8,80,Midfielder
+Marc-André ter Stegen,Goalkeeper,26,22,0,0,0,1,0,0,0,80,Goalkeeper
+Christian Eriksen,Attacking Midfield,26,21,4,0,8,0,0,5,3,80,Midfielder
+Sergio Busquets,Defensive Midfield,30,26,0,0,0,6,0,3,5,80,Midfielder
+Robert Lewandowski,Centre-Forward,30,24,19,0,6,0,0,0,4,80,Forward
+Toni Kroos,Central Midfield,28,22,2,0,4,3,0,0,2,80,Midfielder
+Sergio Agüero,Centre-Forward,30,17,12,0,3,4,0,1,12,80,Forward
+Pierre-Emerick Aubameyang,Centre-Forward,29,20,12,0,3,0,0,4,10,75,Forward
+Thomas Lemar,Left Winger,23,22,2,0,3,2,0,6,11,70,Forward
+Sadio Mané,Left Winger,26,20,7,0,3,1,0,1,5,70,Forward
+Samuel Umtiti,Centre-Back,25,10,0,0,1,3,0,1,1,70,Defender
+Marco Verratti,Central Midfield,26,20,0,0,1,7,0,2,10,70,Midfielder
+Koke,Central Midfield,26,19,4,0,1,6,0,2,1,70,Midfielder
+Jordi Alba,Left-Back,29,22,2,0,8,3,0,1,0,70,Defender
+David de Gea,Goalkeeper,28,26,0,0,0,0,0,0,1,70,Goalkeeper
+Marcelo,Left-Back,30,12,3,0,1,3,0,0,2,70,Defender
+Luis Suárez,Centre-Forward,31,22,12,0,7,5,0,1,4,70,Forward
+Miralem Pjanic,Central Midfield,28,23,3,0,3,4,0,0,14,70,Midfielder
+Ivan Rakitic,Central Midfield,30,24,3,0,6,3,0,2,5,70,Midfielder
+Casemiro,Defensive Midfield,26,21,1,0,0,1,0,2,7,70,Midfielder
+Naby Keïta,Central Midfield,23,15,0,0,0,2,0,7,5,65,Midfielder
+Marcus Rashford,Centre-Forward,21,24,6,0,6,2,1,7,10,65,Forward
+Nabil Fekir,Attacking Midfield,25,16,4,0,4,3,0,4,8,65,Midfielder
+Lorenzo Insigne,Left Winger,27,23,10,0,5,3,0,1,9,65,Forward
+Thibaut Courtois,Goalkeeper,26,20,0,0,0,0,0,0,0,65,Goalkeeper
+Alexandre Lacazette,Centre-Forward,27,18,8,0,4,1,0,8,2,65,Forward
+Bernardo Silva,Right Winger,24,24,7,0,4,2,0,3,5,60,Forward
+Ederson,Goalkeeper,25,23,0,0,1,1,0,0,0,60,Goalkeeper
+Anthony Martial,Left Winger,23,18,8,0,0,2,0,4,4,60,Forward
+Riyad Mahrez,Right Winger,27,23,7,0,6,0,0,10,7,60,Forward
+Timo Werner,Centre-Forward,22,24,11,0,2,1,0,2,11,60,Forward
+Virgil van Dijk,Centre-Back,27,26,2,0,2,3,0,0,1,60,Defender
+Daniel Carvajal,Right-Back,26,15,1,0,4,5,0,1,3,60,Defender
+Álvaro Morata,Centre-Forward,26,24,7,0,0,7,0,7,10,60,Forward
+Alisson,Goalkeeper,26,24,0,0,0,0,0,0,0,60,Goalkeeper
+Jorginho,Defensive Midfield,26,23,2,0,0,5,0,0,4,60,Midfielder
+Kalidou Koulibaly,Centre-Back,27,20,0,0,2,5,0,0,0,60,Defender
+Thiago,Central Midfield,27,19,2,0,2,3,0,4,2,60,Midfielder
+Edinson Cavani,Centre-Forward,31,19,12,0,5,1,0,1,5,60,Forward
+Diego Costa,Centre-Forward,30,15,4,0,2,7,0,0,6,60,Forward
+Kai Havertz,Attacking Midfield,19,22,7,0,7,1,0,2,4,55,Midfielder
+John Stones,Centre-Back,24,23,0,0,0,2,0,3,3,55,Defender
+Marquinhos,Centre-Back,24,24,2,0,1,1,0,1,1,55,Defender
+Joshua Kimmich,Right-Back,23,28,0,0,8,3,0,1,0,55,Defender
+Sergi Roberto,Right-Back,26,16,0,0,4,0,0,2,2,55,Defender
+Douglas Costa,Right Winger,28,18,0,0,3,3,1,12,7,55,Forward
+Alexis Sánchez,Left Winger,29,15,3,0,3,2,0,5,6,55,Forward
+Mats Hummels,Centre-Back,29,17,1,0,1,3,0,1,3,55,Defender
+Gonzalo Higuaín,Centre-Forward,30,15,7,0,3,4,1,0,1,55,Forward
+Arthur,Central Midfield,22,21,0,0,1,2,0,6,12,50,Midfielder
+Federico Chiesa,Right Winger,21,21,2,0,6,5,0,2,5,50,Forward
+Matthijs de Ligt,Centre-Back,19,31,3,0,1,2,0,1,1,50,Defender
+Lucas Hernández,Left-Back,22,20,0,0,1,4,0,1,4,50,Defender
+José Giménez,Centre-Back,23,12,2,0,0,2,0,2,4,50,Defender
+Kingsley Coman,Left Winger,22,5,1,0,1,0,0,4,1,50,Forward
+Milan Skriniar,Centre-Back,23,23,0,1,0,5,0,0,0,50,Defender
+Kepa,Goalkeeper,24,23,0,0,0,0,0,1,1,50,Goalkeeper
+Fred,Central Midfield,25,14,1,0,0,2,0,4,8,50,Midfielder
+Florian Thauvin,Right Winger,25,19,12,0,4,4,0,3,9,50,Forward
+Adrien Rabiot,Central Midfield,23,19,2,1,2,3,0,3,2,50,Midfielder
+Aymeric Laporte,Centre-Back,24,22,3,0,0,1,0,1,1,50,Defender
+Niklas Süle,Centre-Back,23,22,2,0,0,1,0,2,0,50,Defender
+Rodrigo,Centre-Forward,27,24,3,0,4,2,0,4,4,50,Forward
+Ciro Immobile,Centre-Forward,28,22,11,0,5,4,0,3,4,50,Forward
+Kyle Walker,Right-Back,28,23,1,0,1,1,0,2,1,50,Defender
+Heung-min Son,Left Winger,26,28,6,0,12,3,0,7,14,50,Forward
+David Alaba,Left-Back,26,24,1,0,3,3,0,2,4,50,Defender
+Thomas Müller,Second Striker,29,27,5,0,5,1,0,8,10,50,Forward
+Willian,Right Winger,30,26,3,0,6,1,0,7,15,50,Forward
+Jadon Sancho,Left Winger,18,26,6,0,10,1,0,13,7,45,Forward
+Leon Bailey,Left Winger,21,19,1,0,1,3,0,9,6,45,Forward
+Richarlison,Left Winger,21,20,10,0,2,1,1,6,5,45,Forward
+Malcom,Right Winger,21,9,2,0,0,0,0,6,2,45,Forward
+Christian Pulisic,Right Winger,20,17,3,0,4,0,0,6,6,45,Forward
+Fabinho,Defensive Midfield,25,14,0,0,1,4,0,5,2,45,Midfielder
+Federico Bernardeschi,Right Winger,24,16,3,0,1,2,0,8,5,45,Forward
+Corentin Tolisso,Central Midfield,24,4,1,0,0,0,0,3,1,45,Midfielder
+Julian Brandt,Left Winger,22,24,4,0,6,0,0,8,8,45,Forward
+Harry Maguire,Centre-Back,25,15,2,0,0,4,0,0,1,45,Defender
+Memphis Depay,Centre-Forward,24,27,10,0,11,2,0,4,5,45,Forward
+Benjamin Mendy,Left-Back,24,12,0,0,6,1,0,1,0,45,Defender
+Marcos Alonso,Left-Back,27,20,1,0,5,2,0,0,3,45,Defender
+Alex Sandro,Left-Back,27,21,1,0,2,5,0,2,3,45,Defender
+Aaron Ramsey,Central Midfield,27,25,3,0,6,0,0,10,6,45,Midfielder
+Ángel Di María,Right Winger,30,21,7,0,6,1,0,2,11,45,Forward
+Ivan Perisic,Left Winger,29,24,3,0,3,5,0,3,8,45,Forward
+Mesut Özil,Attacking Midfield,30,12,4,0,1,1,0,2,5,45,Midfielder
+Gerard Piqué,Centre-Back,31,21,4,0,1,3,0,0,0,45,Defender
+Rodri,Defensive Midfield,22,23,2,0,0,1,0,4,6,40,Midfielder
+Benjamin Pavard,Centre-Back,22,20,0,1,0,2,0,0,0,40,Defender
+Davinson Sánchez,Centre-Back,22,18,0,0,1,2,0,1,1,40,Defender
+Frenkie de Jong,Central Midfield,21,28,3,0,3,1,0,2,7,40,Midfielder
+Lucas Torreira,Defensive Midfield,22,26,2,0,4,5,0,9,5,40,Midfielder
+Hirving Lozano,Right Winger,23,26,13,0,7,5,0,2,11,40,Forward
+Gianluigi Donnarumma,Goalkeeper,19,20,0,0,0,1,0,0,0,40,Goalkeeper
+Rúben Neves,Defensive Midfield,21,18,2,0,1,7,0,0,1,40,Midfielder
+Gonçalo Guedes,Left Winger,22,14,0,0,1,1,0,3,8,40,Forward
+Alessio Romagnoli,Centre-Back,23,16,2,1,0,4,0,1,0,40,Defender
+Andreas Christensen,Centre-Back,22,11,0,0,0,1,0,1,3,40,Defender
+Jonathan Tah,Centre-Back,22,17,1,0,0,1,0,1,1,40,Defender
+Héctor Bellerín,Right-Back,23,16,0,1,4,3,0,0,1,40,Defender
+Clément Lenglet,Centre-Back,23,17,1,0,0,3,1,4,0,40,Defender
+João Cancelo,Right-Back,24,20,0,0,4,3,0,1,1,40,Defender
+Piotr Zielinski,Central Midfield,24,25,4,0,0,2,0,7,11,40,Midfielder
+Michy Batshuayi,Centre-Forward,25,23,7,0,0,4,0,14,5,40,Forward
+Eric Dier,Defensive Midfield,24,23,2,0,0,5,0,4,4,40,Midfielder
+Marcelo Brozovic,Central Midfield,26,21,2,0,1,7,0,1,4,40,Midfielder
+Leon Goretzka,Central Midfield,23,22,2,0,3,1,0,9,5,40,Midfielder
+Alex Oxlade-Chamberlain,Right Midfield,25,0,0,0,0,0,0,0,0,40,Midfielder
+Jesse Lingard,Right Winger,25,19,3,0,1,2,0,6,11,40,Forward
+Allan,Central Midfield,27,22,0,0,2,4,0,5,1,40,Midfielder
+Suso,Right Winger,25,22,5,0,10,2,0,3,5,40,Forward
+Granit Xhaka,Defensive Midfield,26,22,2,0,2,8,0,0,2,40,Midfielder
+Stefan de Vrij,Centre-Back,26,15,1,0,1,2,0,0,1,40,Defender
+Stefan Savic,Centre-Back,27,14,1,0,1,2,0,0,1,40,Defender
+Konstantinos Manolas,Centre-Back,27,21,3,0,1,2,0,0,4,40,Defender
+Antonio Rüdiger,Centre-Back,25,22,1,0,1,5,0,1,2,40,Defender
+Nemanja Matic,Defensive Midfield,30,22,0,0,0,7,0,1,2,40,Midfielder
+César Azpilicueta,Right-Back,29,23,0,0,3,1,0,4,1,40,Defender
+Paulinho,Central Midfield,30,1,0,0,0,0,0,0,1,40,Midfielder
+Ilkay Gündogan,Central Midfield,28,18,3,0,3,0,0,9,7,40,Midfielder
+Georginio Wijnaldum,Central Midfield,28,25,3,0,1,4,0,1,6,40,Midfielder
+Javi Martínez,Defensive Midfield,30,15,1,0,0,2,0,2,2,40,Midfielder
+Toby Alderweireld,Centre-Back,29,24,0,0,0,3,0,0,1,40,Defender
+Radja Nainggolan,Attacking Midfield,30,13,3,0,0,0,0,1,8,40,Midfielder
+Marco Reus,Attacking Midfield,29,24,12,0,9,3,0,2,5,40,Midfielder
+Jérôme Boateng,Centre-Back,30,18,0,0,1,0,0,0,1,40,Defender
+Sergio Ramos,Centre-Back,32,26,9,0,1,5,0,0,3,40,Defender
+Karim Benzema,Centre-Forward,30,22,10,0,5,1,0,1,9,40,Forward
+Tanguy Ndombélé,Central Midfield,21,25,2,0,4,1,0,4,8,35,Midfielder
+Houssem Aouar,Central Midfield,20,21,5,0,4,1,0,2,2,35,Midfielder
+Ryan Sessegnon,Left Midfield,18,20,1,0,4,0,0,3,2,35,Midfielder
+Vinícius Júnior,Left Winger,18,14,6,0,6,3,0,6,2,35,Forward
+Mikel Oyarzabal,Left Winger,21,17,6,0,2,2,0,0,10,35,Forward
+Trent Alexander-Arnold,Right-Back,20,20,2,0,2,3,0,2,5,35,Defender
+Franck Kessié,Central Midfield,21,17,3,0,2,4,0,1,2,35,Midfielder
+Wilfred Ndidi,Defensive Midfield,21,17,1,0,0,3,0,1,0,35,Midfielder
+Andrew Robertson,Left-Back,24,25,0,0,5,2,0,0,1,35,Defender
+Thomas,Defensive Midfield,25,18,2,0,4,5,0,7,3,35,Midfielder
+José Gayà,Left-Back,23,22,1,0,0,8,0,0,0,35,Defender
+Tiemoué Bakayoko,Defensive Midfield,24,16,0,0,0,3,0,5,1,35,Midfielder
+Andrea Belotti,Centre-Forward,24,18,7,0,1,1,0,2,2,35,Forward
+Felipe Anderson,Left Winger,25,18,6,0,2,3,0,1,8,35,Forward
+Jordan Pickford,Goalkeeper,24,20,0,0,0,1,0,0,1,35,Goalkeeper
+Luis Alberto,Attacking Midfield,26,13,2,0,2,2,0,3,8,35,Midfielder
+Kieran Trippier,Right-Back,28,18,1,0,4,2,0,2,4,35,Defender
+Pablo Sarabia,Attacking Midfield,26,26,14,0,8,5,0,6,10,35,Midfielder
+Nacho Fernández,Centre-Back,28,16,0,0,0,4,0,1,2,35,Defender
+Henrikh Mkhitaryan,Attacking Midfield,29,24,3,0,6,2,0,5,4,35,Midfielder
+Nicolás Otamendi,Centre-Back,30,11,0,0,0,2,0,2,1,35,Defender
+Andrej Kramaric,Centre-Forward,27,21,12,0,3,2,0,3,8,35,Forward
+Leonardo Bonucci,Centre-Back,31,23,1,1,3,2,0,0,0,35,Defender
+Manuel Akanji,Centre-Back,23,18,1,0,0,3,0,0,1,33,Defender
+Iñigo Martínez,Centre-Back,27,16,0,0,1,5,0,1,1,32,Defender
+Lucas Moura,Right Winger,26,22,6,0,0,2,0,3,11,32,Forward
+Jan Vertonghen,Centre-Back,31,13,1,0,0,1,0,0,1,32,Defender
+Maximiliano Gómez,Centre-Forward,22,16,8,0,4,2,0,5,3,30,Forward
+Carlos Soler,Right Midfield,21,22,1,0,5,7,0,3,7,30,Midfielder
+Giovani Lo Celso,Central Midfield,22,23,7,0,2,6,0,8,6,30,Midfielder
+Dayot Upamecano,Centre-Back,20,19,0,0,0,3,0,1,0,30,Defender
+Yerry Mina,Centre-Back,24,5,0,0,0,1,0,1,0,30,Defender
+Eric Bailly,Centre-Back,24,8,0,0,0,0,0,2,1,30,Defender
+Presnel Kimpembe,Centre-Back,23,18,0,0,1,0,1,2,0,30,Defender
+Álvaro Odriozola,Right-Back,22,11,1,0,4,0,0,1,2,30,Defender
+Ángel Correa,Right Winger,23,25,3,0,3,7,0,11,11,30,Forward
+Aleksandr Golovin,Attacking Midfield,22,14,0,0,3,4,0,2,3,30,Midfielder
+Gelson Martins,Right Winger,23,11,1,0,0,1,0,8,2,30,Forward
+Nicolò Barella,Central Midfield,21,20,1,0,0,4,0,0,3,30,Midfielder
+Iñaki Williams,Right Winger,24,16,6,0,2,1,0,2,6,30,Forward
+Keita Baldé,Left Winger,23,18,3,0,2,0,0,13,4,30,Forward
+Nélson Semedo,Right-Back,25,16,0,0,0,1,0,2,3,30,Defender
+Thilo Kehrer,Centre-Back,22,20,0,0,0,4,0,7,2,30,Defender
+Hakim Ziyech,Attacking Midfield,25,22,9,0,8,4,0,0,6,30,Midfielder
+André Silva,Centre-Forward,23,25,12,0,1,2,0,4,9,30,Forward
+Ante Rebic,Second Striker,25,19,5,0,2,3,0,6,9,30,Forward
+Jean Michaël Seri,Central Midfield,27,17,1,0,2,1,0,1,6,30,Midfielder
+Serge Gnabry,Left Winger,23,20,4,0,5,1,0,7,13,30,Forward
+Wissam Ben Yedder,Centre-Forward,28,22,11,0,6,0,0,7,6,30,Forward
+Wilfried Zaha,Right Winger,26,14,3,0,3,5,0,0,1,30,Forward
+Alessandro Florenzi,Right-Back,27,20,2,0,3,2,0,2,6,30,Defender
+Geoffrey Kondogbia,Central Midfield,25,14,0,0,0,3,0,2,6,30,Midfielder
+Paco Alcácer,Centre-Forward,25,14,14,0,0,1,0,7,5,30,Forward
+Willian José,Centre-Forward,27,13,3,0,0,1,0,3,3,30,Forward
+Emre Can,Defensive Midfield,24,12,0,0,1,1,0,8,3,30,Midfielder
+Ander Herrera,Central Midfield,29,11,1,0,1,2,0,4,4,30,Midfielder
+Gylfi Sigurdsson,Attacking Midfield,29,20,7,0,3,2,0,0,10,30,Midfielder
+Julian Draxler,Attacking Midfield,25,21,3,0,4,3,0,10,3,30,Midfielder
+Victor Wanyama,Defensive Midfield,27,7,0,0,0,1,0,3,2,30,Midfielder
+Steven Nzonzi,Defensive Midfield,29,23,1,0,0,3,0,4,3,30,Midfielder
+Dries Mertens,Centre-Forward,31,25,11,0,6,2,0,8,9,30,Forward
+Diego Godín,Centre-Back,32,18,2,0,1,2,0,2,0,30,Defender
+Mateo Kovacic,Central Midfield,24,22,0,0,1,4,0,5,13,30,Midfielder
+Danny Rose,Left-Back,28,11,0,0,2,3,0,4,3,30,Defender
+Juan Mata,Attacking Midfield,30,16,4,0,2,1,0,7,6,30,Midfielder
+Marek Hamsik,Central Midfield,31,21,2,0,2,0,0,2,8,30,Midfielder
+David Silva,Attacking Midfield,32,20,8,0,4,1,0,1,11,30,Midfielder
+Axel Witsel,Defensive Midfield,29,26,3,0,1,1,0,3,2,30,Midfielder
+Blaise Matuidi,Central Midfield,31,24,2,0,4,3,0,3,7,30,Midfielder
+Hugo Lloris,Goalkeeper,31,19,0,0,0,0,1,0,0,30,Goalkeeper
+Manuel Neuer,Goalkeeper,32,27,0,0,0,1,0,0,0,30,Goalkeeper
+James Maddison,Attacking Midfield,22,15,5,0,2,1,0,0,9,28,Midfielder
+Lorenzo Pellegrini,Central Midfield,22,17,2,0,5,5,0,4,9,28,Midfielder
+Rúben Dias,Centre-Back,21,29,0,0,1,6,0,0,1,28,Defender
+Joe Gomez,Centre-Back,21,21,0,0,0,3,0,2,1,28,Defender
+Rony Lopes,Right Winger,22,6,1,0,0,0,0,1,2,28,Forward
+Alassane Plea,Centre-Forward,25,16,11,0,3,1,0,3,7,28,Forward
+Rafinha,Central Midfield,25,8,1,0,0,1,0,3,5,28,Midfielder
+Juan Cuadrado,Right Winger,30,19,1,0,5,4,0,6,9,28,Forward
+Kevin Strootman,Central Midfield,28,19,0,0,2,5,0,1,4,28,Midfielder
+Jordan Henderson,Central Midfield,28,21,0,0,0,4,0,10,4,28,Midfielder
+Cengiz Ünder,Right Winger,21,24,4,0,5,0,0,4,11,27,Forward
+Hakan Calhanoglu,Left Winger,24,22,2,0,7,3,0,3,11,27,Forward
+Bruno Fernandes,Attacking Midfield,24,23,10,0,2,5,0,3,2,26,Midfielder
+Yacine Brahimi,Left Winger,28,19,4,0,3,1,0,1,13,26,Forward
+David Neres,Right Winger,21,25,4,0,8,1,0,5,11,25,Forward
+Paulinho,Left Winger,18,12,0,0,0,0,0,9,2,25,Forward
+Santiago Ascacíbar,Defensive Midfield,21,16,0,0,0,6,0,2,2,25,Midfielder
+Nikola Milenkovic,Centre-Back,21,20,2,0,0,3,0,0,0,25,Defender
+Lautaro Martínez,Centre-Forward,21,13,3,0,1,2,0,7,4,25,Forward
+Amine Harit,Attacking Midfield,21,15,1,0,3,0,0,5,6,25,Midfielder
+Pablo Fornals,Attacking Midfield,22,23,3,0,2,2,0,5,6,25,Midfielder
+André Zambo Anguissa,Defensive Midfield,23,14,0,0,0,0,0,4,3,25,Midfielder
+Lucas Tousart,Defensive Midfield,21,20,0,0,1,0,0,4,5,25,Midfielder
+Fabián Ruiz,Central Midfield,22,14,3,0,1,1,0,3,6,25,Midfielder
+Nicolas Pépé,Right Winger,23,17,10,0,7,0,0,1,4,25,Forward
+Moussa Marega,Second Striker,27,17,9,0,5,4,0,2,1,25,Forward
+Giovanni Simeone,Centre-Forward,23,20,4,0,3,1,0,6,5,25,Forward
+Jean-Kévin Augustin,Centre-Forward,21,22,8,0,2,2,0,9,7,25,Forward
+Jefferson Lerma,Defensive Midfield,24,14,1,1,1,6,0,0,3,25,Midfielder
+Alex Telles,Left-Back,25,20,1,0,4,2,0,0,0,25,Defender
+Abdou Diallo,Centre-Back,22,17,1,0,0,2,1,1,2,25,Defender
+Wendell,Left-Back,25,21,1,0,0,5,0,3,3,25,Defender
+Lucas Vázquez,Right Winger,27,19,2,0,1,3,0,10,1,25,Forward
+Elseid Hysaj,Right-Back,24,21,0,0,1,4,0,3,3,25,Defender
+Bryan Cristante,Central Midfield,23,19,2,0,2,3,0,7,4,25,Midfielder
+Mattia Caldara,Centre-Back,24,2,0,0,0,0,0,0,0,25,Defender
+Julian Weigl,Defensive Midfield,23,7,1,0,0,2,0,2,3,25,Midfielder
+Alejandro Grimaldo,Left-Back,23,22,2,0,2,4,0,0,2,25,Defender
+Ben Davies,Left-Back,25,22,0,0,2,3,0,2,4,25,Defender
+Stanislav Lobotka,Defensive Midfield,24,14,0,0,1,1,0,0,3,25,Midfielder
+Victor Lindelöf,Centre-Back,24,19,1,1,0,0,0,1,2,25,Defender
+Jean-Philippe Gbamin,Defensive Midfield,23,14,2,0,0,0,0,0,3,25,Midfielder
+Nathan Aké,Centre-Back,23,19,1,0,0,2,0,2,0,25,Defender
+Matteo Politano,Right Winger,25,21,3,0,3,1,0,6,12,25,Forward
+Matías Vecino,Central Midfield,27,20,2,0,4,3,0,3,5,25,Midfielder
+Ross Barkley,Attacking Midfield,25,22,3,0,4,2,0,9,6,25,Midfielder
+Simone Verdi,Right Winger,26,6,1,0,1,0,0,2,4,25,Forward
+Dennis Praet,Central Midfield,24,15,1,0,0,4,0,2,4,25,Midfielder
+Faouzi Ghoulam,Left-Back,27,1,0,0,2,0,0,0,0,25,Defender
+Matthias Ginter,Centre-Back,24,19,1,0,0,2,0,0,3,25,Defender
+Emil Forsberg,Left Winger,27,13,3,0,3,0,0,3,5,25,Forward
+Marcel Sabitzer,Right Winger,24,25,3,1,4,5,0,7,8,25,Forward
+Thorgan Hazard,Left Winger,25,22,13,0,8,1,0,3,2,25,Forward
+Thomas Meunier,Right-Back,27,21,3,0,6,2,0,3,5,25,Defender
+Shkodran Mustafi,Centre-Back,26,18,2,0,0,5,0,0,2,25,Defender
+Sime Vrsaljko,Right-Back,26,12,0,0,1,2,0,2,4,25,Defender
+Iago Aspas,Centre-Forward,31,21,11,0,2,3,0,2,9,25,Forward
+Vitolo,Left Winger,29,10,1,0,2,2,0,8,0,25,Forward
+Pedro,Left Winger,31,21,5,0,2,1,0,7,9,25,Forward
+Asier Illarramendi,Defensive Midfield,28,14,1,0,0,6,0,2,2,25,Midfielder
+Aleksandar Mitrovic,Centre-Forward,24,23,13,0,3,5,0,0,4,25,Forward
+David Luiz,Centre-Back,31,18,1,0,0,1,0,2,0,25,Defender
+Marko Arnautovic,Centre-Forward,29,19,6,0,4,5,0,2,9,25,Forward
+Arturo Vidal,Central Midfield,31,23,4,0,2,2,0,12,6,25,Midfielder
+Sami Khedira,Central Midfield,31,8,1,0,0,0,0,2,5,25,Midfielder
+Edin Dzeko,Centre-Forward,32,22,10,0,5,5,0,2,2,25,Forward
+Luka Modric,Central Midfield,33,25,0,0,4,4,0,4,10,25,Midfielder
+Cesc Fàbregas,Central Midfield,31,11,1,0,2,1,0,4,1,25,Midfielder
+Danilo Pereira,Defensive Midfield,27,18,0,0,2,2,1,3,1,24,Midfielder
+Oscar,Attacking Midfield,27,0,0,0,0,0,0,0,0,24,Midfielder
+José Callejón,Right Winger,31,17,0,0,8,1,0,2,4,24,Forward
+Mario Balotelli,Centre-Forward,28,11,0,0,1,5,0,1,8,24,Forward
+Patrick Cutrone,Centre-Forward,20,21,7,0,1,1,0,9,4,23,Forward
+Nico Elvedi,Centre-Back,22,16,2,0,1,1,0,0,2,23,Defender
+Jordan Veretout,Central Midfield,25,13,3,0,1,5,0,0,1,23,Midfielder
+Mark Uth,Centre-Forward,27,18,2,0,2,4,0,4,8,23,Forward
+Giacomo Bonaventura,Central Midfield,29,13,3,0,1,0,0,2,6,23,Midfielder
+Cenk Tosun,Centre-Forward,27,20,2,0,3,2,0,9,5,23,Forward
+Medhi Benatia,Centre-Back,31,7,0,0,0,2,0,0,1,23,Defender
+Issa Diop,Centre-Back,21,18,1,1,0,2,0,0,0,22,Defender
+Talisca,Attacking Midfield,24,0,0,0,0,0,0,0,0,22,Midfielder
+Mariano Díaz,Centre-Forward,25,13,1,0,0,1,0,9,2,22,Forward
+Morgan Sanson,Central Midfield,24,16,3,0,4,3,0,2,6,22,Midfielder
+Daniele Rugani,Centre-Back,24,4,0,0,0,1,0,1,0,22,Defender
+Matija Nastasic,Centre-Back,25,17,0,0,1,6,1,0,0,22,Defender
+Yannick Carrasco,Left Winger,25,4,0,0,1,0,0,2,2,22,Forward
+Jack Butland,Goalkeeper,25,21,0,0,0,0,0,0,0,22,Goalkeeper
+Cédric Bakambu,Centre-Forward,27,0,0,0,0,0,0,0,0,22,Forward
+Salif Sané,Centre-Back,28,20,0,0,0,4,0,0,0,22,Defender
+Michael Keane,Centre-Back,25,14,1,0,2,0,0,0,1,22,Defender
+Marc Bartra,Centre-Back,27,20,2,0,0,3,0,1,2,22,Defender
+Thomas Delaney,Central Midfield,27,20,1,0,3,5,0,3,5,22,Midfielder
+Eduardo Salvio,Right Winger,28,17,4,0,5,3,0,3,11,22,Forward
+Joel Matip,Centre-Back,27,10,1,0,0,1,0,5,0,22,Defender
+Kevin Volland,Centre-Forward,26,19,6,0,6,3,0,3,5,22,Forward
+Bernd Leno,Goalkeeper,26,14,0,0,0,0,0,1,0,22,Goalkeeper
+Pizzi,Central Midfield,29,27,6,0,9,2,0,2,19,22,Midfielder
+Bas Dost,Centre-Forward,29,10,9,0,1,1,0,2,5,22,Forward
+Christian Benteke,Centre-Forward,28,4,0,0,0,0,0,0,3,22,Forward
+Dimitri Payet,Attacking Midfield,31,21,6,0,6,3,0,4,7,22,Midfielder
+Hulk,Right Winger,32,0,0,0,0,0,0,0,0,21,Forward
+Ademola Lookman,Left Winger,21,10,0,0,1,0,0,8,2,20,Forward
+Éder Militão,Centre-Back,20,17,1,0,2,2,0,0,0,20,Defender
+Cristian Pavón,Right Winger,22,9,2,0,0,0,0,2,2,20,Forward
+Rodrigo Bentancur,Central Midfield,21,21,2,0,1,9,0,3,3,20,Midfielder
+Denis Zakaria,Defensive Midfield,22,20,2,0,1,6,0,9,5,20,Midfielder
+Dani Ceballos,Central Midfield,22,23,2,0,2,5,0,9,6,20,Midfielder
+Luan,Second Striker,25,0,0,0,0,0,0,0,0,20,Forward
+Demarai Gray,Left Winger,22,18,3,0,1,2,0,5,10,20,Forward
+Steven Bergwijn,Left Winger,21,24,8,0,7,2,0,1,14,20,Forward
+Mario Hermoso,Centre-Back,23,16,2,0,0,4,0,0,0,20,Defender
+Borja Iglesias,Centre-Forward,25,17,8,0,2,2,0,3,4,20,Forward
+Allan Saint-Maximin,Right Winger,21,19,3,0,2,2,0,1,9,20,Forward
+Renato Sanches,Central Midfield,21,18,1,0,4,2,0,11,2,20,Midfielder
+Luka Jovic,Centre-Forward,20,20,15,0,4,0,0,7,8,20,Forward
+Santi Mina,Centre-Forward,23,13,6,0,0,2,0,2,8,20,Forward
+Youri Tielemans,Central Midfield,21,26,4,0,2,6,0,0,6,20,Midfielder
+Lewis Cook,Central Midfield,21,17,0,0,0,2,0,5,4,20,Midfielder
+Moussa Dembélé,Centre-Forward,22,21,8,0,2,0,0,7,7,20,Forward
+Thomas Strakosha,Goalkeeper,23,20,0,0,0,2,0,0,0,20,Goalkeeper
+Ricardo Pereira,Right-Back,25,14,1,0,2,2,0,0,2,20,Defender
+Jack Grealish,Attacking Midfield,23,22,2,0,4,4,0,1,5,20,Midfielder
+Jamie Vardy,Centre-Forward,31,14,5,0,1,0,1,3,5,20,Forward
+Florian Grillitsch,Central Midfield,23,19,1,0,0,4,0,2,8,20,Midfielder
+Lucas Alario,Centre-Forward,26,16,4,0,2,0,0,7,2,20,Forward
+Arkadiusz Milik,Centre-Forward,24,20,8,0,2,2,0,7,5,20,Forward
+Manu Trigueros,Central Midfield,27,20,0,0,1,3,0,2,7,20,Midfielder
+Quincy Promes,Left Winger,26,32,4,0,4,3,0,12,6,20,Forward
+Emerson,Left-Back,24,8,1,0,1,1,0,1,0,20,Defender
+Gerard Moreno,Centre-Forward,26,22,6,0,1,1,0,6,5,20,Forward
+Davide Zappacosta,Right-Back,26,9,0,0,2,0,0,2,2,20,Defender
+Leandro Paredes,Defensive Midfield,24,28,4,0,4,9,0,2,7,20,Midfielder
+Niklas Stark,Centre-Back,23,12,0,0,0,1,0,0,2,20,Defender
+Kurt Zouma,Centre-Back,24,15,0,0,1,0,0,4,0,20,Defender
+João Mário,Central Midfield,25,7,1,0,3,1,0,3,2,20,Midfielder
+Gabriel Paulista,Centre-Back,28,19,0,0,0,3,0,0,1,20,Defender
+Danilo,Right-Back,27,7,0,0,1,1,0,1,1,20,Defender
+Maximilian Philipp,Centre-Forward,24,13,2,0,1,0,0,6,5,20,Forward
+Manuel Lanzini,Attacking Midfield,25,0,0,0,0,0,0,0,0,20,Midfielder
+Serge Aurier,Right-Back,25,11,0,0,2,1,0,2,2,20,Defender
+Layvin Kurzawa,Left-Back,26,0,0,0,0,0,0,0,0,20,Defender
+Idrissa Gueye,Central Midfield,29,14,0,0,0,3,0,0,1,20,Midfielder
+Lucas Digne,Left-Back,25,16,0,0,2,3,0,1,1,20,Defender
+Héctor Herrera,Attacking Midfield,28,21,3,0,1,2,0,4,3,20,Midfielder
+Phil Jones,Centre-Back,26,5,0,0,0,0,0,0,1,20,Defender
+Erik Lamela,Right Winger,26,17,6,0,3,4,0,8,6,20,Forward
+Philipp Max,Left-Back,25,16,2,0,5,2,0,0,0,20,Defender
+Mário Fernandes,Right-Back,28,26,0,0,5,0,0,0,2,20,Defender
+William Carvalho,Defensive Midfield,26,21,0,0,2,4,0,3,6,20,Midfielder
+Jannik Vestergaard,Centre-Back,26,10,0,0,0,2,0,0,0,20,Defender
+Stephan El Shaarawy,Left Winger,26,14,5,0,2,0,0,1,4,20,Forward
+Xherdan Shaqiri,Right Winger,27,22,4,0,6,1,0,8,7,20,Forward
+Nathaniel Clyne,Right-Back,27,2,0,0,0,0,0,0,0,20,Defender
+Jack Wilshere,Central Midfield,26,5,0,0,1,2,0,1,1,20,Midfielder
+Duván Zapata,Centre-Forward,27,20,4,0,4,0,0,8,7,20,Forward
+Danny Drinkwater,Central Midfield,28,1,0,0,0,0,0,1,0,20,Midfielder
+Andriy Yarmolenko,Right Winger,29,13,3,0,1,2,0,4,6,20,Forward
+Yuri Berchiche,Left-Back,28,14,1,0,0,4,0,0,0,20,Defender
+Anthony Lopes,Goalkeeper,28,19,0,0,0,0,0,0,0,20,Goalkeeper
+Victor Moses,Right Winger,27,6,0,0,0,1,0,5,0,20,Forward
+Dani Parejo,Central Midfield,29,18,2,0,2,5,1,1,0,20,Midfielder
+Morgan Schneiderlin,Defensive Midfield,29,8,0,0,1,2,0,3,3,20,Midfielder
+Adrien Silva,Central Midfield,29,5,0,0,1,0,0,1,3,20,Midfielder
+Javier Pastore,Attacking Midfield,29,9,2,0,1,0,0,4,4,20,Midfielder
+Diego Perotti,Left Winger,30,3,0,0,0,0,0,2,0,20,Forward
+Wojciech Szczesny,Goalkeeper,28,21,0,0,0,1,0,0,0,20,Goalkeeper
+Adam Lallana,Attacking Midfield,30,6,0,0,0,2,0,3,3,20,Midfielder
+Ryan Bertrand,Left-Back,29,12,1,0,0,5,0,0,0,20,Defender
+Dejan Lovren,Centre-Back,29,10,0,0,0,2,0,0,1,20,Defender
+Mario Mandzukic,Centre-Forward,32,16,8,0,2,2,0,2,6,20,Forward
+Sokratis,Centre-Back,30,20,1,0,0,7,0,0,2,20,Defender
+Theo Walcott,Right Winger,29,17,3,0,2,0,0,3,10,20,Forward
+Amadou Diawara,Defensive Midfield,21,8,0,0,0,3,0,3,3,18,Midfielder
+Franco Cervi,Left Winger,24,23,3,0,3,3,0,9,7,18,Forward
+Diogo Jota,Left Winger,22,15,1,0,0,4,0,5,7,18,Forward
+Panagiotis Retsos,Centre-Back,20,1,0,0,0,0,0,0,1,18,Defender
+Caglar Söyüncü,Centre-Back,22,14,0,0,0,2,0,2,2,18,Defender
+Diadie Samassékou,Defensive Midfield,22,25,2,0,0,5,0,0,1,18,Midfielder
+Karl Toko Ekambi,Centre-Forward,26,21,8,0,3,0,0,8,8,18,Forward
+Donny van de Beek,Central Midfield,21,29,7,0,3,2,0,10,12,18,Midfielder
+Jemerson,Centre-Back,26,18,0,0,0,3,0,0,0,18,Defender
+Nabil Bentaleb,Defensive Midfield,24,20,6,0,1,3,0,5,4,18,Midfielder
+Alex Iwobi,Left Winger,22,20,1,0,5,0,0,6,10,18,Forward
+Patrik Schick,Centre-Forward,22,18,4,0,0,1,0,7,7,18,Forward
+Breel Embolo,Centre-Forward,21,16,3,0,1,4,0,5,8,18,Forward
+André Onana,Goalkeeper,22,27,0,1,0,2,0,0,2,18,Goalkeeper
+Diego Laxalt,Left Midfield,25,19,0,0,0,1,0,6,5,18,Midfielder
+Alireza Jahanbakhsh,Right Winger,25,13,0,0,0,2,0,6,3,18,Forward
+Andrija Zivkovic,Left Winger,22,17,0,0,6,1,0,8,3,18,Forward
+Adama Traoré,Right Winger,22,15,1,0,1,1,0,11,2,18,Forward
+Ruben Loftus-Cheek,Central Midfield,22,13,6,0,0,0,0,6,4,18,Midfielder
+Roberto Gagliardini,Central Midfield,24,12,2,0,1,2,0,4,2,18,Midfielder
+Samu Castillejo,Right Winger,23,15,1,0,2,1,1,10,3,18,Forward
+Mahmoud Dahoud,Central Midfield,22,13,1,0,1,2,0,4,3,18,Midfielder
+Luke Shaw,Left-Back,23,18,1,0,2,6,0,0,2,18,Defender
+James Ward-Prowse,Central Midfield,24,8,0,0,0,1,0,4,2,18,Midfielder
+Domenico Berardi,Right Winger,24,19,4,0,3,5,0,4,4,18,Forward
+Raphaël Guerreiro,Left-Back,24,13,2,0,2,0,0,9,3,18,Defender
+Djibril Sidibé,Right-Back,26,12,0,0,0,3,0,2,1,18,Defender
+Vincent Aboubakar,Centre-Forward,26,9,4,0,2,2,0,1,7,18,Forward
+Jasper Cillessen,Goalkeeper,29,8,0,0,0,0,0,0,0,18,Goalkeeper
+Max Meyer,Attacking Midfield,23,16,0,0,2,2,0,6,5,18,Midfielder
+Bertrand Traoré,Right Winger,23,20,6,0,3,3,0,6,7,18,Forward
+Nathan Redmond,Left Winger,24,19,0,0,2,0,0,1,2,18,Forward
+Tom Cairney,Central Midfield,27,12,0,0,1,0,0,3,5,18,Midfielder
+Santiago Arias,Right-Back,26,15,0,0,4,2,0,2,2,18,Defender
+Michael Gregoritsch,Second Striker,24,19,3,0,0,0,0,4,8,18,Forward
+Chris Wood,Centre-Forward,27,22,3,0,1,0,0,9,9,18,Forward
+Chris Smalling,Centre-Back,29,18,1,0,0,1,0,0,1,18,Defender
+Sead Kolasinac,Left-Back,25,8,0,0,2,0,0,1,2,18,Defender
+Marcos Rojo,Centre-Back,28,3,0,0,0,1,0,1,2,18,Defender
+Olivier Giroud,Centre-Forward,32,23,6,0,4,2,0,9,9,18,Forward
+Keylor Navas,Goalkeeper,31,10,0,0,0,0,0,0,0,18,Goalkeeper
+Mario Götze,Attacking Midfield,26,11,1,0,1,0,0,4,5,18,Midfielder
+Mario Gaspar,Right-Back,28,16,1,0,1,8,0,0,2,18,Defender
+Alex Teixeira,Attacking Midfield,28,0,0,0,0,0,0,0,0,18,Midfielder
+Kevin Kampl,Central Midfield,28,23,2,0,5,2,0,3,9,18,Midfielder
+Joe Allen,Central Midfield,28,26,3,0,4,5,0,0,3,18,Midfielder
+Lars Stindl,Second Striker,30,9,2,0,1,1,0,1,4,18,Forward
+Moussa Sissoko,Central Midfield,29,17,0,0,1,0,0,6,3,18,Midfielder
+Grzegorz Krychowiak,Defensive Midfield,28,28,1,0,4,6,1,0,1,18,Midfielder
+Kévin Gameiro,Centre-Forward,31,21,2,0,1,0,0,12,6,18,Forward
+Papu Gómez,Second Striker,30,19,6,0,3,4,0,1,5,18,Forward
+Mousa Dembélé,Central Midfield,31,15,0,0,1,2,0,5,7,18,Midfielder
+Daley Blind,Centre-Back,28,33,0,0,3,1,0,2,4,18,Defender
+Diego Llorente,Centre-Back,25,7,0,0,0,1,0,0,1,17.5,Defender
+Nadiem Amiri,Attacking Midfield,22,1,0,0,0,0,0,0,1,17,Midfielder
+Maximilian Eggestein,Central Midfield,22,19,5,0,3,1,0,1,3,17,Midfielder
+Davy Klaassen,Attacking Midfield,25,16,3,0,3,2,0,0,1,17,Midfielder
+Leander Dendoncker,Defensive Midfield,23,3,0,0,0,0,0,1,0,17,Midfielder
+Simone Zaza,Centre-Forward,27,15,1,0,3,2,0,10,0,17,Forward
+Marvin Plattenhardt,Left-Back,26,12,1,0,2,2,0,0,1,17,Defender
+Kevin Vogt,Centre-Back,27,19,0,0,0,4,0,0,3,17,Defender
+Jordan Amavi,Left-Back,24,14,0,0,1,4,1,1,2,16,Defender
+Alex Meret,Goalkeeper,21,1,0,0,0,0,0,0,0,16,Goalkeeper
+Benjamin Henrichs,Right-Back,21,19,1,0,2,2,0,2,3,16,Defender
+Bernard,Left Winger,26,13,0,0,2,2,0,5,7,16,Forward
+Islam Slimani,Centre-Forward,30,17,4,0,0,4,0,1,3,16,Forward
+Nicolás Tagliafico,Left-Back,26,26,3,0,5,10,0,0,3,16,Defender
+Mattia Perin,Goalkeeper,26,2,0,0,0,0,0,0,0,16,Goalkeeper
+Anthony Modeste,Centre-Forward,30,0,0,0,0,0,0,0,0,16,Forward
+Rui Patrício,Goalkeeper,30,19,0,0,0,0,0,0,0,16,Goalkeeper
+Lucas Paquetá,Attacking Midfield,21,2,0,0,0,0,0,2,0,15,Midfielder
+Yves Bissouma,Central Midfield,22,15,0,0,0,4,0,7,4,15,Midfielder
+Phil Foden,Central Midfield,18,17,2,0,3,0,0,10,4,15,Midfielder
+Amadou Haidara,Central Midfield,20,21,3,0,6,4,0,4,5,15,Midfielder
+Júnior Firpo,Left-Back,22,16,3,0,2,4,0,0,1,15,Defender
+Declan Rice,Centre-Back,19,16,0,0,1,1,0,1,1,15,Defender
+Diogo Dalot,Right-Back,19,7,0,0,1,1,0,1,1,15,Defender
+Loren Morón,Centre-Forward,24,16,3,0,0,1,0,4,4,15,Forward
+Mouctar Diakhaby,Centre-Back,21,12,1,0,0,5,0,2,0,15,Defender
+Malang Sarr,Centre-Back,19,17,0,1,1,0,0,1,2,15,Defender
+Theo Hernández,Left-Back,21,11,1,0,1,3,1,0,0,15,Defender
+Unai Núñez,Centre-Back,21,7,0,0,0,3,0,1,0,15,Defender
+Gedson Fernandes,Central Midfield,19,23,3,0,5,3,0,4,5,15,Midfielder
+Justin Kluivert,Left Winger,19,15,1,0,2,0,0,8,5,15,Forward
+Krzysztof Piatek,Centre-Forward,23,18,17,0,0,3,0,1,4,15,Forward
+Jakub Jankto,Central Midfield,22,15,2,0,2,0,0,8,4,15,Midfielder
+Ben Chilwell,Left-Back,21,21,0,0,3,1,0,1,1,15,Defender
+Tom Davies,Central Midfield,20,10,0,0,1,3,0,2,2,15,Midfielder
+Rolando Mandragora,Central Midfield,21,20,0,0,2,2,0,1,3,15,Midfielder
+Dominic Calvert-Lewin,Centre-Forward,21,16,6,0,0,1,0,11,2,15,Forward
+Arne Maier,Defensive Midfield,19,17,0,0,0,2,0,1,1,15,Midfielder
+Kelechi Iheanacho,Centre-Forward,22,19,2,0,4,1,0,8,8,15,Forward
+Jacob Bruun Larsen,Left Winger,20,14,3,0,2,0,0,3,9,15,Forward
+Jonathan Bamba,Left Winger,22,19,8,0,1,1,0,2,3,15,Forward
+Alfie Mawson,Centre-Back,24,10,0,0,0,2,0,1,2,15,Defender
+Gonzalo Martínez,Left Winger,25,9,3,0,0,0,0,2,6,15,Forward
+Gastón Pereiro,Attacking Midfield,23,26,10,0,5,2,0,1,18,15,Midfielder
+Yeray Álvarez,Centre-Back,23,10,0,0,0,4,0,0,1,15,Defender
+Wesley Hoedt,Centre-Back,24,13,0,2,0,2,0,0,0,15,Defender
+Pione Sisto,Left Winger,23,16,1,0,2,0,0,6,7,15,Forward
