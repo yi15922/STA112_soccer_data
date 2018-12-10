@@ -15,6 +15,7 @@ library(broom)
 library(rvest)
 library(infer)
 library(modelr)
+library(knitr)
 ```
 
 
@@ -32,7 +33,7 @@ library(modelr)
 players1 <- read_csv("../data/players1.csv")
 ```
 
-To get a general sense of the market values of all players in the 2018-2019 season, let's first create a histogram to visualize their distribution. 
+To get a general sense of the market values of all players in the 2018-2019 season, let's first create a histogram to visualize their distribution: 
 
 ```{r histogram, fig.width = 10}
 players1 %>%
@@ -40,15 +41,14 @@ players1 %>%
   geom_histogram(binwidth = 5) +
   labs(
     title = "Distribution of Player Market Values in 2018-2019 Season",
-    x = "Player Market Values in 2018-2019 season", 
+    x = "Player Market Values in 2018-2019 Season", 
     y = "Count"
   ) +
   theme_minimal() +
   scale_fill_gradient(low="blue", high="red")
 ```
 
-In the histogram above, we can see that the distribution of the players' market values in the 2018-2019 season is right skewed, and that the most commonly occuring market values are slightly less than $25 million. In the summary statistics below, we can see that the mean of the market values is higher than the most commonly occuring market values due to the right skewedness of the data. 
-
+In the histogram above, we can see that the distribution of the players' market values in the 2018-2019 season is right-skewed, and that the most commonly occuring market value is around $23 million. In the summary statistics below, we can see that the mean of the market values is higher than the most commonly occuring market values due to the right skewedness of the data: 
 
 ```{r summary-stats}
 players1 %>%
@@ -56,7 +56,7 @@ players1 %>%
 
 ```
 
-The median, however, seems to be affected to a lesser extent by the high valued outliers, and we can see this in the boxplot below. 
+The median, however, seems to be affected to a lesser extent by the high valued outliers. In the boxplot below, the blue colored line represents the median, and the red line represents the mean: 
 
 ```{r boxplot, fig.height = 5, fig.width = 10}
 players1 %>%
@@ -67,18 +67,48 @@ players1 %>%
     title = "Boxplot of Player Market Values in 2018-2019 Season",
     y = "Player Market Values in 2018-2019 season"
   ) +
-  theme_minimal() 
-  
+  theme_minimal() +
+  geom_hline(yintercept = 35.3, color = "red") +
+  geom_hline(yintercept = 25, color = "blue")
 
+# Coloring code found on http://www.sthda.com/english/wiki/ggplot2-colors-how-to-change-colors-automatically-and-manually
+```
+
+The boxplot also revaled that there are many outliers in the data. The table below shows the names and market values of the outlying soccer players: 
+
+```{r outliers}
 players1 %>%
   select(name, market_value) %>%
-  filter(market_value > 80)
+  filter(market_value > 75) %>%
+  kable()
 
 ```
 
-The previous table shows the outliers of the data. The following players are extremely high market value players compared to the rest of the players.
+These players have extremely high market values compared to the rest of the players. Which raises the question: do they perform much better than the other players? Let's compare the number of goals they scored to the number of goals players with "normal" market values scored: 
 
-We condensed our data of 13 player positions to 4: Defender, Forward, Goalkeeper, and Midfielder. We found the average goals made by each position and average assists made by each position. It can be expected that players who play Forward are most likely to score and assist goals, Midfielders are the second most likely, followed by Defenders, and the least most likely to score and assist goals are the Goalies.
+```{r outliers-plot, fig.width = 10}
+players1 <- players1 %>%
+  mutate(outlier = ifelse(
+    market_value >75, T, F
+  ))
+
+players1 %>%
+  ggplot(mapping = aes(x = outlier, y = goals, color = outlier)) +
+  scale_color_manual(values = c("blue", "red")) +
+  geom_boxplot() +
+  labs(
+    title = "Boxplot of Goals Scored per Player in 2018-2019 Season",
+    x = "Outlier (True/False)", 
+    y = "Count"
+  ) +
+  guides(color = "none") +
+  coord_flip() +
+  theme_minimal() 
+```
+
+We can see from the comparison above that the outlying soccer players with very high market values do score significantly more goals, therefore their high market value is justified. 
+
+We condensed our data of 13 player positions into 4: Defender, Forward, Goalkeeper, and Midfielder. We found the average goals made by each position and average assists made by each position. It can be expected that players who play Forward are most likely to score and assist goals, Midfielders are the second most likely, followed by Defenders, and the least most likely to score and assist goals are the Goalies.
 
 
 ```{r select-data}

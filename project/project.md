@@ -9,7 +9,7 @@ Dec 14, 2018
 
 To get a general sense of the market values of all players in the
 2018-2019 season, let’s first create a histogram to visualize their
-distribution.
+distribution:
 
 ``` r
 players1 %>%
@@ -17,7 +17,7 @@ players1 %>%
   geom_histogram(binwidth = 5) +
   labs(
     title = "Distribution of Player Market Values in 2018-2019 Season",
-    x = "Player Market Values in 2018-2019 season", 
+    x = "Player Market Values in 2018-2019 Season", 
     y = "Count"
   ) +
   theme_minimal() +
@@ -27,11 +27,11 @@ players1 %>%
 ![](project_files/figure-gfm/histogram-1.png)<!-- -->
 
 In the histogram above, we can see that the distribution of the players’
-market values in the 2018-2019 season is right skewed, and that the most
-commonly occuring market values are slightly less than $25 million. In
-the summary statistics below, we can see that the mean of the market
-values is higher than the most commonly occuring market values due to
-the right skewedness of the data.
+market values in the 2018-2019 season is right-skewed, and that the most
+commonly occuring market value is around $23 million. In the summary
+statistics below, we can see that the mean of the market values is
+higher than the most commonly occuring market values due to the right
+skewedness of the data:
 
 ``` r
 players1 %>%
@@ -44,7 +44,8 @@ players1 %>%
     ## 1  35.3     25  25.2    15   180
 
 The median, however, seems to be affected to a lesser extent by the high
-valued outliers, and we can see this in the boxplot below.
+valued outliers. In the boxplot below, the blue colored line represents
+the median, and the red line represents the mean:
 
 ``` r
 players1 %>%
@@ -55,35 +56,96 @@ players1 %>%
     title = "Boxplot of Player Market Values in 2018-2019 Season",
     y = "Player Market Values in 2018-2019 season"
   ) +
-  theme_minimal() 
+  theme_minimal() +
+  geom_hline(yintercept = 35.3, color = "red") +
+  geom_hline(yintercept = 25, color = "blue")
 ```
 
 ![](project_files/figure-gfm/boxplot-1.png)<!-- -->
 
 ``` r
-players1 %>%
-  select(name, market_value) %>%
-  filter(market_value > 80)
+# Coloring code found on http://www.sthda.com/english/wiki/ggplot2-colors-how-to-change-colors-automatically-and-manually
 ```
 
-    ## # A tibble: 22 x 2
-    ##    name              market_value
-    ##    <chr>                    <dbl>
-    ##  1 Kylian Mbappé              180
-    ##  2 Neymar                     180
-    ##  3 Lionel Messi               180
-    ##  4 Mohamed Salah              150
-    ##  5 Harry Kane                 150
-    ##  6 Antoine Griezmann          150
-    ##  7 Kevin De Bruyne            150
-    ##  8 Philippe Coutinho          150
-    ##  9 Eden Hazard                150
-    ## 10 Paulo Dybala               110
-    ## # ... with 12 more rows
+The boxplot also revaled that there are many outliers in the data. The
+table below shows the names and market values of the outlying soccer
+players:
 
-The previous table shows the outliers of the data. The following players
-are extremely high market value players compared to the rest of the
-players.
+``` r
+players1 %>%
+  select(name, market_value) %>%
+  filter(market_value > 75) %>%
+  kable()
+```
+
+| name                    | market\_value |
+| :---------------------- | ------------: |
+| Kylian Mbappé           |           180 |
+| Neymar                  |           180 |
+| Lionel Messi            |           180 |
+| Mohamed Salah           |           150 |
+| Harry Kane              |           150 |
+| Antoine Griezmann       |           150 |
+| Kevin De Bruyne         |           150 |
+| Philippe Coutinho       |           150 |
+| Eden Hazard             |           150 |
+| Paulo Dybala            |           110 |
+| Dele Alli               |           100 |
+| Romelu Lukaku           |           100 |
+| Cristiano Ronaldo       |           100 |
+| Mauro Icardi            |            95 |
+| Marco Asensio           |            90 |
+| Sergej Milinkovic-Savic |            90 |
+| Leroy Sané              |            90 |
+| Saúl Níguez             |            90 |
+| Raheem Sterling         |            90 |
+| Paul Pogba              |            90 |
+| Isco                    |            90 |
+| Gareth Bale             |            90 |
+| Gabriel Jesus           |            80 |
+| Ousmane Dembélé         |            80 |
+| N’Golo Kanté            |            80 |
+| Raphaël Varane          |            80 |
+| Roberto Firmino         |            80 |
+| Jan Oblak               |            80 |
+| James Rodríguez         |            80 |
+| Marc-André ter Stegen   |            80 |
+| Christian Eriksen       |            80 |
+| Sergio Busquets         |            80 |
+| Robert Lewandowski      |            80 |
+| Toni Kroos              |            80 |
+| Sergio Agüero           |            80 |
+
+These players have extremely high market values compared to the rest of
+the players. Which raises the question: do they perform much better than
+the other players? Let’s compare the number of goals they scored to the
+number of goals players with “normal” market values scored:
+
+``` r
+players1 <- players1 %>%
+  mutate(outlier = ifelse(
+    market_value >75, T, F
+  ))
+
+players1 %>%
+  ggplot(mapping = aes(x = outlier, y = goals, color = outlier)) +
+  scale_color_manual(values = c("blue", "red")) +
+  geom_boxplot() +
+  labs(
+    title = "Boxplot of Goals Scored per Player in 2018-2019 Season",
+    x = "Outlier (True/False)", 
+    y = "Count"
+  ) +
+  guides(color = "none") +
+  coord_flip() +
+  theme_minimal() 
+```
+
+![](project_files/figure-gfm/outliers-plot-1.png)<!-- -->
+
+We can see from the comparison above that the outlying soccer players
+with very high market values do score significantly more goals,
+therefore their high market value is justified.
 
 We condensed our data of 13 player positions to 4: Defender, Forward,
 Goalkeeper, and Midfielder. We found the average goals made by each
@@ -239,21 +301,9 @@ rmses
 ```
 
     ##        1        2        3        4        5        6        7        8 
-<<<<<<< HEAD
-    ## 19.24510 22.56739 13.40790 22.62365 16.86552 23.49566 24.20007 17.82309 
+    ## 17.34496 22.24940 16.35941 24.37354 26.61648 18.78497 20.39374 19.40583 
     ##        9       10 
-    ## 20.12472 24.79099
-=======
-<<<<<<< HEAD
-    ## 21.91483 18.15026 15.27653 16.05032 25.19498 26.37822 17.34653 25.03594 
-    ##        9       10 
-    ## 21.79383 21.40252
-=======
-    ## 21.37401 22.70165 15.28951 22.26227 15.52234 24.98049 26.46700 19.35649 
-    ##        9       10 
-    ## 23.59212 17.13740
->>>>>>> eac469b7fccee01449651321ca78d78753e86145
->>>>>>> 16b0dbc7f6c802cae971bf8737bf3044d9ea48e3
+    ## 22.57368 21.70383
 
 ## Conclusion
 
