@@ -117,22 +117,25 @@ players1 %>%
 | Sergio Agüero           |            80 |
 
 These players have extremely high market values compared to the rest of
-the players. Which raises the question: do they perform much better than
-the other players? Let’s compare the number of goals they scored to the
-number of goals players with “normal” market values scored:
+the players. Which raises the question: do they contribute much more
+than the other players? Let a player’s contribution be the sum of the
+player’s goals and assists, the following boxplots compare the
+contributions of the outlying players to that of the “normal” players:
 
 ``` r
 players1 <- players1 %>%
   mutate(outlier = ifelse(
     market_value >75, T, F
-  ))
+  ), 
+  contribution = goals + assists
+  )
 
 players1 %>%
-  ggplot(mapping = aes(x = outlier, y = goals, color = outlier)) +
+  ggplot(mapping = aes(x = outlier, y = contribution, color = outlier)) +
   scale_color_manual(values = c("blue", "red")) +
   geom_boxplot() +
   labs(
-    title = "Boxplot of Goals Scored per Player in 2018-2019 Season",
+    title = "Boxplot of Player Contributions in 2018-2019 Season",
     x = "Outlier (True/False)", 
     y = "Count"
   ) +
@@ -144,43 +147,87 @@ players1 %>%
 ![](project_files/figure-gfm/outliers-plot-1.png)<!-- -->
 
 We can see from the comparison above that the outlying soccer players
-with very high market values do score significantly more goals,
-therefore their high market value is justified.
+with very high market values do contribute significantly more, therefore
+their high market value is justified.
 
-We condensed our data of 13 player positions to 4: Defender, Forward,
-Goalkeeper, and Midfielder. We found the average goals made by each
-position and average assists made by each position. It can be expected
-that players who play Forward are most likely to score and assist goals,
-Midfielders are the second most likely, followed by Defenders, and the
-least most likely to score and assist goals are the Goalies.
+Now we would like to investigate the relationship between a player’s
+position and the number of goals they score. In order to reduce
+confusion, we condensed our data of 13 player positions into 4:
+Defender, Forward, Goalkeeper, and Midfielder. We found the average
+goals made by each position and average assists made by each position:
+
+``` r
+position_goals <- players1 %>%
+  group_by(position_new) %>%
+  summarise(goals_avg = mean(goals), assists_avg = mean(assists))
+
+position_goals
+```
+
+    ## # A tibble: 4 x 3
+    ##   position_new goals_avg assists_avg
+    ##   <chr>            <dbl>       <dbl>
+    ## 1 Defender         0.797      1.27  
+    ## 2 Forward          5.61       3.19  
+    ## 3 Goalkeeper       0          0.0455
+    ## 4 Midfielder       2.14       2.01
+
+``` r
+position_goals %>%
+  mutate(position_new = fct_reorder(position_new, goals_avg)) %>%
+  ggplot(mapping = aes(x = position_new, y = goals_avg)) +
+  geom_col() +
+  labs(
+    title = "Average Goals Scored in Each Position in the 2018-2019 Season",
+    x = "Position", 
+    y = "Average Goals Scored"
+  ) +
+  coord_flip() +
+  theme_minimal()
+```
+
+![](project_files/figure-gfm/position-goals-1.png)<!-- -->
+
+``` r
+position_goals %>%
+  mutate(position_new = fct_reorder(position_new, assists_avg)) %>%
+  ggplot(mapping = aes(x = position_new, y = assists_avg)) +
+  geom_col() +
+  labs(
+    title = "Average Assists in Each Position in the 2018-2019 Season",
+    x = "Position", 
+    y = "Average Assists"
+  ) +
+  coord_flip() +
+  theme_minimal()
+```
+
+![](project_files/figure-gfm/position-goals-2.png)<!-- -->
+
+From the visualizations above, we can see that forward players have the
+most goals and assists on average, followed by midfielder, defender and
+goalkeeper. This is expected because forward players are the closest to
+the goal of the opposing team, making them the most likely to score and
+assist goals. Midfielders are the second closest, followed by defenders
+and goalkeepers. Interestingly, the average assists for goalkeeper is
+greater than 0. Let’s find out which goalkeeper assisted a goal:
 
 ``` r
 players1 %>%
-  group_by(position_new) %>%
-  summarise(goals_avg = mean(goals))
+  select(name, position_new, assists) %>%
+  filter(position_new == "Goalkeeper", assists > 0)
 ```
 
-    ## # A tibble: 4 x 2
-    ##   position_new goals_avg
-    ##   <chr>            <dbl>
-    ## 1 Defender         0.797
-    ## 2 Forward          5.61 
-    ## 3 Goalkeeper       0    
-    ## 4 Midfielder       2.14
+    ## # A tibble: 1 x 3
+    ##   name    position_new assists
+    ##   <chr>   <chr>          <int>
+    ## 1 Ederson Goalkeeper         1
 
-``` r
-players1 %>%
-  group_by(position_new) %>%
-  summarise(assists_avg = mean(assists))
-```
+It looks like Ederson is the only goalkeeper who assisted a goal in the
+2018-2019
+season.
 
-    ## # A tibble: 4 x 2
-    ##   position_new assists_avg
-    ##   <chr>              <dbl>
-    ## 1 Defender          1.27  
-    ## 2 Forward           3.19  
-    ## 3 Goalkeeper        0.0455
-    ## 4 Midfielder        2.01
+### What Makes a Valuable Soccer Player?
 
 ``` r
 linear_prediction  <- lm(market_value ~ position_new + age + matches + goals + own_goals +
@@ -301,9 +348,9 @@ rmses
 ```
 
     ##        1        2        3        4        5        6        7        8 
-    ## 17.34496 22.24940 16.35941 24.37354 26.61648 18.78497 20.39374 19.40583 
+    ## 19.15624 16.54849 28.55761 19.64493 18.38566 21.38637 20.27961 22.45321 
     ##        9       10 
-    ## 22.57368 21.70383
+    ## 17.58189 25.09578
 
 ## Conclusion
 
