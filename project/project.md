@@ -81,64 +81,122 @@ players1 %>%
     ## 10 Paulo Dybala               110
     ## # ... with 12 more rows
 
+The previous table shows the outliers of the data. The following players
+are extremely high market value players compared to the rest of the
+players.
+
+We condensed our data of 13 player positions to 4: Defender, Forward,
+Goalkeeper, and Midfielder. We found the average goals made by each
+position and average assists made by each position. It can be expected
+that players who play Forward are most likely to score and assist goals,
+Midfielders are the second most likely, followed by Defenders, and the
+least most likely to score and assist goals are the Goalies.
+
 ``` r
-linear_prediction  <- lm(market_value ~ position + age + matches + goals + own_goals +
+players1 %>%
+  group_by(position_new) %>%
+  summarise(goals_avg = mean(goals))
+```
+
+    ## # A tibble: 4 x 2
+    ##   position_new goals_avg
+    ##   <chr>            <dbl>
+    ## 1 Defender         0.797
+    ## 2 Forward          5.61 
+    ## 3 Goalkeeper       0    
+    ## 4 Midfielder       2.14
+
+``` r
+players1 %>%
+  group_by(position_new) %>%
+  summarise(assists_avg = mean(assists))
+```
+
+    ## # A tibble: 4 x 2
+    ##   position_new assists_avg
+    ##   <chr>              <dbl>
+    ## 1 Defender          1.27  
+    ## 2 Forward           3.19  
+    ## 3 Goalkeeper        0.0455
+    ## 4 Midfielder        2.01
+
+``` r
+linear_prediction  <- lm(market_value ~ position_new + age + matches + goals + own_goals +
                   assists + yellow_cards + red_cards + substituted_on +
-                  substituted_off + age_range + position * goals + position * assists, data =   players1)
+                  substituted_off + age_range + position_new * goals + position_new * assists, data =   players1)
 tidy(linear_prediction)
 ```
 
-    ## # A tibble: 46 x 5
-    ##    term                       estimate std.error statistic p.value
-    ##    <chr>                         <dbl>     <dbl>     <dbl>   <dbl>
-    ##  1 (Intercept)                   18.1      16.6      1.09  0.274  
-    ##  2 positionCentral Midfield      -8.09      6.70    -1.21  0.228  
-    ##  3 positionCentre-Back          -10.8       6.54    -1.66  0.0986 
-    ##  4 positionCentre-Forward       -23.1       7.59    -3.04  0.00252
-    ##  5 positionDefensive Midfield    -5.12      7.48    -0.685 0.494  
-    ##  6 positionGoalkeeper            -8.49      7.99    -1.06  0.288  
-    ##  7 positionLeft Midfield        -22.4      22.5     -0.999 0.318  
-    ##  8 positionLeft Winger          -21.4       7.51    -2.84  0.00464
-    ##  9 positionLeft-Back            -18.2       8.93    -2.03  0.0427 
-    ## 10 positionRight Midfield        11.8      22.3      0.528 0.598  
-    ## # ... with 36 more rows
+    ## # A tibble: 21 x 5
+    ##    term                   estimate std.error statistic p.value
+    ##    <chr>                     <dbl>     <dbl>     <dbl>   <dbl>
+    ##  1 (Intercept)              12.6      15.4      0.818  0.414  
+    ##  2 position_newForward     -13.5       4.53    -2.99   0.00293
+    ##  3 position_newGoalkeeper    4.60      5.76     0.798  0.425  
+    ##  4 position_newMidfielder    5.51      3.74     1.48   0.141  
+    ##  5 age                       0.112     0.734    0.153  0.879  
+    ##  6 matches                   0.579     0.219    2.64   0.00852
+    ##  7 goals                     2.04      1.66     1.23   0.220  
+    ##  8 own_goals                -0.367     5.66    -0.0649 0.948  
+    ##  9 assists                   0.789     1.12     0.707  0.480  
+    ## 10 yellow_cards             -0.515     0.599   -0.859  0.391  
+    ## # ... with 11 more rows
+
+To begin with, we try to make a multiple linear regression based on all
+the statistical variables we have in the players dataset. In soccer,
+player’s position is highly correlated with his performances, especially
+goals and assists (e.g. Centre-Forwards get most goals and Midfielders
+make most assists in general while Goalkeepers can seldom score a goal
+or make an assist). Therefore, we managed to introduce two interactions
+between position/goals and position/assists into our multiple linear
+model.
 
 ``` r
 tidy(selected_model)
 ```
 
-    ## # A tibble: 30 x 5
-    ##    term                       estimate std.error statistic  p.value
-    ##    <chr>                         <dbl>     <dbl>     <dbl>    <dbl>
-    ##  1 (Intercept)                   23.4       6.78     3.45  0.000614
-    ##  2 positionCentral Midfield     -11.3       6.08    -1.85  0.0646  
-    ##  3 positionCentre-Back          -10.1       5.80    -1.73  0.0834  
-    ##  4 positionCentre-Forward       -23.8       6.99    -3.41  0.000714
-    ##  5 positionDefensive Midfield    -7.17      6.85    -1.05  0.296   
-    ##  6 positionGoalkeeper            -4.90      7.07    -0.693 0.489   
-    ##  7 positionLeft Midfield        -23.0      22.2     -1.04  0.301   
-    ##  8 positionLeft Winger          -20.9       6.75    -3.10  0.00205 
-    ##  9 positionLeft-Back            -15.3       7.61    -2.02  0.0444  
-    ## 10 positionRight Midfield        12.2      22.1      0.554 0.580   
-    ## # ... with 20 more rows
+    ## # A tibble: 15 x 5
+    ##    term                           estimate std.error statistic   p.value
+    ##    <chr>                             <dbl>     <dbl>     <dbl>     <dbl>
+    ##  1 (Intercept)                      15.9       5.35      2.98  0.00304  
+    ##  2 position_newForward             -16.5       3.85     -4.29  0.0000215
+    ##  3 position_newGoalkeeper            6.77      5.46      1.24  0.216    
+    ##  4 position_newMidfielder            3.71      3.53      1.05  0.293    
+    ##  5 matches                           0.406     0.179     2.26  0.0242   
+    ##  6 goals                             2.02      1.64      1.23  0.221    
+    ##  7 assists                           0.885     1.10      0.802 0.423    
+    ##  8 age_range21-25                    3.66      4.49      0.815 0.415    
+    ##  9 age_range26-30                    9.07      4.53      2.00  0.0457   
+    ## 10 age_range30 and above            -0.922     5.71     -0.162 0.872    
+    ## 11 position_newForward:goals         0.937     1.68      0.557 0.578    
+    ## 12 position_newMidfielder:goals     -1.45      1.85     -0.783 0.434    
+    ## 13 position_newForward:assists       2.74      1.28      2.14  0.0325   
+    ## 14 position_newGoalkeeper:assists   23.4      22.1       1.06  0.290    
+    ## 15 position_newMidfielder:assists   -0.366     1.52     -0.241 0.809
 
 ``` r
 glance(linear_prediction)$AIC
 ```
 
-    ## [1] 4534.834
+    ## [1] 4513.152
 
 ``` r
 glance(selected_model)$AIC
 ```
 
-    ## [1] 4516.383
+    ## [1] 4504.674
+
+Through the model selection based on AIC, we can see that the variables
+“age”, “own\_goals”, “yellow\_cards”, “red\_cards”, “substituted\_on”,
+substituted\_off" are eliminated. The AIC is reduced compared to the
+previous dataset (4513.152 to 4504.674), which can be interpreted as the
+increased likelihood of the model.
 
 ``` r
 glance(selected_model)$r.squared
 ```
 
-    ## [1] 0.3189235
+    ## [1] 0.2935472
 
 ``` r
 test_cv <- crossv_kfold(players1, 10)
@@ -181,9 +239,21 @@ rmses
 ```
 
     ##        1        2        3        4        5        6        7        8 
+<<<<<<< HEAD
     ## 19.24510 22.56739 13.40790 22.62365 16.86552 23.49566 24.20007 17.82309 
     ##        9       10 
     ## 20.12472 24.79099
+=======
+<<<<<<< HEAD
+    ## 21.91483 18.15026 15.27653 16.05032 25.19498 26.37822 17.34653 25.03594 
+    ##        9       10 
+    ## 21.79383 21.40252
+=======
+    ## 21.37401 22.70165 15.28951 22.26227 15.52234 24.98049 26.46700 19.35649 
+    ##        9       10 
+    ## 23.59212 17.13740
+>>>>>>> eac469b7fccee01449651321ca78d78753e86145
+>>>>>>> 16b0dbc7f6c802cae971bf8737bf3044d9ea48e3
 
 ## Conclusion
 
