@@ -81,6 +81,17 @@ players1 %>%
     ## 10 Paulo Dybala               110
     ## # ... with 12 more rows
 
+The previous table shows the outliers of the data. The following players
+are extremely high market value players compared to the rest of the
+players.
+
+We condensed our data of 13 player positions to 4: Defender, Forward,
+Goalkeeper, and Midfielder. We found the average goals made by each
+position and average assists made by each position. It can be expected
+that players who play Forward are most likely to score and assist goals,
+Midfielders are the second most likely, followed by Defenders, and the
+least most likely to score and assist goals are the Goalies.
+
 ``` r
 players1 %>%
   group_by(position_new) %>%
@@ -228,9 +239,9 @@ rmses
 ```
 
     ##        1        2        3        4        5        6        7        8 
-    ## 24.89522 18.46357 21.26035 24.49602 20.99020 17.70140 23.28783 18.23995 
+    ## 21.91483 18.15026 15.27653 16.05032 25.19498 26.37822 17.34653 25.03594 
     ##        9       10 
-    ## 19.17481 21.96953
+    ## 21.79383 21.40252
 
 ## Conclusion
 

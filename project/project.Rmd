@@ -73,6 +73,10 @@ players1 %>%
 
 ```
 
+The previous table shows the outliers of the data. The following players are extremely high market value players compared to the rest of the players.
+
+We condensed our data of 13 player positions to 4: Defender, Forward, Goalkeeper, and Midfielder. We found the average goals made by each position and average assists made by each position. It can be expected that players who play Forward are most likely to score and assist goals, Midfielders are the second most likely, followed by Defenders, and the least most likely to score and assist goals are the Goalies.
+
 
 ```{r select-data}
 players1 %>%
