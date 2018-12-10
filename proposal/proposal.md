@@ -90,7 +90,8 @@ market value.
     ##   substituted_on = col_integer(),
     ##   substituted_off = col_integer(),
     ##   market_value = col_double(),
-    ##   position_new = col_character()
+    ##   position_new = col_character(),
+    ##   age_range = col_character()
     ## )
 
 ### Summary Statistics
