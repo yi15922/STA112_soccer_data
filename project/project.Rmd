@@ -17,6 +17,8 @@ library(infer)
 library(modelr)
 ```
 
+
+
 ## Introduction
 
 
@@ -46,6 +48,7 @@ players1 %>%
 ```
 
 In the histogram above, we can see that the distribution of the players' market values in the 2018-2019 season is right skewed, and that the most commonly occuring market values are slightly less than $25 million. In the summary statistics below, we can see that the mean of the market values is higher than the most commonly occuring market values due to the right skewedness of the data. 
+
 
 ```{r summary-stats}
 players1 %>%
