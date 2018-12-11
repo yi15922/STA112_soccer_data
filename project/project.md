@@ -5,6 +5,47 @@ Dec 14, 2018
 
 ## Introduction
 
+While soccer’s popularity may be somewhat subdued in the United States,
+soccer is not only one of the most widely followed sports in the world,
+but also a deeply significant shared cultural experience. According to
+the Global World Research Index, 3.2 billion individuals across the
+globe watched at least one portion of the 2018 FIFA World Cup. In July
+of 2018, Portuguese forward Cristiano Ronaldo transferred from Spanish
+club Real Madrid to Italian club Juventus in a €100 million deal. What
+combination of factors led to this one soccer player’s multi-million
+dollar evaluation? Our team aims to discover what makes the most
+valuable soccer player. We will use data of players in the 2018-2019
+season of the professional European club soccer league. We selected the
+information of players in this league over others due to the fact that
+besides the World Cup, the professional European league is the highest
+watched and most widely analyzed league in the world. Through
+visualizations exploring patterns between markers of success in the
+sport of soccer (such as number of assists, number of goals, etc.),
+markers of failure (such as number of substitutions off the playing
+field, number of own goals, etc.), and market value. In order to answer
+our central question, we plan to use linear regression and modeling to
+assist us in creating the most valuable soccer player. Our data is a
+collection of the top 500 most valuable players in the 2018-2019
+European club season (data collected on 11/27/2018). We recognize that
+by using the top 500 players by market value (which is in and of itself
+a biased measure), we have a sample which is biased and may be right
+skewed in terms of market value. We will not be conducting hypothesis
+testing due to the former and we will explore possibly analyzing our
+data after using a transformation to account for the latter. The data
+comes from a professional German soccer statistics website titled
+“Transfermarkt”, which is a website dedicated to tracking players’
+market values and performances. Transfermarkt.com is a leading medium in
+reporting soccer transfer news and they have connections with all of the
+major leagues and clubs across Europe, South America, and Asia. The
+player statistics are generated after each match and analyzed by
+professional scouts, soccer analysts and data scientists. Each
+observation is a player, and includes the variables name, position,
+number of matches, number of goals scored, number of own goals, number
+of assists, number of yellow cards, number of red cards, number of
+substitutions on, number of substitutions off, and market value. The
+data was obtained from transfermarkt.com through web scraping tools
+learned from the course.
+
 ## Data Analysis
 
 To get a general sense of the market values of all players in the
@@ -348,9 +389,9 @@ rmses
 ```
 
     ##        1        2        3        4        5        6        7        8 
-    ## 19.15624 16.54849 28.55761 19.64493 18.38566 21.38637 20.27961 22.45321 
+    ## 17.10476 14.21914 17.45398 21.12462 22.77454 32.57364 20.42598 20.34975 
     ##        9       10 
-    ## 17.58189 25.09578
+    ## 23.98163 16.13049
 
 ## Conclusion
 
