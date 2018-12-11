@@ -108,7 +108,7 @@ players1 %>%
 # Coloring code found on http://www.sthda.com/english/wiki/ggplot2-colors-how-to-change-colors-automatically-and-manually
 ```
 
-The boxplot also revaled that there are many outliers in the data. The
+The boxplot also revealed that there are many outliers in the data. The
 table below shows the names and market values of the outlying soccer
 players:
 
@@ -265,8 +265,111 @@ players1 %>%
     ## 1 Ederson Goalkeeper         1
 
 It looks like Ederson is the only goalkeeper who assisted a goal in the
-2018-2019
-season.
+2018-2019 season.
+
+### Interactive Shiny App
+
+``` r
+shinyApp(
+
+ui <- fluidPage(
+  theme = shinytheme("cyborg"),
+  titlePanel("Players browser"),
+  sidebarLayout(
+    sidebarPanel(
+      selectInput(
+        inputId = "y",
+        label = "Y-axis:",
+        choices = c(
+          "Position" = "position",
+          "Age" = "age",
+          "Matches" = "matches",
+          "Goals" = "goals",
+          "Own Goals" = "own_goals",
+          "Assists" = "assists",
+          "Yellow Cards" = "yellow_cards",
+          "Red Cards" = "red_cards",
+          "Substituted On" = "substituted_on",
+          "Substituted Off" = "substituted_off",
+          "Market Value" = "market_value",
+          "Age Range" = "age_range"
+        ),
+        selected = "position"
+      ),
+      selectInput(
+        inputId = "x",
+        label = "X-axis:",
+        choices = c(
+          "Position" = "position",
+          "Age" = "age",
+          "Matches" = "matches",
+          "Goals" = "goals",
+          "Own Goals" = "own_goals",
+          "Assists" = "assists",
+          "Yellow Cards" = "yellow_cards",
+          "Red Cards" = "red_cards",
+          "Substituted On" = "substituted_on",
+          "Substituted Off" = "substituted_off",
+          "Market Value" = "market_value",
+          "Age Range" = "age_range"
+        ),
+        selected = "market_value"
+      ),
+      selectInput(
+        inputId = "z",
+        label = "Color by:",
+        choices = c(
+          "Position" = "position",
+          "Age" = "age",
+          "Matches" = "matches",
+          "Goals" = "goals",
+          "Own Goals" = "own_goals",
+          "Assists" = "assists",
+          "Yellow Cards" = "yellow_cards",
+          "Red Cards" = "red_cards",
+          "Substituted On" = "substituted_on",
+          "Substituted Off" = "substituted_off",
+          "Market Value" = "market_value",
+          "Age Range" = "age_range"
+        ),
+        selected = "age"
+      )
+    ),
+    mainPanel(plotOutput(outputId = "scatterplot"))
+  )
+),
+
+server <- function(input, output) {
+
+  # Create scatterplot object the plotOutput function is expecting
+  output$scatterplot <- renderPlot({
+    ggplot(data = players1, aes_string(
+      x = input$x, y = input$y,
+      color = input$z
+    )) +
+      geom_point() +
+      labs(
+        x = toTitleCase(str_replace_all(input$x, "_", " ")),
+        y = toTitleCase(str_replace_all(input$y, "_", " ")),
+        color = toTitleCase(str_replace_all(input$z, "_", " "))
+      )
+  })
+},
+
+options = list(height = 500)
+)
+```
+
+<!--html_preserve-->
+
+<div class="muted well" style="width: 100% ; height: 500px ; text-align: center; box-sizing: border-box; -moz-box-sizing: border-box; -webkit-box-sizing: border-box;">
+
+Shiny applications not supported in static R Markdown
+documents
+
+</div>
+
+<!--/html_preserve-->
 
 ### What Makes a Valuable Soccer Player?
 
@@ -389,9 +492,9 @@ rmses
 ```
 
     ##        1        2        3        4        5        6        7        8 
-    ## 21.92384 19.41308 17.43334 20.85033 21.96158 27.83531 18.03907 22.37306 
+    ## 17.07693 19.91039 21.23318 25.79268 23.67975 20.50450 23.56914 20.98397 
     ##        9       10 
-    ## 19.18336 21.08921
+    ## 18.95159 18.75363
 
 ## Conclusion
 

@@ -2,7 +2,8 @@
 title: "Building the Perfect Soccer Player"
 author: "team-devils"
 date: "Dec 14, 2018"
-output: github_document
+runtime: shiny
+output: html_document
 ---
 
 ```{r setup, include=FALSE}
@@ -16,6 +17,9 @@ library(rvest)
 library(infer)
 library(modelr)
 library(knitr)
+library(shiny)
+library(tools)
+library(shinythemes)
 ```
 
 
@@ -72,7 +76,7 @@ players1 %>%
 # Coloring code found on http://www.sthda.com/english/wiki/ggplot2-colors-how-to-change-colors-automatically-and-manually
 ```
 
-The boxplot also revaled that there are many outliers in the data. The table below shows the names and market values of the outlying soccer players: 
+The boxplot also revealed that there are many outliers in the data. The table below shows the names and market values of the outlying soccer players: 
 
 ```{r outliers}
 players1 %>%
@@ -153,8 +157,104 @@ players1 %>%
 It looks like Ederson is the only goalkeeper who assisted a goal in the 2018-2019 season. 
 
 
-
 ### What Makes a Valuable Soccer Player? 
+
+Below is an interactive scatterplot where we plot all numerical values against each other to find patterns. The opacity of the data points are reduced so that we can better visualize overlapping data. 
+
+```{r shiny-app, echo = F}
+shinyApp(
+
+ui <- fluidPage(
+  theme = shinytheme("cyborg"),
+  titlePanel("Interactive Player Info Visualization"),
+  sidebarLayout(
+    sidebarPanel(
+      selectInput(
+        inputId = "y",
+        label = "Y-axis:",
+        choices = c(
+          "Position" = "position",
+          "Age" = "age",
+          "Matches" = "matches",
+          "Goals" = "goals",
+          "Own Goals" = "own_goals",
+          "Assists" = "assists",
+          "Yellow Cards" = "yellow_cards",
+          "Red Cards" = "red_cards",
+          "Substituted On" = "substituted_on",
+          "Substituted Off" = "substituted_off",
+          "Market Value" = "market_value",
+          "Age Range" = "age_range"
+        ),
+        selected = "position"
+      ),
+      selectInput(
+        inputId = "x",
+        label = "X-axis:",
+        choices = c(
+          "Position" = "position",
+          "Age" = "age",
+          "Matches" = "matches",
+          "Goals" = "goals",
+          "Own Goals" = "own_goals",
+          "Assists" = "assists",
+          "Yellow Cards" = "yellow_cards",
+          "Red Cards" = "red_cards",
+          "Substituted On" = "substituted_on",
+          "Substituted Off" = "substituted_off",
+          "Market Value" = "market_value",
+          "Age Range" = "age_range"
+        ),
+        selected = "market_value"
+      ),
+      selectInput(
+        inputId = "z",
+        label = "Color by:",
+        choices = c(
+          "Position" = "position",
+          "Age" = "age",
+          "Matches" = "matches",
+          "Goals" = "goals",
+          "Own Goals" = "own_goals",
+          "Assists" = "assists",
+          "Yellow Cards" = "yellow_cards",
+          "Red Cards" = "red_cards",
+          "Substituted On" = "substituted_on",
+          "Substituted Off" = "substituted_off",
+          "Market Value" = "market_value",
+          "Age Range" = "age_range"
+        ),
+        selected = "age"
+      )
+    ),
+    mainPanel(plotOutput(outputId = "scatterplot"))
+  )
+),
+
+server <- function(input, output) {
+
+  # Create scatterplot object the plotOutput function is expecting
+  output$scatterplot <- renderPlot({
+    ggplot(data = players1, aes_string(
+      x = input$x, y = input$y,
+      color = input$z
+    )) +
+      geom_point(alpha = 0.2) +
+      labs(
+        x = toTitleCase(str_replace_all(input$x, "_", " ")),
+        y = toTitleCase(str_replace_all(input$y, "_", " ")),
+        color = toTitleCase(str_replace_all(input$z, "_", " "))
+      ) +
+      scale_color_gradient(low="blue", high="red") +
+      theme_minimal()
+  })
+},
+
+options = list(height = 500)
+)
+```
+
+To begin with, we made a multiple linear regression based on all the variables we have in the players dataset. In soccer, player's position is highly correlated with his performances, especially goals and assists (e.g. Centre-Forwards get most goals and Midfielders make most assists in general while Goalkeepers can seldom score a goal or make an assist). Therefore, we decided to introduce two interactions between position/goals and position/assists into our multiple linear model. 
 
 ```{r predict}
 linear_prediction  <- lm(market_value ~ position_new + age + matches + goals + own_goals +
@@ -163,7 +263,6 @@ linear_prediction  <- lm(market_value ~ position_new + age + matches + goals + o
 tidy(linear_prediction)
 ```
 
-To begin with, we try to make a multiple linear regression based on all the statistical variables we have in the players dataset. In soccer, player's position is highly correlated with his performances, especially goals and assists (e.g. Centre-Forwards get most goals and Midfielders make most assists in general while Goalkeepers can seldom score a goal or make an assist). Therefore, we managed to introduce two interactions between position/goals and position/assists into our multiple linear model.
 
 ```{r AIC-selection, include = FALSE}
 selected_model <- step(linear_prediction, direction = "backward")
