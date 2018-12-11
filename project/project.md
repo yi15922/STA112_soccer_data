@@ -217,7 +217,7 @@ position_goals
 position_goals %>%
   mutate(position_new = fct_reorder(position_new, goals_avg)) %>%
   ggplot(mapping = aes(x = position_new, y = goals_avg)) +
-  geom_col() +
+  geom_col(fill = "blue") +
   labs(
     title = "Average Goals Scored in Each Position in the 2018-2019 Season",
     x = "Position", 
@@ -233,7 +233,7 @@ position_goals %>%
 position_goals %>%
   mutate(position_new = fct_reorder(position_new, assists_avg)) %>%
   ggplot(mapping = aes(x = position_new, y = assists_avg)) +
-  geom_col() +
+  geom_col(fill = "purple") +
   labs(
     title = "Average Assists in Each Position in the 2018-2019 Season",
     x = "Position", 
@@ -389,9 +389,9 @@ rmses
 ```
 
     ##        1        2        3        4        5        6        7        8 
-    ## 17.10476 14.21914 17.45398 21.12462 22.77454 32.57364 20.42598 20.34975 
+    ## 25.58377 20.06320 19.66600 21.38450 20.50071 16.92810 16.29036 30.00097 
     ##        9       10 
-    ## 23.98163 16.13049
+    ## 18.53354 19.36848
 
 ## Conclusion
 

@@ -120,7 +120,7 @@ position_goals
 position_goals %>%
   mutate(position_new = fct_reorder(position_new, goals_avg)) %>%
   ggplot(mapping = aes(x = position_new, y = goals_avg)) +
-  geom_col() +
+  geom_col(fill = "blue") +
   labs(
     title = "Average Goals Scored in Each Position in the 2018-2019 Season",
     x = "Position", 
@@ -132,7 +132,7 @@ position_goals %>%
 position_goals %>%
   mutate(position_new = fct_reorder(position_new, assists_avg)) %>%
   ggplot(mapping = aes(x = position_new, y = assists_avg)) +
-  geom_col() +
+  geom_col(fill = "purple") +
   labs(
     title = "Average Assists in Each Position in the 2018-2019 Season",
     x = "Position", 
