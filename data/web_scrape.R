@@ -170,6 +170,8 @@ players1 <- players1 %>%
   filter(market_value>=1000) %>%
   mutate(market_value = market_value/100)
 
+# Creating new variable with condensed positions
+
 players1 <- players1 %>%
   mutate(position_new = case_when(
     position == "Centre-Forward" | position == "Left Winger" | 
