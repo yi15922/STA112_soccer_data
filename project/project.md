@@ -26,6 +26,26 @@ players1 %>%
 
 ![](project_files/figure-gfm/histogram-1.png)<!-- -->
 
+The histogram appears to be right-skewed, so we decide to perform a log
+transformation on the market value of players. The resulting histogram
+(see below) is more normally distributed. Therefore, we will adhere to
+this log transformation model in the following discussion.
+
+``` r
+players1 %>%
+  ggplot(mapping = aes(log(market_value), fill = ..count..)) +
+  geom_histogram(binwidth = 0.1) +
+  labs(
+    title = "Distribution of Player Market Values in 2018-2019 Season",
+    x = "Player Market Values in 2018-2019 season", 
+    y = "Count"
+  ) +
+  theme_minimal() +
+  scale_fill_gradient(low="blue", high="red")
+```
+
+![](project_files/figure-gfm/log_histogram-1.png)<!-- -->
+
 In the histogram above, we can see that the distribution of the players’
 market values in the 2018-2019 season is right skewed, and that the most
 commonly occuring market values are slightly less than $25 million. In
@@ -121,25 +141,25 @@ players1 %>%
     ## 4 Midfielder        2.01
 
 ``` r
-linear_prediction  <- lm(market_value ~ position_new + age + matches + goals + own_goals +
+linear_prediction  <- lm(log(market_value) ~ position_new + age + matches + goals + own_goals +
                   assists + yellow_cards + red_cards + substituted_on +
                   substituted_off + age_range + position_new * goals + position_new * assists, data =   players1)
 tidy(linear_prediction)
 ```
 
     ## # A tibble: 21 x 5
-    ##    term                   estimate std.error statistic p.value
-    ##    <chr>                     <dbl>     <dbl>     <dbl>   <dbl>
-    ##  1 (Intercept)              12.6      15.4      0.818  0.414  
-    ##  2 position_newForward     -13.5       4.53    -2.99   0.00293
-    ##  3 position_newGoalkeeper    4.60      5.76     0.798  0.425  
-    ##  4 position_newMidfielder    5.51      3.74     1.48   0.141  
-    ##  5 age                       0.112     0.734    0.153  0.879  
-    ##  6 matches                   0.579     0.219    2.64   0.00852
-    ##  7 goals                     2.04      1.66     1.23   0.220  
-    ##  8 own_goals                -0.367     5.66    -0.0649 0.948  
-    ##  9 assists                   0.789     1.12     0.707  0.480  
-    ## 10 yellow_cards             -0.515     0.599   -0.859  0.391  
+    ##    term                   estimate std.error statistic  p.value
+    ##    <chr>                     <dbl>     <dbl>     <dbl>    <dbl>
+    ##  1 (Intercept)              2.37     0.331       7.16  3.02e-12
+    ##  2 position_newForward     -0.227    0.0975     -2.33  2.04e- 2
+    ##  3 position_newGoalkeeper   0.0537   0.124       0.433 6.65e- 1
+    ##  4 position_newMidfielder   0.118    0.0804      1.46  1.44e- 1
+    ##  5 age                      0.0206   0.0158      1.31  1.92e- 1
+    ##  6 matches                  0.0209   0.00472     4.43  1.15e- 5
+    ##  7 goals                    0.0543   0.0358      1.52  1.30e- 1
+    ##  8 own_goals               -0.0172   0.122      -0.141 8.88e- 1
+    ##  9 assists                  0.0160   0.0240      0.667 5.05e- 1
+    ## 10 yellow_cards            -0.0149   0.0129     -1.16  2.48e- 1
     ## # ... with 11 more rows
 
 To begin with, we try to make a multiple linear regression based on all
@@ -155,99 +175,60 @@ model.
 tidy(selected_model)
 ```
 
-    ## # A tibble: 15 x 5
-    ##    term                           estimate std.error statistic   p.value
-    ##    <chr>                             <dbl>     <dbl>     <dbl>     <dbl>
-    ##  1 (Intercept)                      15.9       5.35      2.98  0.00304  
-    ##  2 position_newForward             -16.5       3.85     -4.29  0.0000215
-    ##  3 position_newGoalkeeper            6.77      5.46      1.24  0.216    
-    ##  4 position_newMidfielder            3.71      3.53      1.05  0.293    
-    ##  5 matches                           0.406     0.179     2.26  0.0242   
-    ##  6 goals                             2.02      1.64      1.23  0.221    
-    ##  7 assists                           0.885     1.10      0.802 0.423    
-    ##  8 age_range21-25                    3.66      4.49      0.815 0.415    
-    ##  9 age_range26-30                    9.07      4.53      2.00  0.0457   
-    ## 10 age_range30 and above            -0.922     5.71     -0.162 0.872    
-    ## 11 position_newForward:goals         0.937     1.68      0.557 0.578    
-    ## 12 position_newMidfielder:goals     -1.45      1.85     -0.783 0.434    
-    ## 13 position_newForward:assists       2.74      1.28      2.14  0.0325   
-    ## 14 position_newGoalkeeper:assists   23.4      22.1       1.06  0.290    
-    ## 15 position_newMidfielder:assists   -0.366     1.52     -0.241 0.809
+    ## # A tibble: 14 x 5
+    ##    term                           estimate std.error statistic  p.value
+    ##    <chr>                             <dbl>     <dbl>     <dbl>    <dbl>
+    ##  1 (Intercept)                      2.36     0.327       7.23  1.93e-12
+    ##  2 position_newForward             -0.262    0.0766     -3.42  6.76e- 4
+    ##  3 position_newGoalkeeper           0.0961   0.114       0.841 4.01e- 1
+    ##  4 position_newMidfielder           0.0584   0.0710      0.822 4.11e- 1
+    ##  5 age                              0.0228   0.0157      1.46  1.45e- 1
+    ##  6 matches                          0.0172   0.00385     4.46  1.01e- 5
+    ##  7 goals                            0.0405   0.00826     4.90  1.32e- 6
+    ##  8 assists                          0.0199   0.0237      0.837 4.03e- 1
+    ##  9 age_range21-25                   0.0644   0.114       0.565 5.73e- 1
+    ## 10 age_range26-30                   0.0789   0.164       0.481 6.31e- 1
+    ## 11 age_range30 and above           -0.200    0.225      -0.889 3.75e- 1
+    ## 12 position_newForward:assists      0.0459   0.0272      1.69  9.14e- 2
+    ## 13 position_newGoalkeeper:assists   0.587    0.477       1.23  2.20e- 1
+    ## 14 position_newMidfielder:assists  -0.0405   0.0298     -1.36  1.75e- 1
 
 ``` r
 glance(linear_prediction)$AIC
 ```
 
-    ## [1] 4513.152
+    ## [1] 674.5785
 
 ``` r
 glance(selected_model)$AIC
 ```
 
-    ## [1] 4504.674
+    ## [1] 666.3359
 
 Through the model selection based on AIC, we can see that the variables
-“age”, “own\_goals”, “yellow\_cards”, “red\_cards”, “substituted\_on”,
-substituted\_off" are eliminated. The AIC is reduced compared to the
-previous dataset (4513.152 to 4504.674), which can be interpreted as the
+“own\_goals”, “yellow\_cards”, “red\_cards”, “substituted\_on”,
+“substituted\_off”, and the interaction between “position\_new” and
+“goals” are eliminated. The AIC is reduced compared to the previous
+dataset (674.5785 to 666.3359), which can be interpreted as the
 increased likelihood of the model.
 
 ``` r
 glance(selected_model)$r.squared
 ```
 
-    ## [1] 0.2935472
+    ## [1] 0.2578942
 
 ``` r
 test_cv <- crossv_kfold(players1, 10)
 models <- map(test_cv$train, ~ selected_model)
 rmses <- map2_dbl(models, test_cv$test, rmse)
-```
-
-    ## Warning in predict.lm(model, data): prediction from a rank-deficient fit
-    ## may be misleading
-    
-    ## Warning in predict.lm(model, data): prediction from a rank-deficient fit
-    ## may be misleading
-    
-    ## Warning in predict.lm(model, data): prediction from a rank-deficient fit
-    ## may be misleading
-    
-    ## Warning in predict.lm(model, data): prediction from a rank-deficient fit
-    ## may be misleading
-    
-    ## Warning in predict.lm(model, data): prediction from a rank-deficient fit
-    ## may be misleading
-    
-    ## Warning in predict.lm(model, data): prediction from a rank-deficient fit
-    ## may be misleading
-    
-    ## Warning in predict.lm(model, data): prediction from a rank-deficient fit
-    ## may be misleading
-    
-    ## Warning in predict.lm(model, data): prediction from a rank-deficient fit
-    ## may be misleading
-    
-    ## Warning in predict.lm(model, data): prediction from a rank-deficient fit
-    ## may be misleading
-    
-    ## Warning in predict.lm(model, data): prediction from a rank-deficient fit
-    ## may be misleading
-
-``` r
 rmses
 ```
 
-    ##        1        2        3        4        5        6        7        8 
-<<<<<<< HEAD
-    ## 21.91483 18.15026 15.27653 16.05032 25.19498 26.37822 17.34653 25.03594 
-    ##        9       10 
-    ## 21.79383 21.40252
-=======
-    ## 21.37401 22.70165 15.28951 22.26227 15.52234 24.98049 26.46700 19.35649 
-    ##        9       10 
-    ## 23.59212 17.13740
->>>>>>> eac469b7fccee01449651321ca78d78753e86145
+    ##         1         2         3         4         5         6         7 
+    ## 0.4579047 0.4271696 0.5163594 0.5121771 0.4277472 0.4550118 0.4716433 
+    ##         8         9        10 
+    ## 0.4620550 0.3788731 0.4470545
 
 ## Conclusion
 

@@ -45,6 +45,21 @@ players1 %>%
   scale_fill_gradient(low="blue", high="red")
 ```
 
+The histogram appears to be right-skewed, so we decide to perform a log transformation on the market value of players. The resulting histogram (see below) is more normally distributed. Therefore, we will adhere to this log transformation model in the following discussion.
+
+```{r log_histogram, fig.width = 10}
+players1 %>%
+  ggplot(mapping = aes(log(market_value), fill = ..count..)) +
+  geom_histogram(binwidth = 0.1) +
+  labs(
+    title = "Distribution of Player Market Values in 2018-2019 Season",
+    x = "Player Market Values in 2018-2019 season", 
+    y = "Count"
+  ) +
+  theme_minimal() +
+  scale_fill_gradient(low="blue", high="red")
+```
+
 In the histogram above, we can see that the distribution of the players' market values in the 2018-2019 season is right skewed, and that the most commonly occuring market values are slightly less than $25 million. In the summary statistics below, we can see that the mean of the market values is higher than the most commonly occuring market values due to the right skewedness of the data. 
 
 ```{r summary-stats}
@@ -89,7 +104,7 @@ players1 %>%
 
 
 ```{r predict}
-linear_prediction  <- lm(market_value ~ position_new + age + matches + goals + own_goals +
+linear_prediction  <- lm(log(market_value) ~ position_new + age + matches + goals + own_goals +
                   assists + yellow_cards + red_cards + substituted_on +
                   substituted_off + age_range + position_new * goals + position_new * assists, data =   players1)
 tidy(linear_prediction)
@@ -109,7 +124,7 @@ glance(linear_prediction)$AIC
 glance(selected_model)$AIC
 ```
 
-Through the model selection based on AIC, we can see that the variables "age", "own_goals", "yellow_cards", "red_cards", "substituted_on", substituted_off" are eliminated. The AIC is reduced compared to the previous dataset (4513.152 to 4504.674), which can be interpreted as the increased likelihood of the model.
+Through the model selection based on AIC, we can see that the variables "own_goals", "yellow_cards", "red_cards", "substituted_on", "substituted_off", and the interaction between "position_new" and "goals" are eliminated. The AIC is reduced compared to the previous dataset (674.5785 to 666.3359), which can be interpreted as the increased likelihood of the model.
 
 ```{r r-squared}
 glance(selected_model)$r.squared
