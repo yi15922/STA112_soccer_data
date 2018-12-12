@@ -37,37 +37,35 @@ players1 <- read_csv("../data/players1.csv")
 
 To get a general sense of the market values of all players in the 2018-2019 season, let's first create a histogram to visualize their distribution: 
 
-```{r histogram, fig.width = 10}
+```{r histogram, fig.width = 10, fig.cap = "Figure 1"}
 players1 %>%
-  ggplot(mapping = aes(market_value, fill = ..count..)) +
+  ggplot(mapping = aes(market_value)) +
   geom_histogram(binwidth = 5) +
   labs(
     title = "Distribution of Player Market Values in 2018-2019 Season",
     x = "Player Market Values in 2018-2019 Season", 
     y = "Count"
   ) +
-  theme_minimal() +
-  scale_fill_gradient(low="blue", high="red")
+  theme_minimal()
 ```
 
-The histogram appears to be right-skewed, so we decide to perform a log transformation on the market value of players. The resulting histogram (see below) is more normally distributed. Therefore, we will adhere to this log transformation model in the following discussion.
+We also performed a log transformation on the market values of players for comparison: 
 
-```{r log_histogram, fig.width = 10}
+```{r log_histogram, fig.width = 10, fig.cap = "Figure 2"}
 players1 %>%
-  ggplot(mapping = aes(log(market_value), fill = ..count..)) +
+  ggplot(mapping = aes(log(market_value))) +
   geom_histogram(binwidth = 0.1) +
   labs(
-    title = "Distribution of Player Market Values in 2018-2019 Season",
+    title = "Distribution of the Logarithm of Player Market Values in 2018-2019 Season",
     x = "Player Market Values in 2018-2019 season", 
     y = "Count"
   ) +
-  theme_minimal() +
-  scale_fill_gradient(low="blue", high="red")
+  theme_minimal()
 ```
 
-In the histogram above, we can see that the distribution of the players' market values in the 2018-2019 season is right skewed, and that the most commonly occuring market values are slightly less than $25 million. In the summary statistics below, we can see that the mean of the market values is higher than the most commonly occuring market values due to the right skewedness of the data.
+The resulting histogram does not provide any additional insights, therefore we will discard it and use the original data in the following discussion.
 
-In the histogram above, we can see that the distribution of the players' market values in the 2018-2019 season is right-skewed, and that the most commonly occuring market value is around $23 million. In the summary statistics below, we can see that the mean of the market values is higher than the most commonly occuring market values due to the right skewedness of the data: 
+In the Figure 1, we can see that the distribution of the players' market values in the 2018-2019 season is right-skewed, and that the most commonly occuring market value is around $23 million. In the summary statistics below, we can see that the mean of the market values is higher than the most commonly occuring market values due to the right skewedness of the data: 
 
 ```{r summary-stats}
 players1 %>%
@@ -77,7 +75,7 @@ players1 %>%
 
 The median, however, seems to be affected to a lesser extent by the high valued outliers. In the boxplot below, the blue colored line represents the median, and the red line represents the mean: 
 
-```{r boxplot, fig.height = 5, fig.width = 10}
+```{r boxplot, fig.height = 5, fig.width = 10, fig.cap = "Figure 3"}
 players1 %>%
   ggplot(mapping = aes(y = market_value)) +
   geom_boxplot() +
@@ -88,9 +86,8 @@ players1 %>%
   ) +
   theme_minimal() +
   geom_hline(yintercept = 35.3, color = "red") +
-  geom_hline(yintercept = 25, color = "blue")
-
-# Coloring code found on http://www.sthda.com/english/wiki/ggplot2-colors-how-to-change-colors-automatically-and-manually
+  geom_hline(yintercept = 25, color = "blue") +
+  theme(axis.text.y=element_blank()) 
 ```
 
 The boxplot also revealed that there are many outliers in the data. The table below shows the names and market values of the outlying soccer players: 
@@ -105,7 +102,7 @@ players1 %>%
 
 These players have extremely high market values compared to the rest of the players. Which raises the question: do they contribute much more than the other players? Let a player's contribution be the sum of the player's goals and assists, the following boxplots compare the contributions of the outlying players to that of the "normal" players: 
 
-```{r outliers-plot, fig.width = 10}
+```{r outliers-plot, fig.width = 10, fig.cap = "Figure 4"}
 players1 <- players1 %>%
   mutate(outlier = ifelse(
     market_value >75, T, F
@@ -131,7 +128,7 @@ We can see from the comparison above that the outlying soccer players with very 
 
 Now we would like to investigate the relationship between a player's position and the number of goals they score. In order to reduce confusion, we condensed our data of 13 player positions into 4: Defender, Forward, Goalkeeper, and Midfielder. We found the average goals made by each position and average assists made by each position: 
 
-```{r position-goals, fig.height = 4, fig.width = 10}
+```{r position-goals, fig.height = 4, fig.width = 10, fig.cap = "Figure 5"}
 position_goals <- players1 %>%
   group_by(position_new) %>%
   summarise(goals_avg = mean(goals), assists_avg = mean(assists))
@@ -149,7 +146,9 @@ position_goals %>%
   ) +
   coord_flip() +
   theme_minimal()
+```
 
+```{r position-assists, fig.height = 4, fig.width = 10, fig.cap = "Figure 6"}
 position_goals %>%
   mutate(position_new = fct_reorder(position_new, assists_avg)) %>%
   ggplot(mapping = aes(x = position_new, y = assists_avg)) +
@@ -176,14 +175,14 @@ It looks like Ederson is the only goalkeeper who assisted a goal in the 2018-201
 
 ### What Makes a Valuable Soccer Player? 
 
-Below is an interactive scatterplot where we plot all numerical values against each other to find patterns. The opacity of the data points are reduced so that we can better visualize overlapping data. 
+Below is an interactive scatterplot where we can plot all numerical variables against each other. The opacity of the data points are reduced so that we can better visualize overlapping data. We used this app to get a rough idea of which numerical variables are correlated with one another. 
 
 ```{r shiny-app, echo = F}
 shinyApp(
 
 ui <- fluidPage(
   theme = shinytheme("cyborg"),
-  titlePanel("Interactive Player Info Visualization"),
+  titlePanel("Interactive Player Stats Visualization"),
   sidebarLayout(
     sidebarPanel(
       selectInput(
@@ -271,7 +270,7 @@ options = list(height = 500)
 )
 ```
 
-To begin with, we made a multiple linear regression based on all the variables we have in the players dataset. In soccer, player's position is highly correlated with his performances, especially goals and assists (e.g. Centre-Forwards get most goals and Midfielders make most assists in general while Goalkeepers can seldom score a goal or make an assist). Therefore, we decided to introduce two interactions between position/goals and position/assists into our multiple linear model. 
+To begin with, we made a multiple linear regression based on all the variables we have in the players dataset. In soccer, a player's position is highly correlated with the number of goals and assists (e.g. forward positions score the most goals and make the most assists in general, while goalkeepers can seldom score a goal or make an assist). This is also evident from figures 5 and 6. From the Shiny app, we also saw that goals and assists are strongly correlated with a player's market value. Therefore, we decided to introduce two interactions between position/goals and position/assists into our multiple linear model. 
 
 ```{r predict}
 linear_prediction  <- lm(log(market_value) ~ position_new + age + matches + goals + own_goals +
