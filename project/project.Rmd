@@ -50,7 +50,6 @@ players1 %>%
   scale_fill_gradient(low="blue", high="red")
 ```
 
-<<<<<<< HEAD
 The histogram appears to be right-skewed, so we decide to perform a log transformation on the market value of players. The resulting histogram (see below) is more normally distributed. Therefore, we will adhere to this log transformation model in the following discussion.
 
 ```{r log_histogram, fig.width = 10}
@@ -66,10 +65,9 @@ players1 %>%
   scale_fill_gradient(low="blue", high="red")
 ```
 
-In the histogram above, we can see that the distribution of the players' market values in the 2018-2019 season is right skewed, and that the most commonly occuring market values are slightly less than $25 million. In the summary statistics below, we can see that the mean of the market values is higher than the most commonly occuring market values due to the right skewedness of the data. 
-=======
+In the histogram above, we can see that the distribution of the players' market values in the 2018-2019 season is right skewed, and that the most commonly occuring market values are slightly less than $25 million. In the summary statistics below, we can see that the mean of the market values is higher than the most commonly occuring market values due to the right skewedness of the data.
+
 In the histogram above, we can see that the distribution of the players' market values in the 2018-2019 season is right-skewed, and that the most commonly occuring market value is around $23 million. In the summary statistics below, we can see that the mean of the market values is higher than the most commonly occuring market values due to the right skewedness of the data: 
->>>>>>> 8a1c030c46ea560203b98706786fcd38ba09308b
 
 ```{r summary-stats}
 players1 %>%
