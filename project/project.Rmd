@@ -273,7 +273,7 @@ options = list(height = 500)
 To answer the question "What makes the a valuable soccer player?", we made a multiple linear regression based on all the variables we have in the players dataset. In soccer, a player's position is highly correlated with the number of goals and assists (e.g. forward positions score the most goals and make the most assists in general, while goalkeepers can seldom score a goal or make an assist). This is also evident from figures 5 and 6. From the Shiny app, we also saw that goals and assists are strongly correlated with a player's market value. Therefore, we decided to introduce two interactions between position/goals and position/assists into our multiple linear model. 
 
 ```{r predict}
-linear_prediction  <- lm(market_value ~ position_new + age + matches + goals + own_goals +
+linear_prediction  <- lm(market_value ~ -1 + position_new + age + matches + goals + own_goals +
                   assists + yellow_cards + red_cards + substituted_on +
                   substituted_off + age_range + position_new * goals + position_new * assists, data =   players1)
 tidy(linear_prediction)
@@ -284,10 +284,10 @@ Next, we performed a backwards model selection based on AIC to identify the vari
 
 ```{r backward-selection, include = FALSE}
 selected_model <- step(linear_prediction, direction = "backward")
-tidy(selected_model)
+```
 
-glance(linear_prediction)$AIC
-glance(selected_model)$AIC
+```{r selected-model}
+tidy(selected_model)
 ```
 
 After the model selection based on AIC, we can see that the new model has reduced the significant variables down to 15; variables "age", "own_goals", "yellow_cards", "red_cards", "substituted_on", and "substituted_off" have been eliminated.
@@ -299,25 +299,27 @@ tibble(original_model = glance(linear_prediction)$AIC,
   kable()
 ```
 
-The AIC value is lower compared to the full model (`r glance(linear_prediction)$AIC` to `r glance(selected_model)$AIC`), which means that the new model is more accurate.
+The AIC value is lower compared to the full model (`r glance(linear_prediction)$AIC` to `r glance(selected_model)$AIC`), which means that the new model contains the variables that are the most likely to affect the market values. Taking a look at the adjusted R-squared values before and after backwards selection, our new model has a slightly higher adjusted R-squared value: 
 
 ```{r r-squared}
-glance(linear_prediction)$r.squared
-glance(selected_model)$r.squared
+tibble(
+  adj_r_squared_before = glance(linear_prediction)$adj.r.squared,
+  adj_r_squared_after = glance(selected_model)$adj.r.squared
+) %>%
+  kable()
 ```
 
-Through the model selection based on AIC, we can see that the variables "age", "own_goals", "yellow_cards", "red_cards", "substituted_on", and "substituted_off" are eliminated. The AIC is reduced compared to the previous dataset (4513.152 to 4504.674), which can be interpreted as the increased likelihood of the model. When we take a look at the r-squared value before and after selection, it stays on a similar level.
 
-```{r cross_validation}
+```{r cross_validation, include = FALSE}
 test_cv <- crossv_kfold(players1, 10)
 models <- map(test_cv$train, ~ selected_model)
 rmses <- map2_dbl(models, test_cv$test, rmse)
-rmses
+
 ```
 
-
-
-
+```{r rmses}
+rmses
+```
 In conclustion, according to the selected model, we can build a formula representing the market value prediction:
 
 market_value = 15.9 - 16.5 * position_newForward + 6.77 * position_newGoalkeeper + 3.71 * position_newMidfielder + 0.406 * matches + 2.02 * goals + 0.885 * assists + 3.66 * age_range21-25 + 9.07 * age_range26-30 - 0.922 age_range30 and above + 0.937 * position_newForward:goals - 1.45 * position_newMidfielder:goals + 2.74 * position_newForward:assists + 23.4 * position_newGoalkeeper:assists - 0.366 * position_newMidfielder:assists
