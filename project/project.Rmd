@@ -8,6 +8,7 @@ output: html_document
 
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(echo = TRUE)
+set.seed(20181213)
 ```
 
 ```{r load_packages, include = FALSE}
@@ -309,6 +310,7 @@ tibble(
   kable()
 ```
 
+Also, in order to validate our model, we decide to take a look at the RMSE in a 10-fold test.
 
 ```{r cross_validation, include = FALSE}
 test_cv <- crossv_kfold(players1, 10)
@@ -320,6 +322,7 @@ rmses <- map2_dbl(models, test_cv$test, rmse)
 ```{r rmses}
 rmses
 ```
+
 In conclustion, according to the selected model, we can build a formula representing the market value prediction:
 
 market_value = 15.9 - 0.607 * position_newForward + 22.7 * position_newGoalkeeper + 19.6 * position_newMidfielder + 0.406 * matches + 2.02 * goals + 0.885 * assists + 3.66 * age_range21-25 + 9.07 * age_range26-30 - 0.922 age_range30 and above + 0.937 * position_newForward:goals - 1.45 * position_newMidfielder:goals + 2.74 * position_newForward:assists + 23.4 * position_newGoalkeeper:assists - 0.366 * position_newMidfielder:assists
