@@ -63,7 +63,7 @@ players1 %>%
   theme_minimal()
 ```
 
-The resulting histogram does not provide any additional insights, therefore we will discard it and use the original data in the following discussion. Since the data we have chosen is concerning only the top 500 valuable players, the dataset is not normally distributed but right-skewed. After the log transformation, the dataset remains right-skewed and it's less informative for readers to understand values intuitively. Therefore, we decide to adhere to the original model and reject the log transformation.
+Since the data we have chosen concerns only the top 500 valuable players, the dataset is right skewed instead of normally distributed. After the log transformation, the dataset remains right-skewed and does not provide any additional insights for the readers. Therefore, we decided to adhere to the original model and discard the log transformation.
 
 In the Figure 1, we can see that the distribution of the top 500 players' market values in the 2018-2019 season is right-skewed, and that the most commonly occuring market value is around $23 million. In the summary statistics below, we can see that the mean of the market values is higher than the most commonly occuring market values due to the right skewedness of the data: 
 
@@ -202,7 +202,7 @@ ui <- fluidPage(
           "Market Value" = "market_value",
           "Age Range" = "age_range"
         ),
-        selected = "position"
+        selected = "market_value"
       ),
       selectInput(
         inputId = "x",
@@ -221,7 +221,7 @@ ui <- fluidPage(
           "Market Value" = "market_value",
           "Age Range" = "age_range"
         ),
-        selected = "market_value"
+        selected = "goals"
       ),
       selectInput(
         inputId = "z",
@@ -270,7 +270,7 @@ options = list(height = 500)
 )
 ```
 
-To begin with, we made a multiple linear regression based on all the variables we have in the players dataset. In soccer, a player's position is highly correlated with the number of goals and assists (e.g. forward positions score the most goals and make the most assists in general, while goalkeepers can seldom score a goal or make an assist). This is also evident from figures 5 and 6. From the Shiny app, we also saw that goals and assists are strongly correlated with a player's market value. Therefore, we decided to introduce two interactions between position/goals and position/assists into our multiple linear model. 
+To answer the question "What makes the a valuable soccer player?", we made a multiple linear regression based on all the variables we have in the players dataset. In soccer, a player's position is highly correlated with the number of goals and assists (e.g. forward positions score the most goals and make the most assists in general, while goalkeepers can seldom score a goal or make an assist). This is also evident from figures 5 and 6. From the Shiny app, we also saw that goals and assists are strongly correlated with a player's market value. Therefore, we decided to introduce two interactions between position/goals and position/assists into our multiple linear model. 
 
 ```{r predict}
 linear_prediction  <- lm(market_value ~ position_new + age + matches + goals + own_goals +
@@ -280,7 +280,7 @@ tidy(linear_prediction)
 
 ```
 
-Then, we perform backward selection of all the given variables.
+Next, we performed a backwards model selection based on AIC to identify the variables that significantly affect the players' market values. 
 
 ```{r backward-selection, include = FALSE}
 selected_model <- step(linear_prediction, direction = "backward")
@@ -289,6 +289,17 @@ tidy(selected_model)
 glance(linear_prediction)$AIC
 glance(selected_model)$AIC
 ```
+
+After the model selection based on AIC, we can see that the new model has reduced the significant variables down to 15; variables "age", "own_goals", "yellow_cards", "red_cards", "substituted_on", and "substituted_off" have been eliminated.
+
+```{r glance-AIC}
+tibble(original_model = glance(linear_prediction)$AIC, 
+       new_model = glance(selected_model)$AIC
+) %>%
+  kable()
+```
+
+The AIC value is lower compared to the full model (`r glance(linear_prediction)$AIC` to `r glance(selected_model)$AIC`), which means that the new model is more accurate.
 
 ```{r r-squared}
 glance(linear_prediction)$r.squared
