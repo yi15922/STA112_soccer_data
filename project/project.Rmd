@@ -310,22 +310,48 @@ tibble(
   kable()
 ```
 
-Also, in order to validate our model, we decide to take a look at the RMSE in a 10-fold test.
+In order to validate our model, we decide to examine the RMSE values after performing a 10-fold test:
 
 ```{r cross_validation, include = FALSE}
 test_cv <- crossv_kfold(players1, 10)
 models <- map(test_cv$train, ~ selected_model)
 rmses <- map2_dbl(models, test_cv$test, rmse)
 
+rmse_tibble <- tidy(rmses)
 ```
 
 ```{r rmses}
-rmses
+rmse_tibble
 ```
 
-In conclustion, according to the selected model, we can build a formula representing the market value prediction:
+Histogram and summary statistics of RMSE: 
 
-market_value = 15.9 - 0.607 * position_newForward + 22.7 * position_newGoalkeeper + 19.6 * position_newMidfielder + 0.406 * matches + 2.02 * goals + 0.885 * assists + 3.66 * age_range21-25 + 9.07 * age_range26-30 - 0.922 age_range30 and above + 0.937 * position_newForward:goals - 1.45 * position_newMidfielder:goals + 2.74 * position_newForward:assists + 23.4 * position_newGoalkeeper:assists - 0.366 * position_newMidfielder:assists
+```{r rmse-histogram, fig.width = 10, fig.cap = "Figure 7"}
+rmse_tibble %>%
+  ggplot(mapping = aes(x)) +
+  geom_histogram(binwidth = 1.7) +
+  coord_cartesian(xlim = c(0, 190)) +
+  labs(
+    title = "Distribution of RMSE Values of Linear Model Predicting Market Values",
+    x = "RMSE Value", 
+    y = "Count"
+  ) +
+  theme_minimal()
+  
+
+rmse_tibble %>%
+  summarise(min = min(x), max = max(x), mean = mean(x), median = median(x), sd = sd(x))
+```
+
+As we can see from the histogram and the summary statistics, the RMSE values are fairly low compared to the range of our original data, and they have a low standard deviation. This means that our model is fairly good.
+
+## Conclusion
+
+According to the selected model, we can build a formula representing the market value prediction:
+
+`market_value` = 15.9 - 0.607 * `position_newForward` + 22.7 * `position_newGoalkeeper` + 19.6 * `position_newMidfielder` + 0.406 * `matches` + 2.02 * `goals` + 0.885 * `assists` + 3.66 * `age_range21-25` + 9.07 * `age_range26-30` - 0.922 `age_range30 and above` + 0.937 * `position_newForward:goals` - 1.45 * `position_newMidfielder:goals` + 2.74 * `position_newForward:assists` + 23.4 * `position_newGoalkeeper:assists` - 0.366 * `position_newMidfielder:assists`
+
+Note that in this equation, non numerical variables like `position_new` and `age_range` will take Boolean values 0 and 1. 
 
 Now let's take a closer look at the model if we plug in different positions:
 
@@ -344,11 +370,3 @@ Midfielders' market values will increase if making more appearances, aging betwe
 For Forwards : 
 market_value = 15.293 + 0.406 * matches + 2.957 * goals + 3.625 * assists + 3.66 * age_range21-25 + 9.07 * age_range26-30 - 0.922 age_range30 and above
 Forwards' market values will increase if making more appearances and getting more goals and assists. The starting intercept of forwards is negative. Still, the golden age of a forward is between 26 and 30. However, the Mr. Most Expensive, Kylian Mbappe (Forward), is only 19. What a bright young man!
-
-
-
-## Conclusion
-
-Your project goes here! Before you submit, make sure your chunks are turned off with `echo = FALSE`. 
-
-You can add sections as you see fit. Make sure you have a section called Introduction at the beginning and a section called Conclusion at the end. The rest is up to you!
