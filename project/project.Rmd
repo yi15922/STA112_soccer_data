@@ -277,26 +277,25 @@ linear_prediction  <- lm(market_value ~ position_new + age + matches + goals + o
                   assists + yellow_cards + red_cards + substituted_on +
                   substituted_off + age_range + position_new * goals + position_new * assists, data =   players1)
 tidy(linear_prediction)
+
 ```
 
+Then, we perform backward selection of all the given variables.
 
-```{r AIC-selection, include = FALSE}
+```{r backward-selection, include = FALSE}
 selected_model <- step(linear_prediction, direction = "backward")
-```
-
-```{r glance-AIC}
 tidy(selected_model)
-
 
 glance(linear_prediction)$AIC
 glance(selected_model)$AIC
 ```
 
-Through the model selection based on AIC, we can see that the variables "age", "own_goals", "yellow_cards", "red_cards", "substituted_on", and "substituted_off" are eliminated. The AIC is reduced compared to the previous dataset (4513.152 to 4504.674), which can be interpreted as the increased likelihood of the model.
-
 ```{r r-squared}
+glance(linear_prediction)$r.squared
 glance(selected_model)$r.squared
 ```
+
+Through the model selection based on AIC, we can see that the variables "age", "own_goals", "yellow_cards", "red_cards", "substituted_on", and "substituted_off" are eliminated. The AIC is reduced compared to the previous dataset (4513.152 to 4504.674), which can be interpreted as the increased likelihood of the model. When we take a look at the r-squared value before and after selection, it stays on a similar level.
 
 ```{r cross_validation}
 test_cv <- crossv_kfold(players1, 10)
@@ -329,6 +328,7 @@ Midfielders' market values will increase if making more appearances, aging betwe
 For Forwards : 
 market_value = -0.6 + 0.406 * matches + 2.957 * goals + 3.659 * assists + 3.66 * age_range21-25 + 9.07 * age_range26-30 - 0.922 age_range30 and above
 Forwards' market values will increase if making more appearances and getting more goals and assists. The starting intercept of forwards is negative. Still, the golden age of a forward is between 26 and 30. However, the Mr. Most Expensive, Kylian Mbappe (Forward), is only 19. What a bright young man!
+
 
 
 ## Conclusion
