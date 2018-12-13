@@ -273,9 +273,9 @@ options = list(height = 500)
 To answer the question "What makes the a valuable soccer player?", we made a multiple linear regression based on all the variables we have in the players dataset. In soccer, a player's position is highly correlated with the number of goals and assists (e.g. forward positions score the most goals and make the most assists in general, while goalkeepers can seldom score a goal or make an assist). This is also evident from figures 5 and 6. From the Shiny app, we also saw that goals and assists are strongly correlated with a player's market value. Therefore, we decided to introduce two interactions between position/goals and position/assists into our multiple linear model. 
 
 ```{r predict}
-linear_prediction  <- lm(market_value ~ -1 + position_new + age + matches + goals + own_goals +
+linear_prediction  <- lm(market_value ~ -1 + factor(position_new) + age + matches + goals + own_goals +
                   assists + yellow_cards + red_cards + substituted_on +
-                  substituted_off + age_range + position_new * goals + position_new * assists, data =   players1)
+                  substituted_off + factor(age_range) + factor(position_new) * goals + factor(position_new) * assists, data =   players1)
 tidy(linear_prediction)
 
 ```
@@ -299,7 +299,7 @@ tibble(original_model = glance(linear_prediction)$AIC,
   kable()
 ```
 
-The AIC value is lower compared to the full model (`r glance(linear_prediction)$AIC` to `r glance(selected_model)$AIC`), which means that the new model contains the variables that are the most likely to affect the market values. Taking a look at the adjusted R-squared values before and after backwards selection, our new model has a slightly higher adjusted R-squared value: 
+The AIC value is lower compared to the full model (`r glance(linear_prediction)$AIC` to `r glance(selected_model)$AIC`), which means that the new model contains the variables that are the most likely to affect the market values. Taking a look at the adjusted R-squared values before and after backwards selection, our new model has a slightly higher adjusted R-squared value(`r glance(linear_prediction)$adj.r.squared` to `r glance(selected_model)$adj.r.squared`): 
 
 ```{r r-squared}
 tibble(
@@ -322,7 +322,7 @@ rmses
 ```
 In conclustion, according to the selected model, we can build a formula representing the market value prediction:
 
-market_value = 15.9 - 16.5 * position_newForward + 6.77 * position_newGoalkeeper + 3.71 * position_newMidfielder + 0.406 * matches + 2.02 * goals + 0.885 * assists + 3.66 * age_range21-25 + 9.07 * age_range26-30 - 0.922 age_range30 and above + 0.937 * position_newForward:goals - 1.45 * position_newMidfielder:goals + 2.74 * position_newForward:assists + 23.4 * position_newGoalkeeper:assists - 0.366 * position_newMidfielder:assists
+market_value = 15.9 - 0.607 * position_newForward + 22.7 * position_newGoalkeeper + 19.6 * position_newMidfielder + 0.406 * matches + 2.02 * goals + 0.885 * assists + 3.66 * age_range21-25 + 9.07 * age_range26-30 - 0.922 age_range30 and above + 0.937 * position_newForward:goals - 1.45 * position_newMidfielder:goals + 2.74 * position_newForward:assists + 23.4 * position_newGoalkeeper:assists - 0.366 * position_newMidfielder:assists
 
 Now let's take a closer look at the model if we plug in different positions:
 
@@ -331,15 +331,15 @@ market_value = 15.9 + 0.406 * matches + 2.02 * goals + 0.885 * assists + 3.66 * 
 Defenders' market values will increase if making more appearances and getting more goals and assists (though assists and goals are relatively unusual stuff for defenders). Also, 26-30 is the golden age range for a defender.
 
 For Goalkeepers : 
-market_value = 22.67 + 0.406 * matches + 2.02 * goals + 24.285 * assists + 3.66 * age_range21-25 + 9.07 * age_range26-30 - 0.922 age_range30 and above
+market_value = 38.6 + 0.406 * matches + 2.02 * goals + 24.285 * assists + 3.66 * age_range21-25 + 9.07 * age_range26-30 - 0.922 age_range30 and above
 Goalkeepers' market values will increase if making more appearances, aging between 26 and 30, and getting more goals and assists (Goalies! Try to run into opponent's box to make an assist even if it's NOT your zone).
 
 For Midfielders : 
-market_value = 19.61 + 0.406 * matches + 0.57 * goals + 0.519 * assists + 3.66 * age_range21-25 + 9.07 * age_range26-30 - 0.922 age_range30 and above
+market_value = 35.5 + 0.406 * matches + 0.57 * goals + 0.519 * assists + 3.66 * age_range21-25 + 9.07 * age_range26-30 - 0.922 age_range30 and above
 Midfielders' market values will increase if making more appearances, aging between 26 and 30, and getting more goals and assists. The coefficients of goals and assists for midfielders are lower than those of defenders because being high in these statistics actually compensate for that.
 
 For Forwards : 
-market_value = -0.6 + 0.406 * matches + 2.957 * goals + 3.659 * assists + 3.66 * age_range21-25 + 9.07 * age_range26-30 - 0.922 age_range30 and above
+market_value = 15.293 + 0.406 * matches + 2.957 * goals + 3.625 * assists + 3.66 * age_range21-25 + 9.07 * age_range26-30 - 0.922 age_range30 and above
 Forwards' market values will increase if making more appearances and getting more goals and assists. The starting intercept of forwards is negative. Still, the golden age of a forward is between 26 and 30. However, the Mr. Most Expensive, Kylian Mbappe (Forward), is only 19. What a bright young man!
 
 
