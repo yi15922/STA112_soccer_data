@@ -348,16 +348,6 @@ rmse_tibble %>%
 
 As we can see from the histogram and the summary statistics, the RMSE values are fairly low compared to the range of our original data, and they have a low standard deviation. This means that our model is fairly good.
 
-<<<<<<< HEAD
-```{r fitting_the_model}
-players1 <- players1 %>%
-  mutate(predicted_value = predict(selected_model, players1)) %>%
-  select(name, market_value, predicted_value)
-glimpse(players1)
-```
-=======
->>>>>>> 5e6b0c685b23d9b5b7e612944cc78b13ed98d44a
-
 According to the selected model, we can build a formula representing the market value prediction:
 
 
