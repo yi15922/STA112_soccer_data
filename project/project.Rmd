@@ -348,19 +348,9 @@ rmse_tibble %>%
 
 As we can see from the histogram and the summary statistics, the RMSE values are fairly low compared to the range of our original data, and they have a low standard deviation. This means that our model is fairly good.
 
-```{r fitting the model}
-players1 <- players1 %>%
-  mutate(predicted_value = predict(selected_model, players1)) %>%
-  select(name, market_value, predicted_value)
-glimpse(players1)
-```
 
-
-<<<<<<< HEAD
 According to the selected model, we can build a formula representing the market value prediction:
-=======
-## Conclusion
->>>>>>> a1189fc935ff23e048995af8e20fd150d282f312
+
 
 `market_value` = 15.9 - 0.607 * `position_newForward` + 22.7 * `position_newGoalkeeper` + 19.6 * `position_newMidfielder` + 0.406 * `matches` + 2.02 * `goals` + 0.885 * `assists` + 3.66 * `age_range21-25` + 9.07 * `age_range26-30` - 0.922 `age_range30 and above` + 0.937 * `position_newForward:goals` - 1.45 * `position_newMidfielder:goals` + 2.74 * `position_newForward:assists` + 23.4 * `position_newGoalkeeper:assists` - 0.366 * `position_newMidfielder:assists`
 
