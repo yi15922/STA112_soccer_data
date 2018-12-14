@@ -7,7 +7,7 @@ output: html_document
 ---
 
 ```{r setup, include=FALSE}
-knitr::opts_chunk$set(echo = TRUE)
+knitr::opts_chunk$set(echo = FALSE)
 set.seed(20181213)
 ```
 
@@ -209,7 +209,7 @@ ui <- fluidPage(
         inputId = "x",
         label = "X-axis:",
         choices = c(
-          "Position" = "position",
+          "Position" = "position_new",
           "Age" = "age",
           "Matches" = "matches",
           "Goals" = "goals",
@@ -228,7 +228,7 @@ ui <- fluidPage(
         inputId = "z",
         label = "Color by:",
         choices = c(
-          "Position" = "position",
+          "Position" = "position_new",
           "Age" = "age",
           "Matches" = "matches",
           "Goals" = "goals",
