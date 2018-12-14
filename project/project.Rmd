@@ -291,9 +291,6 @@ selected_model <- step(linear_prediction, direction = "backward")
 tidy(selected_model)
 ```
 
-From the selected model, we can observe that the player's position decides the value of the y-intercept. If the player is a Defender, his prediction formula constant would be 15.9 million euro. If the player is a Forward, his prediction formula constant would be -0.607 million euro. If the player is a Goalkeeper, his prediction formula constant would be 22.7 million euro. And lastly, if the player is a Midfielder, his prediction formula constant would be 19.6 million. We found that for every additional match a player appears at, his market value would generally increases by 0.406 million euro, for every additional goal scored, his market value would generally increase by 2.02 million euro, and for every additional goal assisted, his market value would generally increase by 0.885 million euro. Players aged between 21 to 25 are 3.66 million euro more valuable than players below 20 years old, players aged between 26 and 30 are 9.07 million euro more valuable than players below 20 years old, and players above 30-year-old are 0.366 million euro less valuable than players below 20 years old. 
-Additionally, we have taken the interactions between position/goals and position/assists into account. On average, every goal scored can increase a Forward's market value by 0.937 million euro, while every goal can get a midfilder 1.45 million euro decrease in market value. Every assist can get a forward 2.74 million euro increase in market value; Every assist can get a goalkeeper 23.4 million euro increase in market value; However, every assist can get a midfielder 0.366 million euro decrease in market value.
-
 After the model selection based on AIC, we can see that the new model has reduced the significant variables down to 15; variables "age", "own_goals", "yellow_cards", "red_cards", "substituted_on", and "substituted_off" have been eliminated.
 
 ```{r glance-AIC}
@@ -354,6 +351,13 @@ According to the selected model, we can build a formula representing the market 
 `market_value` = 15.9 - 0.607 * `position_newForward` + 22.7 * `position_newGoalkeeper` + 19.6 * `position_newMidfielder` + 0.406 * `matches` + 2.02 * `goals` + 0.885 * `assists` + 3.66 * `age_range21-25` + 9.07 * `age_range26-30` - 0.922 `age_range30 and above` + 0.937 * `position_newForward:goals` - 1.45 * `position_newMidfielder:goals` + 2.74 * `position_newForward:assists` + 23.4 * `position_newGoalkeeper:assists` - 0.366 * `position_newMidfielder:assists`
 
 Note that in this equation, non numerical variables like `position_new` and `age_range` will take Boolean values 0 and 1. 
+
+### What does our model tell us? 
+
+From the selected model, we can observe that the player's position determines the value of the y-intercept. On average, if the player is a defender, he would begin with 15.9 million euro; if the player is a forward, he would begin with -0.607 million euro; if the player is a goalkeeper, he would begin with 22.7 million euro; and lastly, if the player is a midfielder, his prediction formula constant would be 19.6 million. We found that for every additional match a player appears at, his market value would increases by 0.406 million euro on average; for every additional goal scored, his market value would increase by 2.02 million euro on average; and for every additional goal assisted, his market value would increase by 0.885 million euro on average. Players aged between 21 to 25 will on average have 3.66 million euro added to their baseline market value. Players aged between 26 and 30 are on average worth 9.07 million euro above the baseline; and players above 30-year-old are on average worth 0.366 million euro less than their baseline market value. 
+
+
+Additionally, we have taken the interactions between position/goals and position/assists into account. On average, every goal scored can increase a forward's market value by 0.937 million euro on average, while every goal can decrease a midfilder's market value by 1.45 million euro on average. Every assist can increase a forward's market value by 2.74 million euro on average; every assist can increase a midfielder's market value by 0.366 million euro on average. Lastly, if a goalkeeper makes an assist, he is expected to get a 23.4 million euro increase in market value on average.
 
 Now let's take a closer look at the model if we plug in different positions:
 
