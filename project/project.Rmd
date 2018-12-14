@@ -278,8 +278,6 @@ linear_prediction  <- lm(market_value ~ -1 + factor(position_new) + age + matche
                   assists + yellow_cards + red_cards + substituted_on +
                   substituted_off + factor(age_range) + factor(position_new) * goals + factor(position_new) * assists, data =   players1)
 tidy(linear_prediction)
-
-linear_prediction
 ```
 
 Next, we performed a backwards model selection based on AIC to identify the variables that significantly affect the players' market values. 
@@ -295,7 +293,7 @@ tidy(selected_model)
 From the selected model, we can observe that the player's position decides the value of y-intercept. If the player is a Defender, its prediction formula constant would be 15.9 million euro, and -0.607 million euro for Forward, 22.7 million euro for Goalkeeper, and 19.6 million euro for Midfielder. Next, if a player appears on field in one more match, his market value would in general increase by 0.406 million euro; if a player scores a goal, his market value would in general increase by 2.02 million euro; if a player makes an assist, his market value would in average increase by 0.885 million euro. Compared to players below 20 years old, players aged between 21 and 25 are averagely 3.66 million euro more valuable, players aged between 26 and 30 are averagely 9.07 million euro more valuable, and players above 30-year-old are generally 0.366 million euro less valuable. 
 Additionally, we have taken the interactions between position/goals and position/assists into account. In average, every goal can get a forward 0.937 million euro increase in market value, while every goal can get a midfilder 1.45 million euro decrease in market value. Every assist can get a forward 2.74 million euro increase in market value; Every assist can get a goalkeeper 23.4 million euro increase in market value; However, every assist can get a midfielder 0.366 million euro decrease in market value.
 
-After the model selection based on AIC, we can see that the new model has reduced the significant variables down to 15; variables "age", "own_goals", "yellow_cards", "red_cards", "substituted_on", "substituted_off", and "age_range20 and below" have been eliminated.
+After the model selection based on AIC, we can see that the new model has reduced the significant variables down to 15; variables "age", "own_goals", "yellow_cards", "red_cards", "substituted_on", and "substituted_off" have been eliminated.
 
 ```{r glance-AIC}
 tibble(original_model = glance(linear_prediction)$AIC, 
