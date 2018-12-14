@@ -2,8 +2,8 @@
 title: "Building the Perfect Soccer Player"
 author: "team-devils"
 date: "Dec 14, 2018"
-runtime: shiny
-output: html_document
+#runtime: shiny
+output: github_document
 ---
 
 ```{r setup, include=FALSE}
