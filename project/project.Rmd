@@ -41,7 +41,7 @@ To get a general sense of the market values of all players in the 2018-2019 seas
 ```{r histogram, fig.width = 10, fig.cap = "Figure 1"}
 players1 %>%
   ggplot(mapping = aes(market_value)) +
-  geom_histogram(binwidth = 5) +
+  geom_histogram(binwidth = 5, fill = "dark blue") +
   labs(
     title = "Distribution of Player Market Values in 2018-2019 Season",
     x = "Player Market Values in 2018-2019 Season", 
@@ -55,7 +55,7 @@ We also performed a log transformation on the market values of players for compa
 ```{r log_histogram, fig.width = 10, fig.cap = "Figure 2"}
 players1 %>%
   ggplot(mapping = aes(log(market_value))) +
-  geom_histogram(binwidth = 0.1) +
+  geom_histogram(binwidth = 0.1, fill = "dark blue") +
   labs(
     title = "Distribution of the Logarithm of Player Market Values in 2018-2019 Season",
     x = "Player Market Values in 2018-2019 season", 
