@@ -361,21 +361,22 @@ From the selected model, we can observe that the player's position determines th
 
 Additionally, we have taken the interactions between position/goals and position/assists into account. On average, every goal scored can increase a forward's market value by 0.937 million euro on average, while every goal can decrease a midfilder's market value by 1.45 million euro on average. Every assist can increase a forward's market value by 2.74 million euro on average; every assist can increase a midfielder's market value by 0.366 million euro on average. Lastly, if a goalkeeper makes an assist, he is expected to get a 23.4 million euro increase in market value on average.
 
-Now let's take a closer look at the model if we plug in different positions:
-
-For Defenders :
-The estimated y-intercept for a defender is 15.9 million euro. Defenders' market values will increase if attending more matches and getting more goals and assists (though assists and goals are relatively unusual stuff for defenders). Also, 26-30 is the golden age range for a defender.
-
-For Goalkeepers : 
-The estimated y-intercept for a goalkeeper is 38.6 million euro. Goalkeepers' market values will increase if attending more matches, aging between 26 and 30. Although we can observe a very high coefficient for assists, we are not taking it into account because only one goalkeeper in the dataset has made one assist. Besides being not typical, it's commonsense that it's never a goalkeeper's responsibility to rush into the opponent's box to score a goal or make an assist.
-
-For Midfielders : 
-The estimated y-intercept for a midfielder is 38.6 million euro. Midfielders' market values will increase if attending more matches, aging between 26 and 30, and getting more goals and assists. Here it's reasonable for midfielders to have lower coefficients for goals and assists compared to defenders, because usually midfielders perform better in these statistics.
-
-For Forwards : 
-The estimated y-intercept for a forward is 15.293 million euro. Forwards' market values will increase if attending more matches and getting more goals and assists. Still, the golden age of a forward is between 26 and 30.
 
 
-##Conclusion
+## Conclusion
+
+In general, 26-30 is the optimal age range for any soccer player. 
+
+For Defenders:
+The estimated y-intercept for a defender is 15.9 million euro. Defenders' market values will increase for each match, goal, and assist (though assists and goals are relatively unusual for defenders). 
+
+For Goalkeepers: 
+The estimated y-intercept for a goalkeeper is 38.6 million euro. Goalkeepers' market values will increase for every match. Although we can observe a very high coefficient for assists, we are not taking it into account because only one goalkeeper in the dataset made an assist. Goalkeepers are, if anything, discouraged from rushing into the opponent's box to score a goal or make an assist.
+
+For Midfielders: 
+The estimated y-intercept for a midfielder is 38.6 million euro. Midfielders' market values will increase for every match, goal, and assist. They have lower coefficients for goals and assists compared to defenders because they are expected to score more goals and make more assists. 
+
+For Forwards: 
+The estimated y-intercept for a forward is 15.293 million euro. Forwards' market values will increase for every match, goal, and assist.
 
 
