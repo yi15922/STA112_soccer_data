@@ -118,7 +118,7 @@ players1 %>%
   labs(
     title = "Boxplot of Player Contributions in 2018-2019 Season",
     x = "Outlier (True/False)", 
-    y = "Count"
+    y = "Player Contribution"
   ) +
   guides(color = "none") +
   coord_flip() +
