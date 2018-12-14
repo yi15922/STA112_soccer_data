@@ -365,6 +365,18 @@ Additionally, we have taken the interactions between position/goals and position
 
 ## Conclusion
 
+Our research question of what makes the most valuable soccer player first led us to conduct exploratory data visualization. By first plotting the distribution of our data, we found the spread of market value to be quite right-skewed. Of course, we expected a slight skew due to the fact that we only scraped the first 500 players from the European club soccer league with the highest market values, but the skew was extraordinarily right. We consequently decided to plot the logarithmic distribution of the market values to see if the distribution would be more normal. The spread was still quite right-skewed so we decided to use our regular, non-transformed distribution for exploratory data analysis and modeling. 
+
+After plotting a boxplot of the data, we found there to be several outliers in market value and decided to identify the players whose market values were significantly higher than the rest of the players. We then found that the median contribution (defined as sum of number of goals and number of assists) among these players, in the season thus far, is greater than the median contribution among players who are not outliers, which somewhat justifies their higher market values. 
+
+We then explored performance by position, and found forwards to have scored the most goals and conducted the most assists, followed by midfielders, then defenders, and then goalies.
+
+Furthermore, we created a Shiny app with a slightly modified dashboard to allow users to explore trends in our dataset by selecting the x-axis, y-axis, and color to be different variables. 
+
+After exploring the data and the relationships between the variables through summary statistics and visualizations, we decided to create a full linear model and utilise backwards selection to craft a modified model which predicts market value based on the variables in our dataset.
+
+The highlights of our findings are as follows: 
+
 In general, 26-30 is the optimal age range for any soccer player. 
 
 For Defenders:
@@ -378,5 +390,12 @@ The estimated y-intercept for a midfielder is 38.6 million euro. Midfielders' ma
 
 For Forwards: 
 The estimated y-intercept for a forward is 15.293 million euro. Forwards' market values will increase for every match, goal, and assist.
+
+While we attempted to use the statistical methods from the course in the best way we knew to, we have several critiques of our project. An improvement in our approach for the project could have been to try bootstrapping. Performing bootstrapping could have yielded more normally distributed data. Another major critique of our project is that we did not do the thorough research required to fully understand the market value prices we obtained from the Transfer Markt website. The website could have bias when choosing market value price, resulting in skewed findings. We should have more thoroughly investigated the specific methodologies of the experts Transfer Markt uses to come up with not only their market prices, but their performance and player statistics. Cross-referencing the information in the data set with individual leagues’ internal records could have been a way to avoid this issue. Lastly, our data only contained values from this season. A market value for a player’s career cannot be determined entirely by a single season. So, we could have at least compared our data to previous seasons’ at the same point in the season. Furthermore, 
+
+If we were to begin our project from the beginning, the first thing we would change is the amount of data in our dataset, as well as the bias of our dataset. We collected data of the top 500 most valuable players in all the European club soccer leagues, leading to our data being extremely right skewed. If we could do our project over again, we would scrape data for all the players in all of the leagues for the 2018-2019 season. In our project we condensed the players’ positions to four main positions: forward, backward, center, and goalkeeper. We did this to make it easier for the viewer to see how position affects market value. However, our data would be more precise if the viewer could see how each position affects the market value of that player. 
+
+In this project, we wanted to examine how performance during a season is associated with market value. This is why we chose to analyze data from August 2018 to late November 2018 although the season lasts until May 2019. In future projects, we would like to analyze an entire season’s player performance statistics and their association with market value rather than just one chunk of a single season. We would even like to explore how market values have changed over time, and perhaps compare market value predicting models of seasons over time such as a comparison between the 1990-1991, 2000-2001, 2010-2011, and 2018-2019 seasons. 
+
 
 
