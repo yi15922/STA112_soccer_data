@@ -66,7 +66,7 @@ players1 %>%
 
 Since the data we have chosen concerns only the top 500 valuable players, the dataset is right skewed instead of normally distributed. After the log transformation, the dataset remains right-skewed and does not provide any additional insights for the readers. Therefore, we decided to adhere to the original model and discard the log transformation.
 
-In the Figure 1, we can see that the distribution of the top 500 players' market values in the 2018-2019 season is right-skewed, and that the most commonly occuring market value is around $23 million. In the summary statistics below, we can see that the mean of the market values is higher than the most commonly occuring market values due to the right skewedness of the data: 
+In the Figure 1, we can see that the distribution of the top 500 players' market values in the 2018-2019 season is right-skewed, and that the most commonly occuring market value is around €23 million. In the summary statistics below, we can see that the mean of the market values is higher than the most commonly occuring market values due to the right skewedness of the data: 
 
 ```{r summary-stats}
 players1 %>%
