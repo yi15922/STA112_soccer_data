@@ -44,7 +44,7 @@ players1 %>%
   geom_histogram(binwidth = 5, fill = "dark blue") +
   labs(
     title = "Distribution of Player Market Values in 2018-2019 Season",
-    x = "Player Market Values in 2018-2019 Season", 
+    x = "Player Market Values in 2018-2019 Season",
     y = "Count"
   ) +
   theme_minimal()
@@ -58,7 +58,7 @@ players1 %>%
   geom_histogram(binwidth = 0.1, fill = "dark blue") +
   labs(
     title = "Distribution of the Logarithm of Player Market Values in 2018-2019 Season",
-    x = "Player Market Values in 2018-2019 season", 
+    x = "Player Market Values in 2018-2019 season",
     y = "Count"
   ) +
   theme_minimal()
@@ -71,7 +71,6 @@ In the Figure 1, we can see that the distribution of the top 500 players' market
 ```{r summary-stats}
 players1 %>%
   summarise(mean = mean(market_value), median = median(market_value), sd = sd(market_value), min = min(market_value), max = max(market_value))
-
 ```
 
 The median, however, seems to be affected to a lesser extent by the high valued outliers. In the boxplot below, the blue colored line represents the median, and the red line represents the mean: 
@@ -88,7 +87,7 @@ players1 %>%
   theme_minimal() +
   geom_hline(yintercept = 35.3, color = "red") +
   geom_hline(yintercept = 25, color = "blue") +
-  theme(axis.text.y=element_blank()) 
+  theme(axis.text.y = element_blank())
 ```
 
 The boxplot also revealed that there are many outliers in the data. The table below shows the names and market values of the outlying soccer players: 
@@ -98,17 +97,17 @@ players1 %>%
   select(name, market_value) %>%
   filter(market_value > 75) %>%
   kable()
-
 ```
 
 These players have extremely high market values compared to the rest of the players. Which raises the question: do they contribute much more than the other players? Let a player's contribution be the sum of the player's goals and assists, the following boxplots compare the contributions of the outlying players to that of the "normal" players: 
 
 ```{r outliers-plot, fig.width = 10, fig.cap = "Figure 4"}
 players1 <- players1 %>%
-  mutate(outlier = ifelse(
-    market_value >75, T, F
-  ), 
-  contribution = goals + assists
+  mutate(
+    outlier = ifelse(
+      market_value > 75, T, F
+    ),
+    contribution = goals + assists
   )
 
 players1 %>%
@@ -117,12 +116,12 @@ players1 %>%
   geom_boxplot() +
   labs(
     title = "Boxplot of Player Contributions in 2018-2019 Season",
-    x = "Outlier (True/False)", 
+    x = "Outlier (True/False)",
     y = "Player Contribution"
   ) +
   guides(color = "none") +
   coord_flip() +
-  theme_minimal() 
+  theme_minimal()
 ```
 
 We can see from the comparison above that the outlying soccer players with very high market values do contribute significantly more, therefore their high market value is justified.
@@ -142,7 +141,7 @@ position_goals %>%
   geom_col(fill = "blue") +
   labs(
     title = "Average Goals Scored in Each Position in the 2018-2019 Season",
-    x = "Position", 
+    x = "Position",
     y = "Average Goals Scored"
   ) +
   coord_flip() +
@@ -156,7 +155,7 @@ position_goals %>%
   geom_col(fill = "purple") +
   labs(
     title = "Average Assists in Each Position in the 2018-2019 Season",
-    x = "Position", 
+    x = "Position",
     y = "Average Assists"
   ) +
   coord_flip() +
@@ -181,102 +180,101 @@ Below is an interactive scatterplot where we can plot all numerical variables ag
 ```{r shiny-app, echo = F}
 shinyApp(
 
-ui <- fluidPage(
-  theme = shinytheme("cyborg"),
-  titlePanel("Interactive Player Stats Visualization"),
-  sidebarLayout(
-    sidebarPanel(
-      selectInput(
-        inputId = "y",
-        label = "Y-axis:",
-        choices = c(
-          "Position" = "position",
-          "Age" = "age",
-          "Matches" = "matches",
-          "Goals" = "goals",
-          "Own Goals" = "own_goals",
-          "Assists" = "assists",
-          "Yellow Cards" = "yellow_cards",
-          "Red Cards" = "red_cards",
-          "Substituted On" = "substituted_on",
-          "Substituted Off" = "substituted_off",
-          "Market Value" = "market_value",
-          "Age Range" = "age_range"
+  ui <- fluidPage(
+    theme = shinytheme("cyborg"),
+    titlePanel("Interactive Player Stats Visualization"),
+    sidebarLayout(
+      sidebarPanel(
+        selectInput(
+          inputId = "y",
+          label = "Y-axis:",
+          choices = c(
+            "Position" = "position",
+            "Age" = "age",
+            "Matches" = "matches",
+            "Goals" = "goals",
+            "Own Goals" = "own_goals",
+            "Assists" = "assists",
+            "Yellow Cards" = "yellow_cards",
+            "Red Cards" = "red_cards",
+            "Substituted On" = "substituted_on",
+            "Substituted Off" = "substituted_off",
+            "Market Value" = "market_value",
+            "Age Range" = "age_range"
+          ),
+          selected = "market_value"
         ),
-        selected = "market_value"
+        selectInput(
+          inputId = "x",
+          label = "X-axis:",
+          choices = c(
+            "Position" = "position_new",
+            "Age" = "age",
+            "Matches" = "matches",
+            "Goals" = "goals",
+            "Own Goals" = "own_goals",
+            "Assists" = "assists",
+            "Yellow Cards" = "yellow_cards",
+            "Red Cards" = "red_cards",
+            "Substituted On" = "substituted_on",
+            "Substituted Off" = "substituted_off",
+            "Market Value" = "market_value",
+            "Age Range" = "age_range"
+          ),
+          selected = "goals"
+        ),
+        selectInput(
+          inputId = "z",
+          label = "Color by:",
+          choices = c(
+            "Position" = "position_new",
+            "Age" = "age",
+            "Matches" = "matches",
+            "Goals" = "goals",
+            "Own Goals" = "own_goals",
+            "Assists" = "assists",
+            "Yellow Cards" = "yellow_cards",
+            "Red Cards" = "red_cards",
+            "Substituted On" = "substituted_on",
+            "Substituted Off" = "substituted_off",
+            "Market Value" = "market_value",
+            "Age Range" = "age_range"
+          ),
+          selected = "age"
+        )
       ),
-      selectInput(
-        inputId = "x",
-        label = "X-axis:",
-        choices = c(
-          "Position" = "position_new",
-          "Age" = "age",
-          "Matches" = "matches",
-          "Goals" = "goals",
-          "Own Goals" = "own_goals",
-          "Assists" = "assists",
-          "Yellow Cards" = "yellow_cards",
-          "Red Cards" = "red_cards",
-          "Substituted On" = "substituted_on",
-          "Substituted Off" = "substituted_off",
-          "Market Value" = "market_value",
-          "Age Range" = "age_range"
-        ),
-        selected = "goals"
-      ),
-      selectInput(
-        inputId = "z",
-        label = "Color by:",
-        choices = c(
-          "Position" = "position_new",
-          "Age" = "age",
-          "Matches" = "matches",
-          "Goals" = "goals",
-          "Own Goals" = "own_goals",
-          "Assists" = "assists",
-          "Yellow Cards" = "yellow_cards",
-          "Red Cards" = "red_cards",
-          "Substituted On" = "substituted_on",
-          "Substituted Off" = "substituted_off",
-          "Market Value" = "market_value",
-          "Age Range" = "age_range"
-        ),
-        selected = "age"
-      )
-    ),
-    mainPanel(plotOutput(outputId = "scatterplot"))
-  )
-),
+      mainPanel(plotOutput(outputId = "scatterplot"))
+    )
+  ),
 
-server <- function(input, output) {
+  server <- function(input, output) {
 
-  # Create scatterplot object the plotOutput function is expecting
-  output$scatterplot <- renderPlot({
-    ggplot(data = players1, aes_string(
-      x = input$x, y = input$y,
-      color = input$z
-    )) +
-      geom_point(alpha = 0.2) +
-      labs(
-        x = toTitleCase(str_replace_all(input$x, "_", " ")),
-        y = toTitleCase(str_replace_all(input$y, "_", " ")),
-        color = toTitleCase(str_replace_all(input$z, "_", " "))
-      ) +
-      scale_color_gradient(low="blue", high="red") +
-      theme_minimal()
-  })
-},
-
-options = list(height = 500)
+    # Create scatterplot object the plotOutput function is expecting
+    output$scatterplot <- renderPlot({
+      ggplot(data = players1, aes_string(
+        x = input$x, y = input$y,
+        color = input$z
+      )) +
+        geom_point(alpha = 0.2) +
+        labs(
+          x = toTitleCase(str_replace_all(input$x, "_", " ")),
+          y = toTitleCase(str_replace_all(input$y, "_", " ")),
+          color = toTitleCase(str_replace_all(input$z, "_", " "))
+        ) +
+        scale_color_gradient(low = "blue", high = "red") +
+        theme_minimal()
+    })
+  },
+  options = list(height = 500)
 )
 ```
 
 To answer the question "What makes the a valuable soccer player?", we made a multiple linear regression based on all the variables we have in the players dataset. In soccer, a player's position is highly correlated with the number of goals and assists (e.g. forward positions score the most goals and make the most assists in general, while goalkeepers can seldom score a goal or make an assist). This is also evident from figures 5 and 6. From the Shiny app, we also saw that goals and assists are strongly correlated with a player's market value. Therefore, we decided to introduce two interactions between position/goals and position/assists into our multiple linear model. 
 
 ```{r predict}
-linear_prediction  <- lm(market_value ~ -1 + factor(position_new) + age + matches + goals + own_goals +
-                  assists + yellow_cards + red_cards + substituted_on +
-                  substituted_off + factor(age_range) + factor(position_new) * goals + factor(position_new) * assists, data =   players1)
+linear_prediction <- lm(market_value ~ -1 + factor(position_new) + age + matches + goals + own_goals +
+  assists + yellow_cards + red_cards + substituted_on +
+  substituted_off + factor(age_range) + factor(position_new) * goals + factor(position_new) * assists, data = players1)
 tidy(linear_prediction)
 ```
 
@@ -296,8 +294,9 @@ Additionally, we have taken the interactions between position/goals and position
 After the model selection based on AIC, we can see that the new model has reduced the significant variables down to 15; variables "age", "own_goals", "yellow_cards", "red_cards", "substituted_on", and "substituted_off" have been eliminated.
 
 ```{r glance-AIC}
-tibble(original_model = glance(linear_prediction)$AIC, 
-       new_model = glance(selected_model)$AIC
+tibble(
+  original_model = glance(linear_prediction)$AIC,
+  new_model = glance(selected_model)$AIC
 ) %>%
   kable()
 ```
@@ -316,7 +315,7 @@ In order to validate our model, we decide to examine the RMSE values after perfo
 
 ```{r cross_validation, include = FALSE}
 test_cv <- crossv_kfold(players1, 10)
-models <- map(test_cv$train, ~ selected_model)
+models <- map(test_cv$train, ~selected_model)
 rmses <- map2_dbl(models, test_cv$test, rmse)
 
 rmse_tibble <- tidy(rmses)
@@ -335,11 +334,11 @@ rmse_tibble %>%
   coord_cartesian(xlim = c(0, 190)) +
   labs(
     title = "Distribution of RMSE Values of Linear Model Predicting Market Values",
-    x = "RMSE Value", 
+    x = "RMSE Value",
     y = "Count"
   ) +
   theme_minimal()
-  
+
 
 rmse_tibble %>%
   summarise(min = min(x), max = max(x), mean = mean(x), median = median(x), sd = sd(x))
@@ -394,6 +393,7 @@ The estimated y-intercept for a forward is 15.293 million euro. Forwards' market
 While we attempted to use the statistical methods from the course to the best of our abilities, there are several areas we could improve upon. We did not do the thorough research required to fully understand the source of the market value prices we obtained from the Transfer Markt website. Therefore, the market value prices may be inaccurate, resulting in skewed findings. Furthermore, we could have investigated the data collection methodologies used by Transfer Markt more thoroughly in order to verify the validity of all other player variables. Cross-referencing the information in the data set with individual leagues’ internal records would be one of the ways to resolve this issue. Lastly, our data only contained values from the first half of the 2018-2019 season, but the market value of a player can hardly be determined by a single season. Therefore, introducing data from previous seasons might help us create a better model. 
 
 If we were to redo our project, we would increase the sample size and include all players in the league instead of choosing the top 500 most valuable players, and analyze an entire season’s player performance statistics instead of only half of a season. Such an approach would alleviate the right skewedness of the data and provide more conclusive results. Additionally, we would no longer condense the players’ positions into four main positions: forward, backward, center, and goalkeeper, but instead keep the more precise positions. The more specific player positions would yield more precise models. Lastly, we would like to explore how market values have changed over time, introducing soccer players' market values and stats from 1990-1991, 2000-2001, 2010-2011, and 2018-2019 seasons. 
+
 
 
 

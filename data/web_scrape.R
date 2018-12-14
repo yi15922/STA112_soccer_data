@@ -82,63 +82,63 @@ players1 <- tibble(
   market_value = market_value
 )
 
-for(i in 1:20) {
-  page <- read_html(paste0("https://www.transfermarkt.com/spieler-statistik/wertvollstespieler/marktwertetop?land_id=0&ausrichtung=alle&spielerposition_id=alle&altersklasse=alle&jahrgang=0&plus=1&page=",i))
-  
+for (i in 1:20) {
+  page <- read_html(paste0("https://www.transfermarkt.com/spieler-statistik/wertvollstespieler/marktwertetop?land_id=0&ausrichtung=alle&spielerposition_id=alle&altersklasse=alle&jahrgang=0&plus=1&page=", i))
+
   name <- page %>%
     html_nodes(".spielprofil_tooltip") %>%
     html_text()
   name
-  
+
   position <- page %>%
     html_nodes(".inline-table tr+ tr td") %>%
     html_text()
-  
+
   age <- page %>%
     html_nodes("td:nth-child(3)") %>%
     html_text() %>%
     as.numeric()
-  
+
   matches <- page %>%
     html_nodes(".hauptlink+ .zentriert") %>%
     html_text() %>%
     as.numeric()
-  
+
   goals <- page %>%
     html_nodes("td:nth-child(8)") %>%
     html_text() %>%
     as.numeric()
-  
+
   own_goals <- page %>%
     html_nodes("td:nth-child(9)") %>%
     html_text() %>%
     as.numeric()
-  
+
   assists <- page %>%
     html_nodes("td:nth-child(10)") %>%
     html_text() %>%
     as.numeric()
-  
+
   yellow_cards <- page %>%
     html_nodes("td:nth-child(11)") %>%
     html_text() %>%
     as.numeric()
-  
+
   red_cards <- page %>%
     html_nodes("td:nth-child(13)") %>%
     html_text() %>%
     as.numeric()
-  
+
   substituted_on <- page %>%
     html_nodes("td:nth-child(14)") %>%
     html_text() %>%
     as.numeric()
-  
+
   substituted_off <- page %>%
     html_nodes("td:nth-child(15)") %>%
     html_text() %>%
     as.numeric()
-  
+
   market_value <- page %>%
     html_nodes("#yw1 b") %>%
     html_text() %>%
@@ -147,7 +147,7 @@ for(i in 1:20) {
     str_remove_all(",") %>%
     str_trim() %>%
     as.numeric()
-  
+
   players <- tibble(
     name = name,
     position = position,
@@ -162,26 +162,26 @@ for(i in 1:20) {
     substituted_off = substituted_off,
     market_value = market_value
   )
-  
+
   players1 <- rbind(players1, players)
 }
 
 players1 <- players1 %>%
-  filter(market_value>=1000) %>%
-  mutate(market_value = market_value/100)
+  filter(market_value >= 1000) %>%
+  mutate(market_value = market_value / 100)
 
 # Creating new variable with condensed positions
 
 players1 <- players1 %>%
   mutate(position_new = case_when(
-    position == "Centre-Forward" | position == "Left Winger" | 
-    position == "Right Winger" |  position == "Second Striker"  ~ "Forward",
+    position == "Centre-Forward" | position == "Left Winger" |
+      position == "Right Winger" | position == "Second Striker" ~ "Forward",
     position == "Attacking Midfield" | position == "Central Midfield" |
-    position == "Defensive Midfield" | position == "Left Midfield" |
-    position == "Right Midfield"  ~ "Midfielder",
-    position == "Centre-Back"  | position == "Left-Back"  |
-    position == "Right-Back"   ~ "Defender",
-    position == "Goalkeeper"  ~  "Goalkeeper"
+      position == "Defensive Midfield" | position == "Left Midfield" |
+      position == "Right Midfield" ~ "Midfielder",
+    position == "Centre-Back" | position == "Left-Back" |
+      position == "Right-Back" ~ "Defender",
+    position == "Goalkeeper" ~ "Goalkeeper"
   ))
 
 write_csv(players1, path = "data/players1.csv")
