@@ -291,6 +291,9 @@ selected_model <- step(linear_prediction, direction = "backward")
 tidy(selected_model)
 ```
 
+From the selected model, we can observe that the player's position decides the value of y-intercept. If the player is a Defender, its prediction formula constant would be 15.9 million euro, and -0.607 million euro for Forward, 22.7 million euro for Goalkeeper, and 19.6 million euro for Midfielder. Next, if a player appears on field in one more match, his market value would in general increase by 0.406 million euro; if a player scores a goal, his market value would in general increase by 2.02 million euro; if a player makes an assist, his market value would in average increase by 0.885 million euro. Compared to players below 20 years old, players aged between 21 and 25 are averagely 3.66 million euro more valuable, players aged between 26 and 30 are averagely 9.07 million euro more valuable, and players above 30-year-old are generally 0.366 million euro less valuable. 
+Additionally, we have taken the interactions between position/goals and position/assists into account. In average, every goal can get a forward 0.937 million euro increase in market value, while every goal can get a midfilder 1.45 million euro decrease in market value. Every assist can get a forward 2.74 million euro increase in market value; Every assist can get a goalkeeper 23.4 million euro increase in market value; However, every assist can get a midfielder 0.366 million euro decrease in market value.
+
 After the model selection based on AIC, we can see that the new model has reduced the significant variables down to 15; variables "age", "own_goals", "yellow_cards", "red_cards", "substituted_on", and "substituted_off" have been eliminated.
 
 ```{r glance-AIC}
@@ -346,14 +349,14 @@ rmse_tibble %>%
 As we can see from the histogram and the summary statistics, the RMSE values are fairly low compared to the range of our original data, and they have a low standard deviation. This means that our model is fairly good.
 
 ```{r fitting the model}
-predict(selected_model, players1, name = "Kylian Mbappe")
+players1 <- players1 %>%
+  mutate(predicted_value = predict(selected_model, players1)) %>%
+  select(name, market_value, predicted_value)
+glimpse(players1)
 ```
 
 
 ## Conclusion
-
->>>>>>> d055ad35558b942976691a46cc633e95b3252022
-According to the selected model, we can build a formula representing the market value prediction:
 
 `market_value` = 15.9 - 0.607 * `position_newForward` + 22.7 * `position_newGoalkeeper` + 19.6 * `position_newMidfielder` + 0.406 * `matches` + 2.02 * `goals` + 0.885 * `assists` + 3.66 * `age_range21-25` + 9.07 * `age_range26-30` - 0.922 `age_range30 and above` + 0.937 * `position_newForward:goals` - 1.45 * `position_newMidfielder:goals` + 2.74 * `position_newForward:assists` + 23.4 * `position_newGoalkeeper:assists` - 0.366 * `position_newMidfielder:assists`
 
@@ -362,19 +365,19 @@ Note that in this equation, non numerical variables like `position_new` and `age
 Now let's take a closer look at the model if we plug in different positions:
 
 For Defenders :
-market_value = 15.9 + 0.406 * matches + 2.02 * goals + 0.885 * assists + 3.66 * age_range21-25 + 9.07 * age_range26-30 - 0.922 age_range30 and above
+`market_value` = 15.9 + 0.406 * `matches` + 2.02 * `goals` + 0.885 * `assists` + 3.66 * `age_range21-25` + 9.07 * `age_range26-30` - 0.922 * `age_range30 and above`
 Defenders' market values will increase if making more appearances and getting more goals and assists (though assists and goals are relatively unusual stuff for defenders). Also, 26-30 is the golden age range for a defender.
 
 For Goalkeepers : 
-market_value = 38.6 + 0.406 * matches + 2.02 * goals + 24.285 * assists + 3.66 * age_range21-25 + 9.07 * age_range26-30 - 0.922 age_range30 and above
+`market_value` = 38.6 + 0.406 * `matches` + 2.02 * `goals` + 24.285 * `assists` + 3.66 * `age_range21-25` + 9.07 * `age_range26-30` - 0.922 * `age_range30 and above`
 Goalkeepers' market values will increase if making more appearances, aging between 26 and 30, and getting more goals and assists (Goalies! Try to run into opponent's box to make an assist even if it's NOT your zone).
 
 For Midfielders : 
-market_value = 35.5 + 0.406 * matches + 0.57 * goals + 0.519 * assists + 3.66 * age_range21-25 + 9.07 * age_range26-30 - 0.922 age_range30 and above
+`market_value` = 35.5 + 0.406 * `matches` + 0.57 * `goals` + 0.519 * `assists` + 3.66 * `age_range21-25` + 9.07 * `age_range26-30` - 0.922 * `age_range30 and above`
 Midfielders' market values will increase if making more appearances, aging between 26 and 30, and getting more goals and assists. The coefficients of goals and assists for midfielders are lower than those of defenders because being high in these statistics actually compensate for that.
 
 For Forwards : 
-market_value = 15.293 + 0.406 * matches + 2.957 * goals + 3.625 * assists + 3.66 * age_range21-25 + 9.07 * age_range26-30 - 0.922 age_range30 and above
+`market_value` = 15.293 + 0.406 * `matches` + 2.957 * `goals` + 3.625 * `assists` + 3.66 * `age_range21-25` + 9.07 * `age_range26-30` - 0.922 * `age_range30 and above`
 Forwards' market values will increase if making more appearances and getting more goals and assists. The starting intercept of forwards is negative. Still, the golden age of a forward is between 26 and 30. However, the Mr. Most Expensive, Kylian Mbappe (Forward), is only 19. What a bright young man!
 
 ##Conclusion
