@@ -384,13 +384,13 @@ For Defenders:
 The estimated baseline market value for a defender is 15.9 million euro. Defenders' market values will increase for each match, goal, and assist (though assists and goals are relatively unusual for defenders). 
 
 For Goalkeepers: 
-The estimated baseline market value for a goalkeeper is 38.6 million euro. Goalkeepers' market values will increase for every match. Although we can observe a very high coefficient for assists, we are not taking it into account because only one goalkeeper in the dataset made an assist. Goalkeepers are, if anything, discouraged from rushing into the opponent's box to score a goal or make an assist.
+The estimated baseline market value for a goalkeeper is 22.7 million euro. Goalkeepers' market values will increase for every match. Although we can observe a very high coefficient for assists, we are not taking it into account because only one goalkeeper in the dataset made an assist. Goalkeepers are, if anything, discouraged from rushing into the opponent's box to score a goal or make an assist.
 
 For Midfielders: 
-The estimated baseline market value for a midfielder is 38.6 million euro. Midfielders' market values will increase for every match, goal, and assist. They have lower coefficients for goals and assists compared to defenders because they are expected to score more goals and make more assists. 
+The estimated baseline market value for a midfielder is 19.6 million euro. Midfielders' market values will increase for every match, goal, and assist. They have lower coefficients for goals and assists compared to defenders because they are expected to score more goals and make more assists. 
 
 For Forwards: 
-The estimated baseline market value for a forward is 15.293 million euro. Forwards' market values will increase for every match, goal, and assist.
+The estimated baseline market value for a forward is -0.607 million euro. Forwards' market values will increase for every match, goal, and assist.
 
 ### How We Can Improve
 
