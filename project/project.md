@@ -365,6 +365,11 @@ market value on average.
 
 ## Conclusion
 
+<<<<<<< HEAD
+=======
+### What We Did
+
+>>>>>>> e34ddb71544c87a662347f5eba307b5638907d59
 Our research question of what makes the most valuable soccer player
 first led us to conduct exploratory data visualization. By first
 plotting the distribution of our data, we found the spread of market
@@ -403,6 +408,7 @@ produced RMSE values that are quite low, with a low standard deviation,
 showing that the model provides consistently accurate predictions across
 the entire dataset.
 
+<<<<<<< HEAD
 Our findings are as follows:
 
 In general, 26-30 is the optimal age range for any soccer player.
@@ -427,6 +433,39 @@ make more assists.
 For Forwards: The estimated y-intercept for a forward is -0.607 million
 euro. Forwards’ market values will increase for every match, goal, and
 assist.
+=======
+### What We Found
+
+In general, 26-30 is the optimal age range for any soccer player. With
+each match, goal, and assist, a player’s market value is expected to
+increase. That being said, the interactions between market value/goals
+and market value/assists complicate the model slightly. Their effects
+are described below:
+
+For Defenders: The estimated baseline market value for a defender is
+15.9 million euro. Defenders’ market values will increase for each
+match, goal, and assist (though assists and goals are relatively unusual
+for defenders).
+
+For Goalkeepers: The estimated baseline market value for a goalkeeper is
+38.6 million euro. Goalkeepers’ market values will increase for every
+match. Although we can observe a very high coefficient for assists, we
+are not taking it into account because only one goalkeeper in the
+dataset made an assist. Goalkeepers are, if anything, discouraged from
+rushing into the opponent’s box to score a goal or make an assist.
+
+For Midfielders: The estimated baseline market value for a midfielder is
+38.6 million euro. Midfielders’ market values will increase for every
+match, goal, and assist. They have lower coefficients for goals and
+assists compared to defenders because they are expected to score more
+goals and make more assists.
+
+For Forwards: The estimated baseline market value for a forward is
+15.293 million euro. Forwards’ market values will increase for every
+match, goal, and assist.
+
+### How We Can Improve
+>>>>>>> e34ddb71544c87a662347f5eba307b5638907d59
 
 While we attempted to use the statistical methods from the course to the
 best of our abilities, there are several areas we could improve upon. We

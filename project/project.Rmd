@@ -66,7 +66,7 @@ players1 %>%
 
 Since the data we have chosen concerns only the top 500 valuable players, the dataset is right skewed instead of normally distributed. After the log transformation, the dataset remains right-skewed and does not provide any additional insights for the readers. Therefore, we decided to adhere to the original model and discard the log transformation.
 
-In the Figure 1, we can see that the distribution of the top 500 players' market values in the 2018-2019 season is right-skewed, and that the most commonly occuring market value is around $23 million. In the summary statistics below, we can see that the mean of the market values is higher than the most commonly occuring market values due to the right skewedness of the data: 
+In the Figure 1, we can see that the distribution of the top 500 players' market values in the 2018-2019 season is right-skewed, and that the most commonly occuring market value is around €23 million. In the summary statistics below, we can see that the mean of the market values is higher than the most commonly occuring market values due to the right skewedness of the data: 
 
 ```{r summary-stats}
 players1 %>%
@@ -364,6 +364,8 @@ Additionally, we have taken the interactions between position/goals and position
 
 ## Conclusion
 
+### What We Did
+
 Our research question of what makes the most valuable soccer player first led us to conduct exploratory data visualization. By first plotting the distribution of our data, we found the spread of market value to be quite right-skewed. The right skew is due to the fact that we only scraped the 500 most valuable players from the European club soccer league. For comparison, we plotted the logarithmic distribution of the market values to see if the distribution would be more normal. The spread was still quite right-skewed so we decided to use our regular, non-transformed distribution for exploratory data analysis and modeling. 
 
 After plotting a boxplot of the data, we found several outliers in market value and decided to identify the players whose market values were significantly higher than the rest of the players. We compared their median contribution (defined as sum of number of goals and number of assists) to that of the non-outlying players in the season thus far, and found their contribution to be greater. This result somewhat justifies their higher market values. 
@@ -374,21 +376,23 @@ Furthermore, we created a Shiny app that allowed us to explore trends in our dat
 
 After exploring the data and the relationships between the variables through summary statistics and visualizations, we created a full linear model and used backwards selection to craft a model that predicts market values based on selected variables in our dataset. The new model has an adjusted R squared value of `r glance(selected_model)$adj.r.squared`, which is quite high and shows that the model is a good fit. Furthermore, a cross validation test produced RMSE values that are quite low, with a low standard deviation, showing that the model provides consistently accurate predictions across the entire dataset. 
 
-Our findings are as follows: 
+### What We Found
 
-In general, 26-30 is the optimal age range for any soccer player. 
+In general, 26-30 is the optimal age range for any soccer player. With each match, goal, and assist, a player's market value is expected to increase. That being said, the interactions between market value/goals and market value/assists complicate the model slightly. Their effects are described below: 
 
 For Defenders:
-The estimated y-intercept for a defender is 15.9 million euro. Defenders' market values will increase for each match, goal, and assist (though assists and goals are relatively unusual for defenders). 
+The estimated baseline market value for a defender is 15.9 million euro. Defenders' market values will increase for each match, goal, and assist (though assists and goals are relatively unusual for defenders). 
 
 For Goalkeepers: 
-The estimated y-intercept for a goalkeeper is 22.7 million euro. Goalkeepers' market values will increase for every match. Although we can observe a very high coefficient for assists, we are not taking it into account because only one goalkeeper in the dataset made an assist. Goalkeepers are, if anything, discouraged from rushing into the opponent's box to score a goal or make an assist.
+The estimated baseline market value for a goalkeeper is 38.6 million euro. Goalkeepers' market values will increase for every match. Although we can observe a very high coefficient for assists, we are not taking it into account because only one goalkeeper in the dataset made an assist. Goalkeepers are, if anything, discouraged from rushing into the opponent's box to score a goal or make an assist.
 
 For Midfielders: 
-The estimated y-intercept for a midfielder is 19.6 million euro. Midfielders' market values will increase for every match, goal, and assist. They have lower coefficients for goals and assists compared to defenders because they are expected to score more goals and make more assists. 
+The estimated baseline market value for a midfielder is 38.6 million euro. Midfielders' market values will increase for every match, goal, and assist. They have lower coefficients for goals and assists compared to defenders because they are expected to score more goals and make more assists. 
 
 For Forwards: 
-The estimated y-intercept for a forward is -0.607 million euro. Forwards' market values will increase for every match, goal, and assist.
+The estimated baseline market value for a forward is 15.293 million euro. Forwards' market values will increase for every match, goal, and assist.
+
+### How We Can Improve
 
 While we attempted to use the statistical methods from the course to the best of our abilities, there are several areas we could improve upon. We did not do the thorough research required to fully understand the source of the market value prices we obtained from the Transfer Markt website. Therefore, the market value prices may be inaccurate, resulting in skewed findings. Furthermore, we could have investigated the data collection methodologies used by Transfer Markt more thoroughly in order to verify the validity of all other player variables. Cross-referencing the information in the data set with individual leagues’ internal records would be one of the ways to resolve this issue. Lastly, our data only contained values from the first half of the 2018-2019 season, but the market value of a player can hardly be determined by a single season. Therefore, introducing data from previous seasons might help us create a better model. 
 
